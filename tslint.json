@@ -45,7 +45,7 @@
             "no-public"
         ],
         "member-ordering": [ false ],
-        "newline-before-return": false,,
+        "newline-before-return": false,
         "no-any": false,
         "no-inferrable-types": [
             false,
