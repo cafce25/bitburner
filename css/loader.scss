@@ -50,8 +50,8 @@
         left: 50%;
     }
 
-    .loaderspinner:before,
-    .loaderspinner:after {
+    .loaderspinner::before,
+    .loaderspinner::after {
         content: "";
     }
 
@@ -63,7 +63,7 @@
         height: $spinnerBoxSize;
     }
 
-    .loaderspinner:before {
+    .loaderspinner::before {
         @extend %spinnerBox;
         @include animation(LOADERSPINNER 10s linear infinite);
 
@@ -71,7 +71,7 @@
         height: $spinnerBoxSize * 0.8;
     }
 
-    .loaderspinner:after {
+    .loaderspinner::after {
         @extend %spinnerBox;
         @include animation(LOADERSPINNER 5s linear infinite);
 

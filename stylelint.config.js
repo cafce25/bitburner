@@ -6,7 +6,7 @@ module.exports = {
         "stylelint-scss" */
     ],
     rules: {
-        "at-rule-blacklist": [],
+        "at-rule-disallowed-list": [],
 //        "at-rule-empty-line-before": [
 //            "always",
 //            {
@@ -24,7 +24,7 @@ module.exports = {
 //        "at-rule-no-vendor-prefix": true,
         "at-rule-semicolon-newline-after": "always",
         "at-rule-semicolon-space-before": "never",
-//        "at-rule-whitelist": [
+//        "at-rule-allowed-list": [
 //            "content",
 //            "else",
 //            "function",
@@ -50,7 +50,7 @@ module.exports = {
 //        "comment-empty-line-before": "always",
         "comment-no-empty": true,
         "comment-whitespace-inside": "always",
-        "comment-word-blacklist": [],
+        "comment-word-disallowed-list": [],
         "custom-media-pattern": ".+",
         "custom-property-empty-line-before": "never",
         "custom-property-pattern": "my-.+",
@@ -69,15 +69,15 @@ module.exports = {
         "declaration-colon-space-before": "never",
 //        "declaration-empty-line-before": "never",
         //"declaration-no-important": true,
-        "declaration-property-unit-blacklist": {},
-        "declaration-property-unit-whitelist": {},
-        "declaration-property-value-blacklist": {},
-        "declaration-property-value-whitelist": {},
+        "declaration-property-unit-disallowed-list": {},
+        "declaration-property-unit-allowed-list": {},
+        "declaration-property-value-disallowed-list": {},
+        "declaration-property-value-allowed-list": {},
 //        "font-family-name-quotes": "always-where-recommended",
         "font-family-no-duplicate-names": true,
         "font-family-no-missing-generic-family-keyword": true,
 //        "font-weight-notation": "numeric",
-        "function-blacklist": [],
+        "function-disallowed-list": [],
         "function-calc-no-unspaced-operator": true,
         "function-comma-newline-after": "always-multi-line",
         "function-comma-newline-before": "never-multi-line",
@@ -90,9 +90,9 @@ module.exports = {
         "function-parentheses-space-inside": "never",
         "function-url-no-scheme-relative": true,
         "function-url-quotes": "always",
-        "function-url-scheme-blacklist": [],
-        "function-url-scheme-whitelist": [],
-//        "function-whitelist": [
+        "function-url-scheme-disallowed-list": [],
+        "function-url-scheme-allowed-list": [],
+//        "function-allowed-list": [
 //            "box-shadow-args",
 //            "map-get",
 //            "rgba",
@@ -108,11 +108,11 @@ module.exports = {
         "max-nesting-depth": 99,
         "media-feature-colon-space-after": "always",
         "media-feature-colon-space-before": "never",
-        "media-feature-name-blacklist": [],
+        "media-feature-name-disallowed-list": [],
         "media-feature-name-case": "lower",
         "media-feature-name-no-unknown": true,
         "media-feature-name-no-vendor-prefix": true,
-        "media-feature-name-whitelist": [],
+        "media-feature-name-allowed-list": [],
         "media-feature-parentheses-space-inside": "never",
         "media-feature-range-operator-space-after": "always",
         "media-feature-range-operator-space-before": "always",
@@ -158,7 +158,7 @@ module.exports = {
 //            []
 //        ],
 //        "order/properties-alphabetical-order": true,
-        "property-blacklist": [
+        "property-disallowed-list": [
             "grid-area",
             "grid-template",
             "grid-column",
@@ -168,7 +168,7 @@ module.exports = {
         "property-no-unknown": true,
 //        "property-no-vendor-prefix": true,
 
-        /*"property-whitelist": [
+        /*"property-allowed-list": [
             "/animation$/",
             "/box-shadow$/",
             "/keyframes$/",
@@ -186,10 +186,10 @@ module.exports = {
         "scss/at-function-pattern": /.+/,
         "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
         "scss/at-import-no-partial-leading-underscore": true,
-        "scss/at-import-partial-extension-blacklist": [
+        "scss/at-import-partial-extension-disallowed-list": [
             []
         ],
-        "scss/at-import-partial-extension-whitelist": [
+        "scss/at-import-partial-extension-allowed-list": [
             []
         ],
         "scss/at-mixin-argumentless-call-parentheses": "always",
@@ -232,18 +232,18 @@ module.exports = {
         "scss/partial-no-import": true,
         "scss/selector-no-redundant-nesting-selector": true,*/
         "selector-attribute-brackets-space-inside": "never",
-        "selector-attribute-operator-blacklist": [],
+        "selector-attribute-operator-disallowed-list": [],
         "selector-attribute-operator-space-after": "never",
         "selector-attribute-operator-space-before": "never",
-        "selector-attribute-operator-whitelist": [
+        "selector-attribute-operator-allowed-list": [
             "="
         ],
         "selector-attribute-quotes": "always",
         "selector-class-pattern": ".+",
-        //"selector-combinator-blacklist": [],
+        //"selector-combinator-disallowed-list": [],
         "selector-combinator-space-after": "always",
         "selector-combinator-space-before": "always",
-        //"selector-combinator-whitelist": [],
+        //"selector-combinator-allowed-list": [],
         "selector-descendant-combinator-no-non-space": true,
         "selector-id-pattern": ".+",
         "selector-list-comma-newline-after": "always-multi-line",
@@ -269,28 +269,29 @@ module.exports = {
             }
         ],
         "selector-no-vendor-prefix": true,
-        "selector-pseudo-class-blacklist": [],
+        "selector-pseudo-class-disallowed-list": [],
         "selector-pseudo-class-case": "lower",
         "selector-pseudo-class-no-unknown": true,
         "selector-pseudo-class-parentheses-space-inside": "never",
-        "selector-pseudo-class-whitelist": [
+        "selector-pseudo-class-allowed-list": [
             "active",
             "after",
             "before",
+            "checked",
             "disabled",
             "focus",
             "hover",
+            "last-child",
             "link",
             "not",
-            "last-child",
             "root",
             "visited"
         ],
-        //"selector-pseudo-element-blacklist": [],
+        //"selector-pseudo-element-disallowed-list": [],
         "selector-pseudo-element-case": "lower",
-//        "selector-pseudo-element-colon-notation": "double",
+        "selector-pseudo-element-colon-notation": "double",
         "selector-pseudo-element-no-unknown": true,
-        //"selector-pseudo-element-whitelist": [],
+        //"selector-pseudo-element-allowed-list": [],
         "selector-type-case": "lower",
         "selector-type-no-unknown": true,
 //        "shorthand-property-no-redundant-values": true,
@@ -304,10 +305,10 @@ module.exports = {
         "string-no-newline": true,
 //        "string-quotes": "double",
         "time-min-milliseconds": 50,
-        "unit-blacklist": [],
+        "unit-disallowed-list": [],
         "unit-case": "lower",
         "unit-no-unknown": true,
-        "unit-whitelist": [
+        "unit-allowed-list": [
             "deg",
             "fr",
             "px",

@@ -16,7 +16,7 @@
 
     .accordion-header {
         > pre {
-            color: white;
+            color: #fff;
         }
     }
 }
@@ -33,7 +33,7 @@
     border: none;
     outline: none;
 
-    &:after {
+    &::after {
         content: '\02795'; /* "plus" sign (+) */
         font-size: $defaultFontSize * 0.8125;
         color: #fff;
@@ -47,7 +47,7 @@
 }
 
 .active-scripts-server-header.active {
-    &:after {
+    &::after {
         content: "\2796"; /* "minus" sign (-) */
         font-size: $defaultFontSize * 0.8125;
         color: #fff;
@@ -84,7 +84,7 @@
     text-align: left;
     width: auto;
 
-    &:after {
+    &::after {
         content: '\02795'; /* "plus" sign (+) */
         font-size: $defaultFontSize * 0.8125;
         float: right;
@@ -95,7 +95,7 @@
         bottom: 4px;
     }
 
-    &.active:after {
+    &.active::after {
         content: "\2796"; /* "minus" sign (-) */
     }
 

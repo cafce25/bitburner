@@ -97,8 +97,8 @@
 }
 
 /* Plus and minus signs */
-.mainmenu-accordion-header:after,
-.mainmenu-accordion-header-compact:after {
+.mainmenu-accordion-header::after,
+.mainmenu-accordion-header-compact::after {
     content: '\02795';
     float: right;
     font-size: $defaultFontSize * 0.8125;
@@ -109,7 +109,7 @@
     text-shadow: 0 0 0 #fff;
 }
 
-.mainmenu-accordion-header-classic:after {
+.mainmenu-accordion-header-classic::after {
     content: '\02795';
     float: right;
     font-size: $defaultFontSize * 0.8125;
@@ -122,7 +122,7 @@
 .mainmenu-accordion-header-compact.opened {
     background-color: #222 !important;
 
-    &:after {
+    &::after {
         content: "\2796";
     }
 }

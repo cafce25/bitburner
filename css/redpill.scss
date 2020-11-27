@@ -9,23 +9,23 @@
 
 .bitnode {
     &.level-0 {
-        color: red;
+        color: #f00;
     }
 
     &.level-1 {
-        color: yellow;
+        color: #ff0;
     }
 
     &.level-2 {
-        color: 	#48D1CC;
+        color: #48d1cc;
     }
 
     &.level-3 {
-        color: blue;
+        color: #00f;
     }
 
     &.unimplemented {
-        color: gray;
+        color: #808080;
     }
 
     &:hover {
