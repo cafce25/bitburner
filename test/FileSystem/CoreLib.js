@@ -59,7 +59,7 @@ import { AutoLink } from "../../src/Server/lib/AutoLink";
 import { DeepscanV2 } from "../../src/Server/lib/DeepscanV2";
 import { DeepscanV1 } from "../../src/Server/lib/DeepscanV1";
 import { fl1ght } from "../../src/Server/lib/fl1ght";
-import { b1t_flum3 } from "../../src/Server/lib/b1t_flum3";
+import { b1t_flum3 } from "../../src/Server/lib/B1t_flum3";
 import { free } from "../../src/Server/lib/free";
 
 
@@ -125,7 +125,7 @@ describe("BaseServer file system core library tests", function() {
     AllServers.AddToAllServers(server);
     AllServers.AddToAllServers(invisibleServer);
     AllServers.AddToAllServers(destServer);
-    AllServers.SERVERS_INITIALIZED = true;
+    AllServers.SERVERS_INITIALIZED = true; // eslint-disable-line
 
     function resetEnv(options={servInitType:ServerInitType.NORMAL}){
 
