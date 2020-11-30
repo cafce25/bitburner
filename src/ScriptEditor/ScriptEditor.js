@@ -7,10 +7,6 @@ export class ScriptEditor {
         this.filenameInput = null; // Stores the filename input DOM element
     }
 
-    init() {
-        throw new Error(`Tried to initialize base ScriptEditor class`);
-    }
-
     beautifyScript() {
         if (this.editor == null) {
             console.warn(`ScriptEditor.beautifyScript() called when editor was not initialized`);

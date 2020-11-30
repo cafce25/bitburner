@@ -21,7 +21,7 @@ CodeMirror.defineMode("netscript", function(config, parserConfig) {
 
   // Tokenizer
 
-  var keywords = function(){
+  var keywords = (function(){
     function kw(type) {return {type: type, style: "keyword"};}
     var A = kw("keyword a"), B = kw("keyword b"), C = kw("keyword c"), D = kw("keyword d");
     var operator = kw("operator"), atom = {type: "atom", style: "atom"};
@@ -268,7 +268,7 @@ CodeMirror.defineMode("netscript", function(config, parserConfig) {
       "getSleevePurchasableAugs": atom,
       "purchaseSleeveAug": atom,
     };
-  }();
+  })();
 
   var isOperatorChar = /[+\-*&%=<>!?|~^@]/;
   var isJsonldKeyword = /^@(context|id|value|language|type|container|list|set|reverse|index|base|vocab|graph)"/;
@@ -461,7 +461,11 @@ CodeMirror.defineMode("netscript", function(config, parserConfig) {
     var cc = state.cc;
     // Communicate our context to the combinators.
     // (Less wasteful than consing up a hundred closures on every call.)
-    cx.state = state; cx.stream = stream; cx.marked = null, cx.cc = cc; cx.style = style;
+    cx.state = state;
+    cx.stream = stream;
+    cx.marked = null;
+    cx.cc = cc;
+    cx.style = style;
 
     if (!state.lexical.hasOwnProperty("align"))
       state.lexical.align = true;
@@ -1098,11 +1102,16 @@ CodeMirror.defineMode("netscript", function(config, parserConfig) {
         if (c == poplex) lexical = lexical.prev;
         else if (c != maybeelse) break;
       }
-      while ((lexical.type == "stat" || lexical.type == "form") &&
-             (firstChar == "}" || ((top = state.cc[state.cc.length - 1]) &&
-                                   (top == maybeoperatorComma || top == maybeoperatorNoComma) &&
-                                   !/^[,\.=+\-*:?[\(]/.test(textAfter))))
+      while (
+        (lexical.type == "stat" || lexical.type == "form") &&
+        (firstChar == "}" || ( // eslint-disable-line
+          (top = state.cc[state.cc.length - 1]) &&
+          (top == maybeoperatorComma || top == maybeoperatorNoComma) &&
+          !/^[,\.=+\-*:?[\(]/.test(textAfter)
+        ))
+      ) {
         lexical = lexical.prev;
+      }
       if (statementIndent && lexical.type == ")" && lexical.prev.type == "stat")
         lexical = lexical.prev;
       var type = lexical.type, closing = firstChar == type;

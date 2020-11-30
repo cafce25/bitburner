@@ -10,8 +10,8 @@
     mod(CodeMirror);
 })(function(CodeMirror) {
   "use strict";
-  // declare global: JSHINT
 
+  // declare global: JSHINT
   function validator(text, options) {
     if (!window.JSHINT) {
       if (window.console) {

@@ -70,9 +70,9 @@ class AceEditorWrapper extends ScriptEditor {
         this.editor = ace.edit('ace-editor');
         this.editor.getSession().setMode('ace/mode/netscript');
         this.editor.setTheme('ace/theme/monokai');
-        const editorElement = document.getElementById('ace-editor');
-        if (editorElement == null) { return false; }
-        editorElement.style.fontSize = '16px';
+        this.editorElement = document.getElementById('ace-editor');
+        if (this.editorElement == null) { return false; }
+        this.editorElement.style.fontSize = '16px';
         this.editor.setOption("showPrintMargin", false);
 
         // Configure some of the VIM keybindings
@@ -164,10 +164,7 @@ class AceEditorWrapper extends ScriptEditor {
             const optionsPanel = safeGetElementById("script-editor-options-panel", "Script Editor Options Panel");
 
             // Set editor to visible
-            const elem = document.getElementById("ace-editor");
-            if (elem instanceof HTMLElement) {
-                elem.style.display = "block";
-            }
+            this.editorElement.style.display = "block";
 
             // Make sure the Vim command display from CodeMirror is invisible
             if (this.vimCommandDisplayWrapper instanceof HTMLElement) {
@@ -309,10 +306,7 @@ class AceEditorWrapper extends ScriptEditor {
 
     // Sets the editor to be invisible. Does not require this class to be initialized
     setInvisible() {
-        const elem = document.getElementById("ace-editor");
-        if (elem instanceof HTMLElement) {
-            elem.style.display = "none";
-        }
+        this.editorElement.style.display = "none";
     }
 }
 

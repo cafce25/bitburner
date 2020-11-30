@@ -387,7 +387,7 @@ class CodeMirrorEditorWrapper extends ScriptEditor {
             showInvisiblesChkBox.onchange = () => {
                 const overlayMode = {
                     name: 'invisibles',
-                    token:  function nextToken(stream) {
+                    token:  function(stream) {
                         var ret,
                             spaces  = 0,
                             space   = stream.peek() === ' ';
