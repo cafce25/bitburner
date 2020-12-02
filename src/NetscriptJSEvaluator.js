@@ -29,7 +29,7 @@ export async function executeJSScript(scripts = [], workerScript) {
     let loadedModule;
     let urls = null;
     let script = workerScript.getScript();
-    if (shouldCompile(script, scripts)) {
+    if (needsCompile(script, scripts)) {
         // The URL at the top is the one we want to import. It will
         // recursively import all the other modules in the urlStack.
         //
@@ -65,7 +65,7 @@ export async function executeJSScript(scripts = [], workerScript) {
  * @param {Script} script
  * @param {Script[]} scripts
  */
-function shouldCompile(script, scripts) {
+function needsCompile(script, scripts) {
     if (script.module === "") return true;
     return script.dependencies.some(dep => {
         const depScript = scripts.find(s => s.filename == dep);
