@@ -8,7 +8,7 @@ import { Player } from "../../Player";
 import * as path from 'path';
 
 export async function run(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
-    //TODO change the Player as any to Player, but this requires registering various
+    //TODO change the player type from any to Player, but this requires registering various
     // functions like getContractReward and such as part of the Player type definition, couldn't get
     // it to register the functions. so I disabled the checking with any for those calls.
     let player: any;
@@ -99,7 +99,14 @@ async function _runContract(server:BaseServer, term:any, out:Function, err:Funct
 
 }
 
-async function _runScript(server:BaseServer, term:any, out:Function, err:Function, scriptName:string, args:string[]){
+async function _runScript(
+    server:BaseServer,
+    term:any,
+    out:Function,
+    err:Function,
+    scriptName:string,
+    args:string[]
+) {
     let numThreads = 1;
     const Scriptargs: string[] = [];
 
@@ -121,7 +128,7 @@ async function _runScript(server:BaseServer, term:any, out:Function, err:Functio
     }
 
     // Check if this script is already running
-    if (findRunningScript(scriptName, Scriptargs, server) != null) {
+    if (findRunningScript(scriptName, args, server) != null) {
         err("This script is already running. Cannot run multiple instances");
         return;
     }

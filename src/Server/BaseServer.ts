@@ -463,7 +463,6 @@ export class BaseServer {
      */
     runScript(script: RunningScript): void {
         this.runningScripts.push(script);
-
     }
 
     stopScript(script: RunningScript):void{

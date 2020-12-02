@@ -72,8 +72,11 @@ async function parseOnlyRamCalculate(codepath, code, workerScript, server) {
         parseCode(code, initialModule);
 
         // Process additional modules, which occurs if the "main" script has any imports
+        await Promise.all(parseQueue.map(async function(nextModule) {
+        /*
         while (parseQueue.length > 0) {
             const nextModule = parseQueue.shift();
+            */
 
             // Additional modules can either be imported from the web (in which case we use
             // a dynamic import), or from other in-game scripts
@@ -99,7 +102,8 @@ async function parseOnlyRamCalculate(codepath, code, workerScript, server) {
             }
 
             parseCode(code, nextModule);
-        }
+        }));
+
 
         // Finally, walk the reference map and generate a ram cost. The initial set of keys to scan
         // are those that start with __SPECIAL_INITIAL_MODULE__.

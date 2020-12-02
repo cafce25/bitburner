@@ -13,10 +13,10 @@ import { Interpreter } from "./JSInterpreter";
 import {
     isScriptErrorMessage,
     makeRuntimeRejectMsg,
+    resolveNetscriptRequestedThreads,
 } from "./NetscriptEvaluator";
 import { NetscriptFunctions } from "./NetscriptFunctions";
 import { executeJSScript } from "./NetscriptJSEvaluator";
-import { resolveNetscriptRequestedThreads } from "./NetscriptEvaluator";
 import { NetscriptPort } from "./NetscriptPort";
 import { Player } from "./Player";
 import { RunningScript } from "./Script/RunningScript";
@@ -109,11 +109,17 @@ function startNetscript2Script(workerScript) {
             }
 
             if (workerScript.runningInfo.threads + threadCost > scriptThreads){
-                const msg = "Concurrent calls to Netscript functions over thread max (%s) not allowed. " +
-                            "Did you forget to await hack(), grow(), or some other " +
-                            "promise-returning function? (Currently running: %s tried to run: %s with thread(s) %s)"
-                const running = Array.from(runningFns.keys()).join(", ")
-                workerScript.errorMessage = makeRuntimeRejectMsg(workerScript, sprintf(msg, scriptThreads, running, propName, threadCost), null)
+                const msg =
+                    "Concurrent calls to Netscript functions over thread max " +
+                    "(%s) not allowed. Did you forget to await hack(), " +
+                    "grow(), or some other promise-returning function? " +
+                    "(Currently running: %s tried to run: %s with thread(s) %s)";
+                const running = Array.from(runningFns.keys()).join(", ");
+                workerScript.errorMessage = makeRuntimeRejectMsg(
+                    workerScript,
+                    sprintf(msg, scriptThreads, running, propName, threadCost),
+                    null
+                )
                 throw workerScript;
             }
 
@@ -161,8 +167,10 @@ function startNetscript2Script(workerScript) {
 
     // Note: the environment that we pass to the JS script only needs to contain the functions visible
     // to that script, which env.vars does at this point.
-    return executeJSScript(workerScript.getServer().scripts,
-                           workerScript).then(function (mainReturnValue) {
+    return executeJSScript(
+        workerScript.getServer().scripts,
+        workerScript
+    ).then(function (mainReturnValue) {
         if (mainReturnValue === undefined) return workerScript;
         return [mainReturnValue, workerScript];
     }).catch(e => {
@@ -515,7 +523,7 @@ export function startWorkerScript(runningScript, server) {
  * returns {boolean} indicating whether or not the workerScript was successfully added
  */
 export function createAndAddWorkerScript(runningScriptObj, server) {
-	const filename = runningScriptObj.filename;
+    const filename = runningScriptObj.filename;
 
 	// Update server's ram usage
     let threads = 1;
@@ -535,7 +543,7 @@ export function createAndAddWorkerScript(runningScriptObj, server) {
         );
         return false;
     }
-	server.ramUsed = roundToTwo(server.ramUsed + ramUsage);
+    server.ramUsed = roundToTwo(server.ramUsed + ramUsage);
 
     // Get the pid
     const pid = generateNextPid();
@@ -546,10 +554,10 @@ export function createAndAddWorkerScript(runningScriptObj, server) {
         );
     }
 
-	// Create the WorkerScript. NOTE: WorkerScript ctor will set the underlying
+    // Create the WorkerScript. NOTE: WorkerScript ctor will set the underlying
     // RunningScript's PID as well
-	const s = new WorkerScript(runningScriptObj, pid, NetscriptFunctions);
-	s.ramUsage 	= ramUsage;
+    const s = new WorkerScript(runningScriptObj, pid, NetscriptFunctions);
+    s.ramUsage 	= ramUsage;
 
     // Add the WorkerScript to the global pool
     workerScripts.set(pid, s);
@@ -557,11 +565,11 @@ export function createAndAddWorkerScript(runningScriptObj, server) {
 
     // Start the script's execution
     let p = null;  // Script's resulting promise
-    if (!s.name.endsWith(".script")) {
-        p = startNetscript2Script(s);
-    } else {
+    if (s.name.endsWith(".script")) {
         p = startNetscript1Script(s);
         if (!(p instanceof Promise)) { return false; }
+    } else {
+        p = startNetscript2Script(s);
     }
 
     // Once the code finishes (either resolved or rejected, doesnt matter), set its
