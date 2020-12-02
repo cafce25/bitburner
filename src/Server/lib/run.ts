@@ -108,21 +108,14 @@ async function _runScript(
     args:string[]
 ) {
     let numThreads = 1;
-    const Scriptargs: string[] = [];
 
     if (args.length > 0) {
         if (args.length >= 2 && args[0] == "-t") {
-            numThreads = Math.round(parseFloat(args[1]));
+            args.shift(); 
+            numThreads = Math.round(parseFloat(args.shift()!));
             if (isNaN(numThreads) || numThreads < 1) {
                 err("Invalid number of threads specified. Number of threads must be greater than 0");
                 return;
-            }
-            for (let i = 2; i < args.length; ++i) {
-                Scriptargs.push(args[i]);
-            }
-        } else {
-            for (let i = 0; i < args.length; ++i) {
-                Scriptargs.push(args[i])
             }
         }
     }
@@ -163,10 +156,10 @@ async function _runScript(
         return;
     }
     // Able to run script
-    var runningScriptObj = new RunningScript(script, Scriptargs);
+    var runningScriptObj = new RunningScript(script, args);
     runningScriptObj.threads = numThreads;
     if (startWorkerScript(runningScriptObj, server)) {
-        out(`Running script ${script.filename} with ${numThreads} thread(s) and args: ${JSON.stringify(Scriptargs)}.`);
+        out(`Running script ${script.filename} with ${numThreads} thread(s) and args: ${JSON.stringify(args)}.`);
     } else {
         err(`Failed to start script`);
     }
