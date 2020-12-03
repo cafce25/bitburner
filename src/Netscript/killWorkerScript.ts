@@ -31,12 +31,13 @@ export function killWorkerScript(script: RunningScript | WorkerScript | number, 
 
         // If for some reason that doesn't work, we'll try the old way
         for (const ws of workerScripts.values()) {
-            if (ws.name == script.filename && ws.serverIp == serverIp &&
-                    compareArrays(ws.args, script.args)) {
-
-    			stopAndCleanUpWorkerScript(ws, rerenderUi);
-
-       return true;
+            if (
+                ws.name == script.filename &&
+                ws.serverIp == serverIp &&
+                compareArrays(ws.args, script.args)
+            ) {
+                stopAndCleanUpWorkerScript(ws, rerenderUi);
+                return true;
     		}
         }
 
@@ -44,8 +45,9 @@ export function killWorkerScript(script: RunningScript | WorkerScript | number, 
     } else if (typeof script === "number") {
         return killWorkerScriptByPid(script, rerenderUi);
     } else {
-        console.error("killWorkerScript() called with invalid argument:");
-        console.error(script);
+        //TODO replace these with custom logging
+        //console.error("killWorkerScript() called with invalid argument:");
+        //console.error(script);
         return false;
     }
 }

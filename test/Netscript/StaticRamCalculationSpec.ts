@@ -10,7 +10,7 @@ const HacknetNamespaceCost = RamCostConstants.ScriptHacknetNodesRamCost;
 
 describe("Netscript Static RAM Calculation/Generation Tests", function() {
     // Tests numeric equality, allowing for floating point imprecision
-    function testEquality(val, expected) {
+    function testEquality(val: number, expected: number) {
         expect(val).to.be.within(expected - 100 * Number.EPSILON, expected + 100 * Number.EPSILON);
     }
 
@@ -22,7 +22,7 @@ describe("Netscript Static RAM Calculation/Generation Tests", function() {
      * @param {string[]} fnDesc - describes the name of the function being tested,
      *                            including the namespace(s). e.g. ["gang", "getMemberNames"]
      */
-    async function expectNonZeroRamCost(fnDesc) {
+    async function expectNonZeroRamCost(fnDesc: string[]) {
         if (!Array.isArray(fnDesc)) { expect.fail("Non-array passed to expectNonZeroRamCost()"); }
         const expected = getRamCost(...fnDesc);
         expect(expected).to.be.above(0);
@@ -48,7 +48,7 @@ describe("Netscript Static RAM Calculation/Generation Tests", function() {
      * @param {string[]} fnDesc - describes the name of the function being tested,
      *                            including the namespace(s). e.g. ["gang", "getMemberNames"]
      */
-    async function expectZeroRamCost(fnDesc) {
+    async function expectZeroRamCost(fnDesc: string[]) {
         if (!Array.isArray(fnDesc)) { expect.fail("Non-array passed to expectZeroRamCost()"); }
         const expected = getRamCost(...fnDesc);
         expect(expected).to.equal(0);

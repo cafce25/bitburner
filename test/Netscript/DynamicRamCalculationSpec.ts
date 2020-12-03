@@ -3,7 +3,7 @@ import { getRamCost, RamCostConstants } from "../../src/Netscript/RamCostGenerat
 import { calculateRamUsage} from "../../src/Script/RamCalculations";
 import { Environment } from "../../src/Netscript/Environment";
 import { RunningScript } from "../../src/Script/RunningScript";
-import { Script } from "../../src/Script/Script";
+import { IScriptBase, Script } from "../../src/Script/Script";
 import { SourceFileFlags } from "../../src/SourceFile/SourceFileFlags";
 import { BaseServer } from "../../src/Server/BaseServer";
 import { expect } from "chai";
@@ -16,7 +16,7 @@ const ScriptBaseCost = RamCostConstants.ScriptBaseRamCost;
 
 describe("Netscript Dynamic RAM Calculation/Generation Tests", function() {
     // Creates a mock RunningScript object
-    async function createRunningScript(code) {
+    async function createRunningScript(code: string) {
         const script = new Script();
         
         const codePath = "testfile";
@@ -32,12 +32,12 @@ describe("Netscript Dynamic RAM Calculation/Generation Tests", function() {
     }
 
     // Tests numeric equality, allowing for floating point imprecision
-    function testEquality(val, expected) {
+    function testEquality(val: number, expected: number) {
         expect(val).to.be.within(expected - 100 * Number.EPSILON, expected + 100 * Number.EPSILON);
     }
 
     // Runs a Netscript function and properly catches it if it returns promise
-    function runPotentiallyAsyncFunction(fn) {
+    function runPotentiallyAsyncFunction(fn: () => any) {
         let res = fn();
         if (res instanceof Promise) {
             res.catch(() => {});
@@ -52,7 +52,7 @@ describe("Netscript Dynamic RAM Calculation/Generation Tests", function() {
      * @param {string[]} fnDesc - describes the name of the function being tested,
      *                            including the namespace(s). e.g. ["gang", "getMemberNames"]
      */
-    async function testNonzeroDynamicRamCost(fnDesc) {
+    async function testNonzeroDynamicRamCost(fnDesc: string[]) {
         if (!Array.isArray(fnDesc)) { expect.fail("Non-array passed to testNonzeroDynamicRamCost()"); }
         const expected = getRamCost(...fnDesc);
         expect(expected).to.be.above(0);
@@ -99,7 +99,7 @@ describe("Netscript Dynamic RAM Calculation/Generation Tests", function() {
                 runPotentiallyAsyncFunction(curr);
             } catch(e) {}
         } else {
-            expect.fail(`Invalid function specified: [${fndesc}]`);
+            expect.fail(`Invalid function specified: [${fnDesc}]`);
         }
 
         const fnName = fnDesc[fnDesc.length - 1];
@@ -116,7 +116,7 @@ describe("Netscript Dynamic RAM Calculation/Generation Tests", function() {
      * @param {string[]} fnDesc - describes the name of the function being tested,
      *                            including the namespace(s). e.g. ["gang", "getMemberNames"]
      */
-    async function testZeroDynamicRamCost(fnDesc) {
+    async function testZeroDynamicRamCost(fnDesc: string[]) {
         if (!Array.isArray(fnDesc)) { expect.fail("Non-array passed to testZeroDynamicRamCost()"); }
         const expected = getRamCost(...fnDesc);
         expect(expected).to.equal(0);
@@ -162,7 +162,7 @@ describe("Netscript Dynamic RAM Calculation/Generation Tests", function() {
                 runPotentiallyAsyncFunction(curr);
             } catch(e) {}
         } else {
-            expect.fail(`Invalid function specified: [${fndesc}]`);
+            expect.fail(`Invalid function specified: [${fnDesc}]`);
         }
 
         testEquality(workerScript.dynamicRamUsage, ScriptBaseCost);

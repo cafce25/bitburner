@@ -415,7 +415,7 @@ export class BaseServer {
      * @param fn {string} Name of file to be deleted
      * @returns {IReturnStatus} Return status object indicating whether or not file was deleted
      */
-    removeFile(fn: string): IReturnStatus {
+    removeFile(fn: string, options?: any): IReturnStatus {
         if (!this.exists(fn)) {
             return { res: true };
         } else if (this.isRunning(fn)) {

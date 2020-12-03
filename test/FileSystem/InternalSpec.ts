@@ -18,11 +18,12 @@ describe("BaseServer file system internal tests", function() {
     const server = new BaseServer();
     server.restoreFileSystem(testingVolJSON);
 
+    /* TODO remove me if no errors thrown
     let fakeTerm = {currDir:"/", out:[], err:[]};
     fakeTerm.post = (msg) => {fakeTerm.out.push(msg)};
     fakeTerm.postError = (msg) => {fakeTerm.err.push(msg)};
     fakeTerm.clear = () => {fakeTerm.err.clear(); fakeTerm.out.clear()};
-
+    */
     describe("File operations", function (){
         describe("exists()", function(){
             it("Detect present files/directories as such", function(){

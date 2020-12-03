@@ -65,19 +65,19 @@ import { free } from "../../src/Server/lib/free";
 
 import * as sys from "../../src/Server/lib/sys";
 
-import {Terminal} from "../../src/Terminal";
-import {OverwriteStrategy} from "../../src/Server/lib/OverwriteStrategy";
-import {VersioningStrategy} from "../../src/Server/lib/VersioningStrategy";
+import { Terminal} from "../../src/Terminal";
+import { OverwriteStrategy} from "../../src/Server/lib/OverwriteStrategy";
+import { VersioningStrategy} from "../../src/Server/lib/VersioningStrategy";
 
-import Player from "../../src/Player";
+import { Player } from "../../src/Player";
 
 import { PlayerObject } from "../../src/PersonObjects/Player/PlayerObject";
 
-import { SpecialServerIps, SpecialServerIpsMap } from "../../src/Server/SpecialServerIps";
+import { SpecialServerIpsMap } from "../../src/Server/SpecialServerIps";
 import * as AllServers from "../../src/Server/AllServers";
-import {resetAllAliases} from "../../src/Alias";
-import {Script} from "../../src/Script/Script";
-import {RunningScript} from "../../src/Script/RunningScript";
+import { resetAllAliases } from "../../src/Alias";
+import { IScriptBase, Script } from "../../src/Script/Script";
+import { RunningScript} from "../../src/Script/RunningScript";
 
 describe("BaseServer file system core library tests", function() {
     /**
@@ -85,8 +85,6 @@ describe("BaseServer file system core library tests", function() {
      * existing files and directories will be suffixed with a number (f1,f2...) and a letter (dA, dB,...) respectively.
      * non existent ones will see this suffix inverted, files will be suffixed with letters (fX, fZ...) and directories with numbers (d0, d1, d2...);
      */
-
-
 
     const testingVolJSON = {
         "/f1":"/f1",
@@ -97,12 +95,12 @@ describe("BaseServer file system core library tests", function() {
     const WRITTEN_CONTENT = "written content";
     const server = new Server({hostname:"home", ip:"127.0.0.1"});
     server.hasAdminRights=true;
-    server.purchasedByThePlayer=true;
+    server.purchasedByPlayer=true;
     server.hostname = "home";
     server.restoreFileSystem(testingVolJSON);
     server.serversOnNetwork.push()
-    let out = (msg) => {}; // null stream
-    let err = (msg) => {throw msg}; // exception callback
+    let out = (msg: string) => {}; // null stream
+    let err = (msg: string) => {throw msg}; // exception callback
     let fakeTerm = Terminal;
     fakeTerm.output = [];
     fakeTerm.clearOutput = ()=>{fakeTerm.output=[];};
@@ -125,7 +123,7 @@ describe("BaseServer file system core library tests", function() {
     AllServers.AddToAllServers(server);
     AllServers.AddToAllServers(invisibleServer);
     AllServers.AddToAllServers(destServer);
-    AllServers.SERVERS_INITIALIZED = true; // eslint-disable-line
+    Object.assign(AllServers, {SERVERS_INITIALIZED: true});
 
     function resetEnv(options={servInitType:ServerInitType.NORMAL}){
 
@@ -148,43 +146,43 @@ describe("BaseServer file system core library tests", function() {
         switch(options.servInitType){
             case ServerInitType.NORMAL:
                 server.restoreFileSystem({
-                    "/f1":"/f1",
-                    "/dA/f2":"/dA/f2",
-                    "/dA/f3":"/dA/f3",
-                    "/dA/dB/f4":"/dA/dB/f4",
-                });
-                destServer.restoreFileSystem({
-                    "/f1":"/f1",
-                    "/dA/f2":"/dA/f2",
-                    "/dA/f3":"/dA/f3",
-                    "/dA/dB/f4":"/dA/dB/f4",
-                });
-                break;
+                "/f1":"/f1",
+                "/dA/f2":"/dA/f2",
+                "/dA/f3":"/dA/f3",
+                "/dA/dB/f4":"/dA/dB/f4",
+            });
+            destServer.restoreFileSystem({
+                "/f1":"/f1",
+                "/dA/f2":"/dA/f2",
+                "/dA/f3":"/dA/f3",
+                "/dA/dB/f4":"/dA/dB/f4",
+            });
+            break;
             case ServerInitType.DIRECTORIES_ONLY:
                 server.restoreFileSystem({
-                    "/dA/f2":"/dA/f2",
-                    "/dA/f3":"/dA/f3",
-                    "/dA/dB/f4":"/dA/dB/f4",
-                });
-                destServer.restoreFileSystem({
-                    "/f1":"/f1",
-                    "/dA/f2":"/dA/f2",
-                    "/dA/f3":"/dA/f3",
-                    "/dA/dB/f4":"/dA/dB/f4",
-                });
-                server.removeFile("/dA/f2", {force:true});
-                server.removeFile("/dA/f3",{force:true});
-                server.removeFile("/dA/dB/f4",{force:true});
-                server.removeFile("/dev/null",{force:true});
-                destServer.removeFile("/dA/f2", {force:true});
-                destServer.removeFile("/dA/f3",{force:true});
-                destServer.removeFile("/dA/dB/f4",{force:true});
-                destServer.removeFile("/dev/null",{force:true});
-                break;
+                "/dA/f2":"/dA/f2",
+                "/dA/f3":"/dA/f3",
+                "/dA/dB/f4":"/dA/dB/f4",
+            });
+            destServer.restoreFileSystem({
+                "/f1":"/f1",
+                "/dA/f2":"/dA/f2",
+                "/dA/f3":"/dA/f3",
+                "/dA/dB/f4":"/dA/dB/f4",
+            });
+            server.removeFile("/dA/f2", {force:true});
+            server.removeFile("/dA/f3", {force:true});
+            server.removeFile("/dA/dB/f4", {force:true});
+            server.removeFile("/dev/null", {force:true});
+            destServer.removeFile("/dA/f2", {force:true});
+            destServer.removeFile("/dA/f3", {force:true});
+            destServer.removeFile("/dA/dB/f4", {force:true});
+            destServer.removeFile("/dev/null", {force:true});
+            break;
             case ServerInitType.EMPTY:
                 server.restoreFileSystem({ });
-                destServer.restoreFileSystem({ });
-                break;
+            destServer.restoreFileSystem({ });
+            break;
         };
         destServer.restoreFileSystem({
             "/f1":"/f1",
@@ -195,17 +193,23 @@ describe("BaseServer file system core library tests", function() {
 
         resetAllAliases();
         fakeTerm.currDir = "/";
-        out = (msg) => {};
-        err = (msg) => {throw msg};
+        out = (msg: string) => {};
+        err = (msg: string) => {throw msg};
 
         Player = new PlayerObject();
         Player.getHomeComputer = ()=>{return server};
         SpecialServerIps = new SpecialServerIpsMap()
     };
 
+    interface MemScriptDescription {
+        path: string,
+        ramUsage: number,
+        content: string,
+        ip: string,
+    }
 
-    function addScriptsToServer(scripts){
-        for(let script of scripts){
+    function addScriptsToServer(scriptDescriptions: MemScriptDescription[]){
+        for(let script of scriptDescriptions){
             server.scriptsMap[script.path] = new Script(script.path, script.ip);
             server.scriptsMap[script.path].getServer = ()=>{return server};
             expect(()=>server.writeFile(script.path, script.content)).to.not.throw();
@@ -214,9 +218,14 @@ describe("BaseServer file system core library tests", function() {
         }
     }
 
-    function addRunningScriptsToServer(scriptsTemplates){
+    interface RunningScriptDescription extends IScriptBase {
+        args: string[];
+        logs: string[];
+    }
+
+    function addRunningScriptsToServer(scriptDescriptions: RunningScriptDescription[]){
         let pid = 0;
-        for(let script of scriptsTemplates){
+        for(let script of scriptDescriptions){
             pid++;
             expect(()=>server.writeFile(script.filename, "data", {recursive:true})).to.not.throw();
             expect(()=>server.readFile(script.filename)).to.not.throw();
@@ -229,9 +238,9 @@ describe("BaseServer file system core library tests", function() {
 
     }
 
-    function expectResultFromExpr(expression, expected){
+    function expectResultFromExpr(expression: string, expected: string){
         let result;
-        let out = (msg) => {result = msg.toString();};
+        let out = (msg: string) => {result = msg.toString();};
         expect(()=>expr(server, fakeTerm, out, err, [expression])).not.to.throw();
         expect(result).to.equal(expected);
     };
@@ -314,15 +323,15 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
 
                 let expected = ["dB/", "f2","f3"];
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/dA";
                 expect(()=>ls(server, fakeTerm, out, err, [])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected.join("\n"))
 
                 expected = ["dA/", "dev/", "f1"];
                 result = [];
-                out = (msg) => {result.push(msg)};
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/";
                 expect(()=>ls(server, fakeTerm, out, err, [])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected.join("\n"))
@@ -331,18 +340,18 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
 
                 let expected = ["dB/", "f2","f3" ]
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/";
-                expect(()=>ls(server, fakeTerm, out, err,["dA/"])).to.not.throw();
+                expect(()=>ls(server, fakeTerm, out, err, ["dA/"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected.join("\n"))
             });
             it("Can list the cwd files and subdirectories recursively" ,function(){
                 resetEnv();
 
                 let expected = ["./:","dA/","dev/", "f1", "", "./dA/:", "dB/", "f2", "f3", "", "./dA/dB/:","f4", "", "./dev/:", "null"]
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/";
                 expect(()=>ls(server, fakeTerm, out, err,["-R"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected.join("\n"))
@@ -351,8 +360,8 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
 
                 let expected = ["dA/:", "dB/", "f2", "f3", "", "dA/dB/:","f4"]
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/";
                 expect(()=>ls(server, fakeTerm, out, err,["-R", "dA/"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected.join("\n"))
@@ -361,8 +370,8 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
 
                 let expected = ["/dA/dB/f4","/dA/f2","/dA/f3"]
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/";
                 expect(()=>ls(server, fakeTerm, out, err, ["/**/f*"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected.join("\n"))
@@ -372,8 +381,8 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
 
                 let expected = ["/:", "dA/", "dev/","f1","","/dA/dB/:", "f4"]
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/";
                 expect(()=>ls(server, fakeTerm, out, err, ["/","/dA/dB/"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected.join("\n"))
@@ -389,9 +398,9 @@ describe("BaseServer file system core library tests", function() {
                     "├──dB/",
                     "├──f2",
                     "└──f3"
-                    ].join("\n");
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                ].join("\n");
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 fakeTerm.currDir = "/dA";
                 expect(()=>tree(server, fakeTerm, out, err, ["-d", "0"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected)
@@ -405,10 +414,10 @@ describe("BaseServer file system core library tests", function() {
                     "│  └──f4",
                     "├──f2",
                     "└──f3"
-                    ].join("\n")
+                ].join("\n")
                 fakeTerm.currDir = "/dA";
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 expect(()=>tree(server, fakeTerm, out, err,["-d", "5"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected)
             });
@@ -421,10 +430,10 @@ describe("BaseServer file system core library tests", function() {
                     "│  └──f4" ,
                     "├──f2",
                     "└──f3"
-                    ].join("\n")
+                ].join("\n")
                 fakeTerm.currDir = "/";
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 expect(()=>tree(server, fakeTerm, out, err, ["/dA", "-d", "5"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected)
             });
@@ -438,10 +447,10 @@ describe("BaseServer file system core library tests", function() {
                     "└──f1",
                     "/dA/dB/",
                     "└──f4"
-                    ].join("\n")
+                ].join("\n")
                 fakeTerm.currDir = "/";
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 expect(()=>tree(server, fakeTerm, out, err, ["/","/dA/dB/", "-d", "0"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected)
             });
@@ -457,10 +466,10 @@ describe("BaseServer file system core library tests", function() {
                     "├──dB/",
                     "├──f2",
                     "└──f3",
-                    ].join("\n")
+                ].join("\n")
                 fakeTerm.currDir = "/";
-                let result = [];
-                out = (msg) => {result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string) => {result.push(msg)};
                 expect(()=>tree(server, fakeTerm,out, err, ["/","/dA/", "-d", "0"])).to.not.throw();
                 expect(result.join("\n")).to.equal(expected)
             });
@@ -514,7 +523,7 @@ describe("BaseServer file system core library tests", function() {
                 expect(()=>cp(server, fakeTerm, out, err, ["/f1", "/d0/f1", "-T", "-r"])).to.not.throw();
                 expect(()=>rm(server, fakeTerm, out, err, ["/d0"])).to.throw();
                 expect(server.exists("/d0")).to.equal(true);
-                expect(()=>rm(server, fakeTerm, (msg)=>{console.log(msg)}, err, ["/d0", "-r"])).to.not.throw();
+                expect(()=>rm(server, fakeTerm, (msg: string)=>{console.log(msg)}, err, ["/d0", "-r"])).to.not.throw();
                 expect(server.exists("/d0")).to.equal(false);
             });
         });
@@ -523,21 +532,21 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 let result = "";
 
-                expect(()=>cat(server, fakeTerm, (msg)=>{result+=msg;}, err, ["/f1"])).to.not.throw();
+                expect(()=>cat(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["/f1"])).to.not.throw();
                 expect(result).to.equal(server.readFile("/f1"))
             });
             it("Can print multiple files of a single directory excluding its subdirectories" ,function(){
                 resetEnv();
                 let result = "";
 
-                expect(()=>cat(server, fakeTerm, (msg)=>{result+=msg;}, err, ["/dA"])).to.not.throw();
+                expect(()=>cat(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["/dA"])).to.not.throw();
                 expect(result).to.equal(server.readFile("/dA/f3")+server.readFile("/dA/f2"));
             });
             it("Can print multiple files of a single directory including its subdirectories if using the recursive flag" ,function(){
                 resetEnv();
                 let result = "";
 
-                expect(()=>cat(server, fakeTerm, (msg)=>{result+=msg;}, err, ["/dA", "-r"])).to.not.throw();
+                expect(()=>cat(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["/dA", "-r"])).to.not.throw();
                 expect(result).to.equal([server.readFile("/dA/f3"),server.readFile("/dA/f2"),server.readFile("/dA/dB/f4")].join(""));
             });
         });
@@ -546,21 +555,21 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
 
                 let result = "";
-                expect(()=>alias(server, fakeTerm, (msg)=>{result+=msg;}, err, ["a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
+                expect(()=>alias(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
                 expect(result).to.equal(`alias a="val1d aliascommand; another_ammaam!#$%^&*()_+{}[]"`);
             });
             it("Can register a new global alias and print it" ,function(){
                 resetEnv();
 
                 let result = "";
-                expect(()=>alias(server, fakeTerm, (msg)=>{result+=msg;}, err, ["-g", "a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
+                expect(()=>alias(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["-g", "a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
                 expect(result).to.equal(`global alias a="val1d aliascommand; another_ammaam!#$%^&*()_+{}[]"`);
             });
             it("Can register multiple new aliases" ,function(){
                 resetEnv();
 
                 let result = "";
-                expect(()=>alias(server, fakeTerm, (msg)=>{result+=msg;}, err, ["wat=\"wowie\"", "a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
+                expect(()=>alias(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["wat=\"wowie\"", "a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
                 expect(result).to.equal(
                     `alias wat="wowie"\nalias a="val1d aliascommand; another_ammaam!#$%^&*()_+{}[]"`
                 );
@@ -569,8 +578,8 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
 
                 let result = "";
-                expect(()=>alias(server, fakeTerm, (msg)=>{result+=msg;}, err, ["a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
-                expect(()=>alias(server, fakeTerm, (msg)=>{result+=msg;}, err, ["a=\"wowie\"", "-p"])).to.not.throw();
+                expect(()=>alias(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["a=\"val1d aliascommand; another_ammaam!#$%^&*()_+{}[]\"", "-p"])).to.not.throw();
+                expect(()=>alias(server, fakeTerm, (msg: string)=>{result+=msg;}, err, ["a=\"wowie\"", "-p"])).to.not.throw();
                 expect(result).to.equal(
                     `alias a="val1d aliascommand; another_ammaam!#$%^&*()_+{}[]"alias a="wowie"`
                 );
@@ -590,16 +599,16 @@ describe("BaseServer file system core library tests", function() {
         `;
 
         const littleScript = `
-            export async function main(ns){
-                return await ns.hack();
-            }
-            `;
+        export async function main(ns){
+            return await ns.hack();
+        }
+        `;
         const heavyScript = `
-            export async function main(ns){
-                window;
-                return;
-            }
-            `;
+        export async function main(ns){
+            window;
+            return;
+        }
+        `;
 
         const memScripts = [
             {
@@ -636,7 +645,7 @@ describe("BaseServer file system core library tests", function() {
                 addScriptsToServer(memScripts)
 
                 let result = "";
-                out = (msg)=>{result = msg};
+                out = (msg: string)=>{result = msg};
 
                 expect(()=>mem(server, fakeTerm, out, err, ["/minimalScript"])).to.not.throw();
                 expect(result).to.equal("/minimalScript requires 1.60 GB of RAM to run for 1 thread(s)");
@@ -653,26 +662,26 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv({servInitType:ServerInitType.DIRECTORIES_ONLY})
                 addScriptsToServer(memScripts)
 
-                let result = [];
-                out = (msg)=>{result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string)=>{result.push(msg)};
 
                 expect(()=>mem(server, fakeTerm, out, err, ["/"])).to.not.throw();
                 expect(result.join("\n")).to.equal(
                     "/minimalScript requires 1.60 GB of RAM to run for 1 thread(s)");
-                });
+            });
 
             it("Can read the ram usage of multiple specified scripts from a directory and its subdirectories if the recursive flag is used.", function(){
                 resetEnv({servInitType:ServerInitType.DIRECTORIES_ONLY})
                 addScriptsToServer(memScripts)
 
-                let result = [];
-                out = (msg)=>{result.push(msg)};
+                let result: string[] = [];
+                out = (msg: string)=>{result.push(msg)};
                 expect(()=>mem(server, fakeTerm, out, err, ["/", "-r"])).to.not.throw();
                 expect(result.join("\n")).to.equal(
                     ["/minimalScript requires 1.60 GB of RAM to run for 1 thread(s)",
-                    "/dA/littleScript requires 1.70 GB of RAM to run for 1 thread(s)" ,
-                    "/dA/dB/heavyScript requires 26.60 GB of RAM to run for 1 thread(s)"].join("\n"));
-                });
+                        "/dA/littleScript requires 1.70 GB of RAM to run for 1 thread(s)" ,
+                        "/dA/dB/heavyScript requires 26.60 GB of RAM to run for 1 thread(s)"].join("\n"));
+            });
         });
 
         describe("tail", function(){
@@ -687,11 +696,11 @@ describe("BaseServer file system core library tests", function() {
                         logs:["testboup"]
                     }]);
 
-                let result = [];
-                out = (msg)=>{result=msg};
+                    let result: string[] = [];
+                    out = (msg: string)=>{result.push(msg)};
 
-                expect(()=>tail(server, fakeTerm, out, err, ["/boup", "test"])).to.not.throw();
-                expect(result.join("\n")).to.equal(["testboup"].join("\n"));
+                    expect(()=>tail(server, fakeTerm, out, err, ["/boup", "test"])).to.not.throw();
+                    expect(result.join("\n")).to.equal(["testboup"].join("\n"));
             });
             it("Can detect a running script by PID", function (){
                 resetEnv();
@@ -704,10 +713,10 @@ describe("BaseServer file system core library tests", function() {
                         logs:["testboup"]
                     }]);
 
-                let result = [];
-                out = (msg)=>{result=msg};
-                expect(()=>tail(server, fakeTerm, out, err, ["-p","1"])).to.not.throw();
-                expect(result.join("\n")).to.equal(["testboup"].join("\n"));
+                    let result: string[] = [];
+                    out = (msg: string)=>{result.push(msg)};
+                    expect(()=>tail(server, fakeTerm, out, err, ["-p","1"])).to.not.throw();
+                    expect(result.join("\n")).to.equal(["testboup"].join("\n"));
             });
         });
 
@@ -723,11 +732,11 @@ describe("BaseServer file system core library tests", function() {
                         logs:["testboup"]
                     }]);
 
-                let result = [];
-                out = (msg)=>{result=msg};
+                    let result: string[] = [];
+                    out = (msg: string)=>{result.push(msg)};
 
-                expect(()=>check(server, fakeTerm, out, err, ["/boup", "test"])).to.not.throw();
-                expect(result.join("\n")).to.equal(["testboup"].join("\n"));
+                    expect(()=>check(server, fakeTerm, out, err, ["/boup", "test"])).to.not.throw();
+                    expect(result.join("\n")).to.equal(["testboup"].join("\n"));
             });
             it("Can detect a running script by PID", function (){
                 resetEnv();
@@ -740,10 +749,10 @@ describe("BaseServer file system core library tests", function() {
                         logs:["testboup"]
                     }]);
 
-                let result = [];
-                out = (msg)=>{result=msg};
-                expect(()=>check(server, fakeTerm, out, err, ["-p","1"])).to.not.throw();
-                expect(result.join("\n")).to.equal(["testboup"].join("\n"));
+                    let result: string[] = [];
+                    out = (msg: string)=>{result.push(msg)};
+                    expect(()=>check(server, fakeTerm, out, err, ["-p","1"])).to.not.throw();
+                    expect(result.join("\n")).to.equal(["testboup"].join("\n"));
             });
         });
 
@@ -791,38 +800,38 @@ describe("BaseServer file system core library tests", function() {
             "size": "Large",
             "color": "Red"
         }
-//        describe("wget", function(){ // TODO, the function works correctly, I just cant get fetch to work during tests.
+        //        describe("wget", function(){ // TODO, the function works correctly, I just cant get fetch to work during tests.
 
-//            it("can retrieve files from an URL into a file", async function(){
-//               resetEnv();
-//                let promise = wget(server, fakeTerm, out, err, [ "--from", URL, "--to", "/fX"])
-//                expect(async ()=>{await promise}).to.not.throw();
-//                expect(JSON.parse(server.readFile("/fX"))).equals(content);
-//            })
+        //            it("can retrieve files from an URL into a file", async function(){
+        //               resetEnv();
+        //                let promise = wget(server, fakeTerm, out, err, [ "--from", URL, "--to", "/fX"])
+        //                expect(async ()=>{await promise}).to.not.throw();
+        //                expect(JSON.parse(server.readFile("/fX"))).equals(content);
+        //            })
 
-//        })
+        //        })
         describe("buy", function(){
             it("Can buy programs from the dark web if connected to it and enough money", function(){
                 resetEnv();
                 Player.gainMoney(10000000);
-                SpecialServerIps["Darkweb Server"] = true;
-                expect(()=>buy(server, fakeTerm, out, err, ["AutoLink.exe"], {Player:Player, SpecialServerIps:SpecialServerIps})).to.not.throw();
+                SpecialServerIps["Darkweb Server"] = "true";
+                expect(()=>buy(server, fakeTerm, out, err, ["AutoLink.exe"], {Player, SpecialServerIps})).to.not.throw();
                 expect(Player.hasProgram("AutoLink.exe")).to.equal(true);
             });
             it("Can NOT buy programs from the dark web if NOT connected to it", function(){
                 resetEnv();
-                expect(()=>buy(server, fakeTerm, out, err, ["AutoLink.exe"], {Player:Player, SpecialServerIps:SpecialServerIps})).to.throw();
+                expect(()=>buy(server, fakeTerm, out, err, ["AutoLink.exe"], {Player, SpecialServerIps})).to.throw();
             });
             it("Can NOT buy programs from the dark web if NOT enough money", function(){
                 resetEnv();
-                SpecialServerIps["Darkweb Server"] = true;
-                expect(()=>buy(server, fakeTerm, out, err, ["AutoLink.exe"], {Player:Player, SpecialServerIps:SpecialServerIps})).to.throw();
+                SpecialServerIps["Darkweb Server"] = "true";
+                expect(()=>buy(server, fakeTerm, out, err, ["AutoLink.exe"], {Player, SpecialServerIps})).to.throw();
             });
             it("Can NOT buy programs from the dark web if the name doesnt exist", function(){
                 resetEnv();
                 Player.gainMoney(10000000);
-                SpecialServerIps["Darkweb Server"] = true;
-                expect(()=>buy(server, fakeTerm, out, err, ["Aut@Link.exe"], {Player:Player, SpecialServerIps:SpecialServerIps})).to.throw();
+                SpecialServerIps["Darkweb Server"] = "true";
+                expect(()=>buy(server, fakeTerm, out, err, ["Aut@Link.exe"], {Player, SpecialServerIps})).to.throw();
             });
         });
 
@@ -830,9 +839,9 @@ describe("BaseServer file system core library tests", function() {
             it("Can download programs at the root", function(){
                 resetEnv();
                 let expected = ["Zipping up f1.."];
-                let results = [];
+                let results: string[] = [];
 
-                out = (msg)=>{results.push(msg)};
+                out = (msg: string)=>{results.push(msg)};
                 fakeTerm.cwd = "/";
                 expect(()=>download(server, fakeTerm, out, err, [], {testing:true})).to.not.throw();
                 expected.sort();
@@ -847,9 +856,9 @@ describe("BaseServer file system core library tests", function() {
                     "Zipping up /dA/f3..",
                     "Zipping up /f1.."
                 ];
-                let results = [];
+                let results: string[] = [];
 
-                out = (msg)=>{results.push(msg)};
+                out = (msg: string)=>{results.push(msg)};
                 fakeTerm.cwd = "/";
 
                 expect(()=>download(server, fakeTerm, out, err, ["**/f*"],{testing:true})).to.not.throw();
@@ -897,9 +906,9 @@ describe("BaseServer file system core library tests", function() {
                 server.maxRam = 0;
 
                 let expected = ["Available: 0.00 GB", "Total:     0.00 GB", "Used:      0.00 GB (0.00%)"];
-                let results = [];
+                let results: string[] = [];
 
-                out = (msg)=>{results.push(msg); };
+                out = (msg: string)=>{results.push(msg); };
                 expect(()=>free(server, fakeTerm, out, err, [])).to.not.throw();
                 expected.sort();
                 results.sort();
@@ -909,7 +918,7 @@ describe("BaseServer file system core library tests", function() {
                 expected = ["Available: 32.00 GB", "Total:     32.00 GB", "Used:       0.00 GB (0.00%)"];
                 results = [];
 
-                out = (msg)=>{results.push(msg); };
+                out = (msg: string)=>{results.push(msg); };
                 expect(()=>free(server, fakeTerm, out, err, [])).to.not.throw();
                 expected.sort();
                 results.sort();
@@ -1026,10 +1035,10 @@ describe("BaseServer file system core library tests", function() {
             //it("TODO Can run an existing coding contract", function(){
             //    resetEnv();
             //    expect(false).to.equal(true);
-                //server.addContract() //TODO
-                //expect(()=>run(server, fakeTerm, out, err, ["/dir1/script1"], {Player:Player})).to.throw();
-                //fakeTerm.currDir = "/dir1/";
-                //expect(()=>run(server, fakeTerm, out, err, ["script1"], {Player:Player})).to.throw();
+            //server.addContract() //TODO
+            //expect(()=>run(server, fakeTerm, out, err, ["/dir1/script1"], {Player:Player})).to.throw();
+            //fakeTerm.currDir = "/dir1/";
+            //expect(()=>run(server, fakeTerm, out, err, ["script1"], {Player:Player})).to.throw();
 
             //});
             //it("TODO Can NOT run an inexisting coding contract", function(){
@@ -1050,7 +1059,7 @@ describe("BaseServer file system core library tests", function() {
             it("Can NOT run an unowned executable", async function(){
                 resetEnv();
 
-                out = (msg)=>{console.log(msg)};
+                out = (msg: string)=>{console.log(msg)};
                 await expect(run(server, fakeTerm, out, err, ["AutoLink.exe"], {Player:Player})).to.eventually.be.rejected;
 
             });
@@ -1066,7 +1075,7 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 server.hasAdminRights = true;
                 let result = "";
-                out = (msg) => {result = msg};
+                out = (msg: string) => {result = msg};
                 let expected = "You have root access to this machine.";
                 expect(()=>sudov(server, fakeTerm, out, err, [])).not.to.throw();
                 expect(result).to.equal(expected)
@@ -1075,7 +1084,7 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 server.hasAdminRights = false;
                 let result = "";
-                out = (msg) => {result = msg};
+                out = (msg: string) => {result = msg};
                 let expected = "You DO NOT have root access to this machine.";
                 expect(()=>sudov(server, fakeTerm, out, err, [])).not.to.throw();
                 expect(result).to.equal(expected)
@@ -1144,13 +1153,13 @@ describe("BaseServer file system core library tests", function() {
         describe("scan", function(){
             it("Can scan neighbouring servers", function(){
                 resetEnv();
-                let result = [];
+                let result: string[] = [];
                 let expected = [
                     "Hostname             IP                   Root Access",
                     "???                  666.666.666.669      N",
                     "home                 127.0.0.1            Y"
-                    ];
-                out = (msg) => { result.push(msg);}
+                ];
+                out = (msg: string) => { result.push(msg);}
 
                 expect(()=>scan(server, fakeTerm, out, err, [])).not.to.throw();
                 result.sort();
@@ -1162,7 +1171,7 @@ describe("BaseServer file system core library tests", function() {
         describe("scan-analyze", function(){
             it("Can scan and analyze neighbouring servers", function(){
                 resetEnv();
-                let result = [];
+                let result: string[] = [];
                 let expected = [
                     "~~~~~~~~~~ Beginning scan-analyze ~~~~~~~~~~",
                     "<strong>>???</strong>",
@@ -1171,8 +1180,8 @@ describe("BaseServer file system core library tests", function() {
                     "--Number of open ports required to NUKE: 5",
                     "--RAM: 0",
                     " "
-                    ];
-                out = (msg) => { result.push(msg);}
+                ];
+                out = (msg: string) => { result.push(msg);}
 
                 expect(()=>scan_analyze(server, fakeTerm, out, err, [])).not.to.throw();
                 result.sort();
@@ -1186,7 +1195,7 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 let result = "";
                 let expected = "home";
-                out = (msg) => { result += msg;}
+                out = (msg: string) => { result += msg;}
 
                 expect(()=>hostname(server, fakeTerm, out, err, [])).not.to.throw();
                 expect(result).to.equal(expected);
@@ -1198,7 +1207,7 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 let result = "";
                 let expected = server.ip;
-                out = (msg) => { result += msg;}
+                out = (msg: string) => { result += msg;}
 
                 expect(()=>ifconfig(server, fakeTerm, out, err, [])).not.to.throw();
                 expect(result).to.equal(expected);
@@ -1211,7 +1220,7 @@ describe("BaseServer file system core library tests", function() {
                 let result = "";
                 server.cpuCores = 1;
                 let expected = "1 Core(s)";
-                out = (msg) => { result += msg;}
+                out = (msg: string) => { result += msg;}
 
                 expect(()=>lscpu(server, fakeTerm, out, err, [])).not.to.throw();
                 expect(result).to.equal(expected);
@@ -1223,7 +1232,7 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 let result = "";
                 let expected = "Connected to ???";
-                out = (msg) => { result += msg;}
+                out = (msg: string) => { result += msg;}
 
                 expect(()=>connect(server, fakeTerm, out, err, ["???"])).not.to.throw();
                 expect(result).to.equal(expected);
@@ -1234,7 +1243,7 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 let result = "";
                 let expected = "xxx.xxx.xxx.xxx out of reach or not found";
-                err = (msg) => { result += msg; throw msg};
+                err = (msg: string) => { result += msg; throw msg};
 
                 expect(()=>connect(server, fakeTerm, out, err, ["xxx.xxx.xxx.xxx"])).to.throw();
                 expect(result).to.equal(expected);
@@ -1243,7 +1252,7 @@ describe("BaseServer file system core library tests", function() {
                 resetEnv();
                 let result = "";
                 let expected = "Connected to xxx.xxx.xxx.xxx";
-                out = (msg) => { result += msg;};
+                out = (msg: string) => { result += msg;};
 
                 expect(()=>connect(server, fakeTerm, out, err, ["xxx.xxx.xxx.xxx"], {autolink:true})).to.not.throw();
                 expect(result).to.equal(expected);
@@ -1257,7 +1266,7 @@ describe("BaseServer file system core library tests", function() {
                 let expected = "Connected to home";
 
                 expect(()=>connect(server, fakeTerm, out, err, ["???"])).not.to.throw();
-                out = (msg) => { result += msg;}
+                out = (msg: string) => { result += msg;}
                 expect(()=>home(server, fakeTerm, out, err, [])).not.to.throw();
                 expect(result).to.equal(expected);
 
@@ -1268,7 +1277,7 @@ describe("BaseServer file system core library tests", function() {
                 let expected = "Connected to home";
 
                 expect(()=>connect(server, fakeTerm, out, err, ["xxx.xxx.xxx.xxx"], {autolink:true})).to.not.throw();
-                out = (msg) => { result += msg;}
+                out = (msg: string) => { result += msg;}
                 expect(()=>home(server, fakeTerm, out, err, [])).not.to.throw();
                 expect(result).to.equal(expected);
             });
@@ -1293,17 +1302,17 @@ describe("BaseServer file system core library tests", function() {
                         logs:["wowie"]
                     },]);
 
-                let result = [];
-                out = (msg)=>{result.push(msg)};
-                let expected = [
-                    "Script                                  PID       Threads         RAM Usage",
-                    "/f1                                     2         1               3.00 GB",
-                    "/f1                                     1         1               1.00 GB"];
+                    let result: string[] = [];
+                    out = (msg: string)=>{result.push(msg)};
+                    let expected = [
+                        "Script                                  PID       Threads         RAM Usage",
+                        "/f1                                     2         1               3.00 GB",
+                        "/f1                                     1         1               1.00 GB"];
 
-                expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
-                expected.sort();
-                result.sort()
-                expect(result.join("\n")).to.equal(expected.join("\n"));
+                        expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
+                        expected.sort();
+                        result.sort()
+                        expect(result.join("\n")).to.equal(expected.join("\n"));
             });
         });
 
@@ -1326,40 +1335,40 @@ describe("BaseServer file system core library tests", function() {
                         logs:["wowie"]
                     },]);
 
-                let result = [];
-                out = (msg)=>{result.push(msg);};
-                let expected = [
-                    "Script                                  PID       Threads         RAM Usage",
-                    "/f1                                     2         1               3.00 GB",
-                    "/f1                                     1         1               1.00 GB"];
+                    let result: string[] = [];
+                    out = (msg: string)=>{result.push(msg);};
+                    let expected = [
+                        "Script                                  PID       Threads         RAM Usage",
+                        "/f1                                     2         1               3.00 GB",
+                        "/f1                                     1         1               1.00 GB"];
 
-                expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
-                expected.sort();
-                result.sort()
-                expect(result.join("\n")).to.equal(expected.join("\n"));
-                // both scripts are now running.
-                // test 1: killing by arguments
-                expect(()=>kill(server, fakeTerm, out, err, ["/f1", "test"], {testing:true})).to.not.throw();
+                        expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
+                        expected.sort();
+                        result.sort()
+                        expect(result.join("\n")).to.equal(expected.join("\n"));
+                        // both scripts are now running.
+                        // test 1: killing by arguments
+                        expect(()=>kill(server, fakeTerm, out, err, ["/f1", "test"], {testing:true})).to.not.throw();
 
-                result = [];
-                expected = [
-                    "Script                                  PID       Threads         RAM Usage",
-                    "/f1                                     2         1               3.00 GB"];
+                        result = [];
+                        expected = [
+                            "Script                                  PID       Threads         RAM Usage",
+                            "/f1                                     2         1               3.00 GB"];
 
-                expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
-                expected.sort();
-                result.sort()
-                expect(result.join("\n")).to.equal(expected.join("\n"));
-                //test 2: killing by PID
-                expect(()=>kill(server, fakeTerm, out, err, ["-p","2"],{testing:true})).to.not.throw();
+                            expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
+                            expected.sort();
+                            result.sort()
+                            expect(result.join("\n")).to.equal(expected.join("\n"));
+                            //test 2: killing by PID
+                            expect(()=>kill(server, fakeTerm, out, err, ["-p","2"],{testing:true})).to.not.throw();
 
-                result = [];
-                expected = [ "Script                                  PID       Threads         RAM Usage"];
+                            result = [];
+                            expected = [ "Script                                  PID       Threads         RAM Usage"];
 
-                expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
-                expected.sort();
-                result.sort()
-                expect(result.join("\n")).to.equal(expected.join("\n"));
+                            expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
+                            expected.sort();
+                            result.sort()
+                            expect(result.join("\n")).to.equal(expected.join("\n"));
             });
         });
 
@@ -1382,27 +1391,27 @@ describe("BaseServer file system core library tests", function() {
                         logs:["wowie"]
                     },]);
 
-                let result = [];
-                out = (msg)=>{result.push(msg);};
-                let expected = [
-                    "Script                                  PID       Threads         RAM Usage",
-                    "/f1                                     2         1               3.00 GB",
-                    "/f1                                     1         1               1.00 GB"];
+                    let result: string[] = [];
+                    out = (msg: string)=>{result.push(msg);};
+                    let expected = [
+                        "Script                                  PID       Threads         RAM Usage",
+                        "/f1                                     2         1               3.00 GB",
+                        "/f1                                     1         1               1.00 GB"];
 
-                expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
-                expected.sort();
-                result.sort()
-                expect(result.join("\n")).to.equal(expected.join("\n"));
-                // both scripts are now running.
-                expect(()=>killall(server, fakeTerm, out, err, [], {testing:true})).to.not.throw();
+                        expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
+                        expected.sort();
+                        result.sort()
+                        expect(result.join("\n")).to.equal(expected.join("\n"));
+                        // both scripts are now running.
+                        expect(()=>killall(server, fakeTerm, out, err, [], {testing:true})).to.not.throw();
 
-                result = [];
-                expected = [ "Script                                  PID       Threads         RAM Usage"];
+                        result = [];
+                        expected = [ "Script                                  PID       Threads         RAM Usage"];
 
-                expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
-                expected.sort();
-                result.sort()
-                expect(result.join("\n")).to.equal(expected.join("\n"));
+                        expect(()=>top(server, fakeTerm, out, err, [])).to.not.throw();
+                        expected.sort();
+                        result.sort()
+                        expect(result.join("\n")).to.equal(expected.join("\n"));
             });
         });
         describe("SQLInject.exe", function(){
@@ -1452,4 +1461,3 @@ describe("BaseServer file system core library tests", function() {
         })
     });
 })
-

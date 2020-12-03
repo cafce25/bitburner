@@ -18,45 +18,73 @@ import { setTimeoutRef } from "../utils/SetTimeoutRef";
 import { getServer } from "../Server/AllServers";
 
 let globalModuleSequenceNumber: number = 0;
+export interface IScriptBase {
+    // Filename for the script file
+    filename: string;
 
-export class Script {
+    // IP of server that this script is on.
+    server: string;
+
+    // Amount of RAM this Script requres to run
+    ramUsage: number;
+}
+
+export class Script implements IScriptBase {
     // Initializes a Script Object from a JSON save state
     static fromJSON(value: any): Script {
         return Generic_fromJSON(Script, value.data);
     }
 
     // Filename for the script file
-    filename: string = "";
+    filename: string;
+
+    // IP of server that this script is on.
+    server: string;
+
+    // Amount of RAM this Script requres to run
+    ramUsage: number;
+
+    //used to mock scripts without a server
+    _code: string = "";
 
     // DEPRECATED: Source code
-    code: string = "";
+    //code?: string = "";
 
+    get code(): string {
+        if (this.server === "" || typeof this.server === "undefined") {
+            return this._code;
+        }
+        return this.getServer().readFile(this.filename);
+    }
+
+    set code(data: string) {
+        if (this.server === "" || typeof this.server === "undefined") {
+            this._code = data;
+        }
+        else {
+            this.getServer().writeFile(this.filename, data);
+        }
+    }
     // The dynamic module generated for this script when it is run.
     // This is only applicable for NetscriptJS
-    module: any = "";
+    module?: any = "";
 
     // The timestamp when when the script was last updated.
-    moduleSequenceNumber: number;
+    moduleSequenceNumber?: number;
 
     // Only used with NS2 scripts; the list of dependency script filenames. This is constructed
     // whenever the script is first evaluated, and therefore may be out of date if the script
     // has been updated since it was last run.
-    dependencies: string[] = [];
+    dependencies?: string[] = [];
 
-    // Amount of RAM this Script requres to run
-    ramUsage: number = 0;
 
-    // IP of server that this script is on.
-	   server: string = "";
-
-    constructor(fn: string= "", server: string= "") {
+    constructor(fn: string="", server: string="") {
         this.filename 	= fn;
         // the source code is directly fetched from the server when needed to avoid data duplication in memory.
         this.ramUsage   = 0;
-    	   this.server 	= server; // IP of server this script is on
+        this.server 	= server; // IP of server this script is on
         this.module     = "";
         this.moduleSequenceNumber = ++globalModuleSequenceNumber;
-
     }
 
     /**
@@ -96,6 +124,7 @@ export class Script {
      * @param {string} serverIp - The IP of the server on which the script is supposed to be saved. Used to process imports
      */
     saveScript(code: string, serverIp: string): void {
+        //TODO should this just use the already set Ip?
 
     	if (routing.isOn(Page.ScriptEditor)) {
     		// Update code and filename

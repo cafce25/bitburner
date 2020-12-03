@@ -6,7 +6,7 @@ import { FconfSettings } from "../Fconf/FconfSettings";
 import { Settings } from "../Settings/Settings";
 import { IMap } from "../types";
 import { post } from "../ui/postToTerminal";
-import { Script } from "./Script";
+import { IScriptBase, Script } from "./Script";
 
 import { getTimestamp } from "../../utils/helpers/getTimestamp";
 import {
@@ -16,11 +16,6 @@ import {
 } from "../../utils/JSONReviver";
 
 export class RunningScript {
-    // Initializes a RunningScript Object from a JSON save state
-    static fromJSON(value: any): RunningScript {
-        return Generic_fromJSON(RunningScript, value.data);
-    }
-
     // Script arguments
     args: any[] = [];
 
@@ -68,13 +63,19 @@ export class RunningScript {
     // Number of threads that this script is running with
     threads: number = 1;
 
-    constructor(script: Script | null = null, args: any[] = []) {
+    constructor(script?: IScriptBase, args: any[] = []) {
         if (script == null) { return; }
         this.filename   = script.filename;
         this.args       = args;
         this.server     = script.server;
         this.ramUsage   = script.ramUsage;
     }
+
+    // Initializes a RunningScript Object from a JSON save state
+    static fromJSON(value: any): RunningScript {
+        return Generic_fromJSON(RunningScript, value.data);
+    }
+
 
     log(txt: string): void {
         if (this.logs.length > Settings.MaxLogCapacity) {

@@ -19,6 +19,7 @@ module.exports = (env, argv) => {
     }
 
     return {
+        mode: "development",
         plugins: [
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': "\"development\""
@@ -33,7 +34,7 @@ module.exports = (env, argv) => {
                 $: "jquery"
             }),
         ],
-        entry: "./test/index.js",
+        entry: "./test/index.ts",
         target: "web",
         devtool: "source-map",
         output: {
@@ -42,6 +43,14 @@ module.exports = (env, argv) => {
         },
         module: {
             rules: [
+                {
+                    test: /\.(js|ts)x?/,
+                    loader: 'istanbul-instrumenter-loader',
+                    exclude: /node_modules/,
+                    query: {
+                        esModules: true
+                    }
+                },
                 {
                     test: /\.tsx?$/,
                     loader: 'ts-loader',
@@ -57,7 +66,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.s?css$/,
                     loader: 'null-loader',
-                },
+                }
             ]
         },
         optimization: {
@@ -65,13 +74,12 @@ module.exports = (env, argv) => {
             removeEmptyChunks: true,
             mergeDuplicateChunks: true,
             flagIncludedChunks: true,
-            occurrenceOrder: true,
             sideEffects: true,
             providedExports: true,
             usedExports: true,
             concatenateModules: false,
-            namedModules: false,
-            namedChunks: false,
+            moduleIds: false,
+            chunkIds: false,
             minimize: false,
             portableRecords: true,
             splitChunks: {
