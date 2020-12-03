@@ -1,6 +1,6 @@
 // Constructs all CompanyPosition objects using the metadata in data/companypositions.ts
-import { Reviver }                      from "../../utils/JSONReviver";
-import { IMap }                         from "../types";
+import { Reviver }                      from "utils/JSONReviver";
+import { IMap }                         from "types";
 import { Company, IConstructorParams }  from "./Company";
 import { companiesMetadata }            from "./data/CompaniesMetadata";
 

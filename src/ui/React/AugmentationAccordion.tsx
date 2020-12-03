@@ -8,8 +8,8 @@ import * as React from "react";
 
 import { Accordion } from "./Accordion";
 
-import { Augmentation } from "../../Augmentation/Augmentation";
-import { AugmentationNames } from "../../Augmentation/data/AugmentationNames";
+import { Augmentation } from "Augmentation/Augmentation";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
 
 type IProps = {
     aug: Augmentation,

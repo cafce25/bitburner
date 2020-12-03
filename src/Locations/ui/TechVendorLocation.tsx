@@ -5,19 +5,19 @@
  */
 import * as React from "react";
 
-import { Location }                     from "../Location";
+import { Location }                     from "Locations/Location";
 import { createPurchaseServerPopup,
          createUpgradeHomeCoresPopup,
          createUpgradeHomeRamPopup,
-         purchaseTorRouter }            from "../LocationsHelpers";
+         purchaseTorRouter }            from "Locations/LocationsHelpers";
 
-import { CONSTANTS }                    from "../../Constants";
-import { IPlayer }                      from "../../PersonObjects/IPlayer";
-import { getPurchaseServerCost }        from "../../Server/ServerPurchases";
+import { CONSTANTS }                    from "Constants";
+import { IPlayer }                      from "PersonObjects/IPlayer";
+import { getPurchaseServerCost }        from "Server/ServerPurchases";
 
-import { numeralWrapper }               from "../../ui/numeralFormat";
-import { StdButtonPurchased }           from "../../ui/React/StdButtonPurchased";
-import { StdButton }                    from "../../ui/React/StdButton";
+import { numeralWrapper }               from "ui/numeralFormat";
+import { StdButtonPurchased }           from "ui/React/StdButtonPurchased";
+import { StdButton }                    from "ui/React/StdButton";
 
 type IProps = {
     loc: Location;

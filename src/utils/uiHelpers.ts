@@ -1,4 +1,4 @@
-import { isString } from "./helpers/isString";
+import { isString } from "./helpers";
 /**
  * Appends the specified number of breaks (as children) to the specified element
  * @param el The element to add child break elements to.
@@ -18,7 +18,7 @@ export function appendLineBreaks(el: HTMLElement, n: number) {
 export function clearEventListeners(elemId: string | HTMLElement): HTMLElement | null {
     try {
         let elem: HTMLElement;
-        if (isString(elemId)) {
+        if (typeof elemId === "string") {
             elem = getElementById(elemId);
         } else {
             elem = elemId;

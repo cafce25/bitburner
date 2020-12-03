@@ -3,22 +3,22 @@
  */
 import React from "react";
 
-import { purchaseHashUpgrade }  from "../HacknetHelpers";
-import { HashManager }          from "../HashManager";
-import { HashUpgrades }         from "../HashUpgrades";
+import { purchaseHashUpgrade }  from "Hacknet/HacknetHelpers";
+import { HashManager }          from "Hacknet/HashManager";
+import { HashUpgrades }         from "Hacknet/HashUpgrades";
 
-import { Player }               from "../../Player";
-import { AllServers }           from "../../Server/AllServers";
-import { Server }               from "../../Server/Server";
+import { Player }               from "Player";
+import { AllServers }           from "Server/AllServers";
+import { Server }               from "Server/Server";
 
-import { numeralWrapper }       from "../../ui/numeralFormat";
+import { numeralWrapper }       from "ui/numeralFormat";
 
-import { removePopup }          from "../../ui/React/createPopup";
-import { PopupCloseButton }     from "../../ui/React/PopupCloseButton";
+import { removePopup }          from "ui/React/createPopup";
+import { PopupCloseButton }     from "ui/React/PopupCloseButton";
 import { ServerDropdown,
-         ServerType }           from "../../ui/React/ServerDropdown"
+         ServerType }           from "ui/React/ServerDropdown"
 
-import { dialogBoxCreate }      from "../../../utils/DialogBox";
+import { dialogBoxCreate }      from "utils/DialogBox";
 
 class HashUpgrade extends React.Component {
     constructor(props) {

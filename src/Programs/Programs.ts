@@ -1,4 +1,4 @@
-import { IMap }                     from "../types";
+import { IMap }                     from "types";
 import { programsMetadata }         from "./data/ProgramsMetadata";
 import { Program }                  from "./Program";
 

@@ -3,7 +3,7 @@
  */
 import { IPlayer } from "../IPlayer";
 
-import { Augmentation } from "../../Augmentation/Augmentation";
+import { Augmentation } from "Augmentation/Augmentation";
 
 export function hasAugmentation(this: IPlayer, aug: string | Augmentation): boolean {
     const augName: string = (aug instanceof Augmentation) ? aug.name : aug;

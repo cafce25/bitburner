@@ -11,28 +11,27 @@ import { Corporation,
          SellSharesCooldown,
          WarehouseInitialCost,
          WarehouseInitialSize,
-         BribeToRepRatio } from "../Corporation";
+         BribeToRepRatio } from "Corporation/Corporation";
 
 import { Industries,
          IndustryStartingCosts,
          IndustryDescriptions,
-         IndustryResearchTrees } from "../IndustryData";
+         IndustryResearchTrees } from "Corporation/IndustryData";
 
-import { MaterialSizes } from "../MaterialSizes";
+import { MaterialSizes } from "Corporation/MaterialSizes";
 
-import { Product } from "../Product";
+import { Product } from "Corporation/Product";
 
-import { Player } from "../../Player";
+import { Player } from "Player";
 
-import { Factions } from "../../Faction/Factions";
-import { Cities } from "../../Locations/Cities";
+import { Factions } from "Faction/Factions";
+import { Cities } from "Locations/Cities";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
-import { getRandomInt } from "../../../utils/helpers/getRandomInt";
-import { KEY } from "../../../utils/helpers/keyCodes";
+import { getRandomInt, KEY_CODES } from "utils/helpers";
 
 import {
     clearSelector,
@@ -43,7 +42,7 @@ import {
 	getSelectText,
     getSelectValue,
 	removeElementById
-} from "../../../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 export class CorporationEventHandler {
     constructor(corp, routing) {
@@ -387,7 +386,7 @@ export class CorporationEventHandler {
             type: "number",
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {allocateBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {allocateBtn.click();}
             }
         });
 
@@ -476,7 +475,7 @@ export class CorporationEventHandler {
             type: "number",
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {
+                if (e.keyCode === KEY_CODES.ENTER) {
                     issueBtn.click();
                 } else {
                     updateDynamicText(this.corp);
@@ -553,7 +552,7 @@ export class CorporationEventHandler {
             type:"number",
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) { confirmBtn.click(); }
+                if (e.keyCode === KEY_CODES.ENTER) { confirmBtn.click(); }
             }
         });
         confirmBtn = createElement("button", {
@@ -632,7 +631,7 @@ export class CorporationEventHandler {
             type: "number",
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) { confirmBtn.click(); }
+                if (e.keyCode === KEY_CODES.ENTER) { confirmBtn.click(); }
             }
         });
         confirmBtn = createElement("button", {
@@ -868,7 +867,7 @@ export class CorporationEventHandler {
             pattern:"[a-zA-Z0-9-_]",
             onkeyup:(e)=>{
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {yesBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {yesBtn.click();}
             }
         });
         var nameLabel = createElement("label", {
@@ -930,11 +929,11 @@ export class CorporationEventHandler {
             }));
         }
 
-        for (var key in Industries) {
-            if (key !== "Agriculture" && Industries.hasOwnProperty(key) && !ownedIndustries[key]) {
-                var ind = Industries[key];
+        for (var KEY_CODES in Industries) {
+            if (KEY_CODES !== "Agriculture" && Industries.hasOwnProperty(key) && !ownedIndustries[key]) {
+                var ind = Industries[KEY_CODES];
                 selector.add(createElement("option", {
-                    text: ind,value:key,
+                    text: ind,value:KEY_CODES,
                 }));
             }
         }
@@ -1089,7 +1088,7 @@ export class CorporationEventHandler {
             value: mat.buy ? mat.buy : null,
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {confirmBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {confirmBtn.click();}
             }
         });
         confirmBtn = createElement("button", {
@@ -1155,7 +1154,7 @@ export class CorporationEventHandler {
                 onkeyup: (e) => {
                     e.preventDefault();
                     updateBulkPurchaseText(e.target.value);
-                    if (e.keyCode === KEY.ENTER) {bulkPurchaseConfirmBtn.click();}
+                    if (e.keyCode === KEY_CODES.ENTER) {bulkPurchaseConfirmBtn.click();}
                 }
             });
 
@@ -1226,7 +1225,7 @@ export class CorporationEventHandler {
             placeholder: "Sell amount",
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {confirmBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {confirmBtn.click();}
             }
         });
 
@@ -1243,7 +1242,7 @@ export class CorporationEventHandler {
             placeholder: "Sell price",
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {confirmBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {confirmBtn.click();}
             }
         });
         confirmBtn = createElement("button", {
@@ -1349,7 +1348,7 @@ export class CorporationEventHandler {
             value: product.sllman[city][1] ? product.sllman[city][1] : null,
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {confirmBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {confirmBtn.click();}
             }
         });
 
@@ -1367,7 +1366,7 @@ export class CorporationEventHandler {
             value: inputButtonInitValue,
             onkeyup: (e) => {
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {confirmBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {confirmBtn.click();}
             }
         });
         const checkboxDiv = createElement("div", {
@@ -1601,7 +1600,7 @@ export class CorporationEventHandler {
             },
             onkeyup:(e)=>{
                 e.preventDefault();
-                if (e.keyCode === KEY.ENTER) {confirmBtn.click();}
+                if (e.keyCode === KEY_CODES.ENTER) {confirmBtn.click();}
             }
         });
         confirmBtn = createElement("button", {

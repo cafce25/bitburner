@@ -3,15 +3,15 @@
  */
 import * as React from "react";
 
-import { CONSTANTS } from "../../Constants";
-import { Faction } from "../../Faction/Faction";
-import { IPlayer } from "../../PersonObjects/IPlayer";
+import { CONSTANTS } from "Constants";
+import { Faction } from "Faction/Faction";
+import { IPlayer } from "PersonObjects/IPlayer";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { StdButton } from "../../ui/React/StdButton";
+import { StdButton } from "ui/React/StdButton";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
 type IProps = {
     faction: Faction;

@@ -4,36 +4,36 @@ import { RamCalculationErrorCode } from "./RamCalculationErrorCodes";
 import { calculateRamUsage } from "./RamCalculations";
 import { isScriptFilename } from "./ScriptHelpersTS";
 
-import {CONSTANTS} from "../Constants";
-import {Engine} from "../engine";
-import { parseFconfSettings } from "../Fconf/Fconf";
-import { FconfSettings } from "../Fconf/FconfSettings";
+import {CONSTANTS} from "Constants";
+import {Engine} from "engine";
+import { parseFconfSettings } from "Fconf/Fconf";
+import { FconfSettings } from "Fconf/FconfSettings";
 import {
     iTutorialSteps,
     iTutorialNextStep,
     ITutorial
-} from "../InteractiveTutorial";
-import { Player } from "../Player";
-import { AceEditor } from "../ScriptEditor/Ace";
-import { CodeMirrorEditor } from "../ScriptEditor/CodeMirror";
-import { AllServers } from "../Server/AllServers";
-import { processSingleServerGrowth } from "../Server/ServerHelpers";
-import { Settings } from "../Settings/Settings";
-import { EditorSetting } from "../Settings/SettingEnums";
-import { isValidFilePath } from "../Terminal/DirectoryHelpers";
-import { TextFile } from "../TextFile";
+} from "InteractiveTutorial";
+import { Player } from "Player";
+import { AceEditor } from "ScriptEditor/Ace";
+import { CodeMirrorEditor } from "ScriptEditor/CodeMirror";
+import { AllServers } from "Server/AllServers";
+import { processSingleServerGrowth } from "Server/ServerHelpers";
+import { Settings } from "Settings/Settings";
+import { EditorSetting } from "Settings/SettingEnums";
+import { isValidFilePath } from "Terminal/DirectoryHelpers";
+import { TextFile } from "TextFile";
 
-import { Page, routing } from "../ui/navigationTracking";
-import { numeralWrapper } from "../ui/numeralFormat";
+import { Page, routing } from "ui/navigationTracking";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 import {
     Reviver,
     Generic_toJSON,
     Generic_fromJSON
-} from "../../utils/JSONReviver";
-import { compareArrays } from "../../utils/helpers/compareArrays";
-import { createElement } from "../../utils/uiHelpers";
+} from "utils/JSONReviver";
+import { compareArrays } from "utils/helpers";
+import { createElement } from "utils/uiHelpers";
 
 var scriptEditorRamCheck = null, scriptEditorRamText = null;
 export function scriptEditorInit() {

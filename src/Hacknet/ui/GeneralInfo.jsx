@@ -5,7 +5,7 @@
  */
 import React from "react";
 
-import { hasHacknetServers } from "../HacknetHelpers";
+import { hasHacknetServers } from "Hacknet/HacknetHelpers";
 
 export class GeneralInfo extends React.Component {
     getSecondParagraph() {

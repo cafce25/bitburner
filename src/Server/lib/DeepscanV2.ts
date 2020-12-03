@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {registerExecutable, ManualEntry, fetchUsage, fetchExecutable} from "./sys";
 
 export function DeepscanV2(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){

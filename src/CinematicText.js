@@ -1,13 +1,11 @@
-
 import { Engine } from "./engine";
-import { setTimeoutRef } from "./utils/SetTimeoutRef";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
 
 import {
     removeChildrenFromElement,
 	createElement
-} from "../utils/uiHelpers";
-import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { isString } from "../utils/helpers/isString";
+} from "utils/uiHelpers";
+import { exceptionAlert, isString } from "utils/helpers";
 
 export let cinematicTextFlag = false;
 

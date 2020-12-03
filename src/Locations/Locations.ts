@@ -9,7 +9,7 @@ import { LocationsMetadata }    from "./data/LocationsMetadata";
 import { IConstructorParams,
          Location }   from "./Location";
 
-import { IMap } from "../types";
+import { IMap } from "types";
 
 export const Locations: IMap<Location> = {};
 

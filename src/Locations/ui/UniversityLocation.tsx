@@ -7,11 +7,11 @@ import * as React from "react";
 
 import { Location }         from "../Location";
 
-import { CONSTANTS }        from "../../Constants";
-import { IPlayer }          from "../../PersonObjects/IPlayer";
+import { CONSTANTS }        from "Constants";
+import { IPlayer }          from "PersonObjects/IPlayer";
 
-import { numeralWrapper }   from "../../ui/numeralFormat";
-import { StdButton }        from "../../ui/React/StdButton";
+import { numeralWrapper }   from "ui/numeralFormat";
+import { StdButton }        from "ui/React/StdButton";
 
 type IProps = {
     loc: Location;

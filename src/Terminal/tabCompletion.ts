@@ -1,11 +1,11 @@
 import {
     post,
-} from "../ui/postToTerminal";
+} from "ui/postToTerminal";
 
 import {
     containsAllStrings,
     longestCommonStart,
-} from "../../utils/StringHelperFunctions";
+} from "utils/StringHelperFunctions";
 
 /**
  * Implements tab completion for the Terminal

@@ -3,10 +3,10 @@
  */
 import * as React from "react";
 
-import { Order } from "../Order";
-import { PositionTypes } from "../data/PositionTypes";
+import { Order } from "StockMarket/Order";
+import { PositionTypes } from "StockMarket/data/PositionTypes";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
 type IProps = {
     cancelOrder: (params: object) => void;

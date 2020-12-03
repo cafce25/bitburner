@@ -8,8 +8,8 @@ import { InstalledAugmentationsAndSourceFiles } from "./InstalledAugmentationsAn
 import { PlayerMultipliers } from "./PlayerMultipliers";
 import { PurchasedAugmentations } from "./PurchasedAugmentations";
 
-import { Player } from "../../Player";
-import { StdButton } from "../../ui/React/StdButton";
+import { Player } from "Player";
+import { StdButton } from "ui/React/StdButton";
 
 type IProps = {
     exportGameFn: () => void;

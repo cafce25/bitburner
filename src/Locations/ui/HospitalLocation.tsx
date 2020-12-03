@@ -5,13 +5,13 @@
  */
 import * as React from "react";
 
-import { CONSTANTS }                from "../../Constants";
-import { IPlayer }                  from "../../PersonObjects/IPlayer";
+import { CONSTANTS }                from "Constants";
+import { IPlayer }                  from "PersonObjects/IPlayer";
 
-import { numeralWrapper }           from "../../ui/numeralFormat";
-import { AutoupdatingStdButton }    from "../../ui/React/AutoupdatingStdButton";
+import { numeralWrapper }           from "ui/numeralFormat";
+import { AutoupdatingStdButton }    from "ui/React/AutoupdatingStdButton";
 
-import { dialogBoxCreate }          from "../../../utils/DialogBox";
+import { dialogBoxCreate }          from "utils/DialogBox";
 
 type IProps = {
     p: IPlayer;

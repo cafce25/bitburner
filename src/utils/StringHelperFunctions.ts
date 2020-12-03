@@ -1,5 +1,5 @@
-import { EqualityFunc } from "../src/types";
-import { isString } from "./helpers/isString";
+import { EqualityFunc } from "types";
+import { isString } from "./helpers";
 
 // Netburner String helper functions
 

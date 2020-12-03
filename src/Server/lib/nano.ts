@@ -1,6 +1,6 @@
-import { BaseServer } from "../BaseServer";
-import { Engine } from "../../engine";
-import { createFconf } from "../../Fconf/Fconf";
+import { BaseServer } from "Server/BaseServer";
+import { Engine } from "engine";
+import { createFconf } from "Fconf/Fconf";
 import { touch } from "./touch";
 
 export function nano(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){

@@ -4,9 +4,9 @@
  * Configurable to only contain certain types of servers
  */
 import React from "react";
-import { AllServers } from "../../Server/AllServers";
+import { AllServers } from "Server/AllServers";
 
-import { HacknetServer } from "../../Hacknet/HacknetServer";
+import { HacknetServer } from "Hacknet/HacknetServer";
 
 // TODO make this an enum when this gets converted to TypeScript
 export const ServerType = {

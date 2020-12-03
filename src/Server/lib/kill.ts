@@ -1,7 +1,7 @@
-import { BaseServer } from "../BaseServer";
-import { killWorkerScript } from "../../Netscript/killWorkerScript";
-import { Script} from "../../Script/Script";
-import { RunningScript} from "../../Script/RunningScript";
+import { BaseServer } from "Server/BaseServer";
+import { killWorkerScript } from "Netscript/killWorkerScript";
+import { Script} from "Script/Script";
+import { RunningScript} from "Script/RunningScript";
 import {registerExecutable, ManualEntry, fetchUsage} from "./sys";
 
 export function kill(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){

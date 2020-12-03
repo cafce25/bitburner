@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import { detectFileType } from "./FileType";
 /**
  * This function allows removing files and folders alike, recursively or not.

@@ -1,4 +1,4 @@
-import { IMap }         from "../types";
+import { IMap }         from "types";
 
 export const EmployeePositions: IMap<string> = {
     Operations: "Operations",

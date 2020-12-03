@@ -4,9 +4,9 @@
 import React from "react";
 
 import { hasHacknetServers,
-         hasMaxNumberHacknetServers } from "../HacknetHelpers";
-import { Player } from "../../Player";
-import { numeralWrapper } from "../../ui/numeralFormat";
+         hasMaxNumberHacknetServers } from "Hacknet/HacknetHelpers";
+import { Player } from "Player";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export function PurchaseButton(props) {
     if (props.multiplier == null || props.onClick == null) {

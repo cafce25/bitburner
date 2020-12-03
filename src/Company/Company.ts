@@ -1,10 +1,10 @@
 import { CompanyPosition } from "./CompanyPosition";
 import * as posNames from "./data/companypositionnames";
 
-import { CONSTANTS } from "../Constants";
-import { IMap } from "../types";
+import { CONSTANTS } from "Constants";
+import { IMap } from "types";
 
-import { Generic_fromJSON, Generic_toJSON, Reviver } from "../../utils/JSONReviver";
+import { Generic_fromJSON, Generic_toJSON, Reviver } from "utils/JSONReviver";
 
 export interface IConstructorParams {
     name: string;

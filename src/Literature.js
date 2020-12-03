@@ -2,7 +2,7 @@
  * Lore / world building literature files that can be found on servers.
  * These files can be read by the player
  */
-import { dialogBoxCreate } from "../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
 function Literature(title, filename, txt) {
     this.title      = title;

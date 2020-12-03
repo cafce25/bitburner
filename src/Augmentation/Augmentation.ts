@@ -1,12 +1,12 @@
 // Class definition for a single Augmentation object
-import { CONSTANTS } from "../Constants";
-import { IMap } from "../types";
+import { CONSTANTS } from "Constants";
+import { IMap } from "types";
 
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
-import { Faction } from "../Faction/Faction";
-import { Factions } from "../Faction/Factions";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { Faction } from "Faction/Faction";
+import { Factions } from "Faction/Factions";
 
-import { Generic_fromJSON, Generic_toJSON, Reviver } from "../../utils/JSONReviver";
+import { Generic_fromJSON, Generic_toJSON, Reviver } from "utils/JSONReviver";
 
 interface IConstructorParams {
     info: string;

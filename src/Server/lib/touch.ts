@@ -1,6 +1,6 @@
-import { BaseServer } from "../BaseServer";
-import { Engine } from "../../engine";
-import { createFconf } from "../../Fconf/Fconf";
+import { BaseServer } from "Server/BaseServer";
+import { Engine } from "engine";
+import { createFconf } from "Fconf/Fconf";
 
 export function touch(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){
     if (args.length < 1) {

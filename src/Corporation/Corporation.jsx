@@ -1,47 +1,51 @@
 import { AllCorporationStates,
-         CorporationState }                             from "./CorporationState";
-import { CorporationUnlockUpgrades }                    from "./data/CorporationUnlockUpgrades";
-import { CorporationUpgrades }                          from "./data/CorporationUpgrades";
-import { EmployeePositions }                            from "./EmployeePositions";
+         CorporationState }                   from "./CorporationState";
+import { CorporationUnlockUpgrades }          from "./data/CorporationUnlockUpgrades";
+import { CorporationUpgrades }                from "./data/CorporationUpgrades";
+import { EmployeePositions }                  from "./EmployeePositions";
 import { Industries,
          IndustryStartingCosts,
          IndustryDescriptions,
-         IndustryResearchTrees }                        from "./IndustryData";
-import { IndustryUpgrades }                             from "./IndustryUpgrades";
-import { Material }                                     from "./Material";
-import { MaterialSizes }                                from "./MaterialSizes";
-import { Product }                                      from "./Product";
-import { ResearchMap }                                  from "./ResearchMap";
-import { Warehouse }                                    from "./Warehouse";
+         IndustryResearchTrees }              from "./IndustryData";
+import { IndustryUpgrades }                   from "./IndustryUpgrades";
+import { Material }                           from "./Material";
+import { MaterialSizes }                      from "./MaterialSizes";
+import { Product }                            from "./Product";
+import { ResearchMap }                        from "./ResearchMap";
+import { Warehouse }                          from "./Warehouse";
 
-import { BitNodeMultipliers }                           from "../BitNode/BitNodeMultipliers";
-import { CONSTANTS }                                    from "../Constants";
-import { Factions }                                     from "../Faction/Factions";
-import { showLiterature }                               from "../Literature";
-import { createCityMap }                                from "../Locations/Cities";
-import { CityName }                                     from "../Locations/data/CityNames";
-import { Player }                                       from "../Player";
+import { BitNodeMultipliers }                 from "BitNode/BitNodeMultipliers";
+import { CONSTANTS }                          from "Constants";
+import { Factions }                           from "Faction/Factions";
+import { showLiterature }                     from "Literature";
+import { createCityMap }                      from "Locations/Cities";
+import { CityName }                           from "Locations/data/CityNames";
+import { Player }                             from "Player";
 
-import { numeralWrapper }                               from "../ui/numeralFormat";
-import { Page, routing }                                from "../ui/navigationTracking";
+import { numeralWrapper }                     from "ui/numeralFormat";
+import { Page, routing }                      from "ui/navigationTracking";
 
-import { calculateEffectWithFactors }                   from "../utils/calculateEffectWithFactors";
+import { calculateEffectWithFactors }         from "utils/calculateEffectWithFactors";
 
-import { dialogBoxCreate }                              from "../../utils/DialogBox";
-import { clearSelector }                                from "../../utils/uiHelpers";
+import { dialogBoxCreate }                    from "utils/DialogBox";
 import { Reviver,
          Generic_toJSON,
-         Generic_fromJSON }                             from "../../utils/JSONReviver";
-import { appendLineBreaks }                             from "../../utils/uiHelpers";
-import { createElement }                                from "../../utils/uiHelpers";
-import { createPopup }                                  from "../../utils/uiHelpers";
-import { createPopupCloseButton }                       from "../../utils/uiHelpers";
-import { formatNumber, generateRandomString }           from "../../utils/StringHelperFunctions";
-import { getRandomInt }                                 from "../../utils/helpers/getRandomInt";
-import { isString }                                     from "../../utils/helpers/isString";
-import { KEY }                                          from "../../utils/helpers/keyCodes";
-import { removeElement }                                from "../../utils/uiHelpers";
-import { removeElementById }                            from "../../utils/uiHelpers";
+         Generic_fromJSON }                   from "utils/JSONReviver";
+import { formatNumber, generateRandomString } from "utils/StringHelperFunctions";
+import {
+    getRandomInt,
+    isString,
+    KEY_CODES
+} from "utils/helpers";
+import {
+    clearSelector,
+    appendLineBreaks,
+    createElement,
+    createPopup,
+    createPopupCloseButton,
+    removeElement,
+    removeElementById
+} from "utils/uiHelpers";
 import { yesNoBoxCreate,
          yesNoTxtInpBoxCreate,
          yesNoBoxGetYesButton,
@@ -50,16 +54,16 @@ import { yesNoBoxCreate,
          yesNoTxtInpBoxGetNoButton,
          yesNoTxtInpBoxGetInput,
          yesNoBoxClose,
-         yesNoTxtInpBoxClose }                          from "../../utils/YesNoBox";
+         yesNoTxtInpBoxClose }                from "utils/YesNoBox";
 
 // UI Related Imports
-import React                                            from "react";
-import ReactDOM                                         from "react-dom";
-import { CorporationEventHandler }                      from "./ui/CorporationUIEventHandler";
-import { CorporationRoot }                              from "./ui/Root";
-import { CorporationRouting }                           from "./ui/Routing";
+import React                                  from "react";
+import ReactDOM                               from "react-dom";
+import { CorporationEventHandler }            from "./ui/CorporationUIEventHandler";
+import { CorporationRoot }                    from "./ui/Root";
+import { CorporationRouting }                 from "./ui/Routing";
 
-import Decimal                                          from "decimal.js";
+import Decimal                                from "decimal.js";
 
 /* Constants */
 export const INITIALSHARES                  = 1e9; //Total number of shares you have at your company
@@ -2112,7 +2116,7 @@ Corporation.prototype.goPublic = function() {
         placeholder: "Shares to issue",
         onkeyup:(e)=>{
             e.preventDefault();
-            if (e.keyCode === KEY.ENTER) {yesBtn.click();}
+            if (e.keyCode === KEY_CODES.ENTER) {yesBtn.click();}
         }
     });
     var br = createElement("br", {});

@@ -1,5 +1,5 @@
-import { BaseServer } from "../BaseServer";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { BaseServer } from "Server/BaseServer";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export function free( server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
 

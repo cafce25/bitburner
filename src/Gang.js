@@ -4,28 +4,26 @@
  * balance point to keep them from running out of control
 */
 
-import { gangMemberTasksMetadata } from "./data/gangmembertasks";
-import { gangMemberUpgradesMetadata } from "./data/gangmemberupgrades";
+import { gangMemberTasksMetadata } from "data/gangmembertasks";
+import { gangMemberUpgradesMetadata } from "data/gangmemberupgrades";
 
-import { Engine } from "./engine";
-import { Faction } from "./Faction/Faction";
-import { Factions } from "./Faction/Factions";
-import { displayFactionContent } from "./Faction/FactionHelpers";
+import { Engine } from "engine";
+import { Faction } from "Faction/Faction";
+import { Factions } from "Faction/Factions";
+import { displayFactionContent } from "Faction/FactionHelpers";
 
-import { Page, routing } from "./ui/navigationTracking";
-import { numeralWrapper } from "./ui/numeralFormat";
+import { Page, routing } from "ui/navigationTracking";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 import {
     Reviver,
     Generic_toJSON,
     Generic_fromJSON
-} from "../utils/JSONReviver";
-import { formatNumber } from "../utils/StringHelperFunctions";
+} from "utils/JSONReviver";
+import { formatNumber } from "utils/StringHelperFunctions";
 
-import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { getRandomInt } from "../utils/helpers/getRandomInt";
-import { KEY } from "../utils/helpers/keyCodes";
+import { exceptionAlert, getRandomInt, KEY_CODES } from "utils/helpers";
 
 import {
     createAccordionElement,
@@ -34,7 +32,7 @@ import {
     removeChildrenFromElement,
     removeElement,
     removeElementById
-} from "../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 
 // Constants
@@ -48,11 +46,11 @@ const AscensionMultiplierRatio = 15 / 100; // Portion of upgrade multiplier that
 $(document).keydown(function(event) {
     if (routing.isOn(Page.Gang) && event.altKey) {
         if (UIElems.gangMemberFilter != null && UIElems.gangMemberFilter === document.activeElement) {return;}
-        if (event.keyCode === KEY["1"]) {
+        if (event.keyCode === KEY_CODES["1"]) {
             if(UIElems.gangTerritorySubpage.style.display === "block") {
                 UIElems.managementButton.click();
             }
-        } else if (event.keyCode === KEY["2"]) {
+        } else if (event.keyCode === KEY_CODES["2"]) {
             if (UIElems.gangManagementSubpage.style.display === "block") {
                 UIElems.territoryButton.click();
             }
@@ -1326,7 +1324,7 @@ Gang.prototype.displayGangContent = function(player) {
                 const br = createElement("br");
                 const nameInput = createElement("input", {
                     onkeyup: (e) => {
-                        if (e.keyCode === KEY.ENTER) { yesBtn.click(); }
+                        if (e.keyCode === KEY_CODES.ENTER) { yesBtn.click(); }
                     },
                     placeholder: "Name must be unique",
                     type: "text",

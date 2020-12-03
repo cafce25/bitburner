@@ -3,13 +3,13 @@ import { MaterialSizes }            from "./MaterialSizes";
 import { IProductRatingWeight,
          ProductRatingWeights }     from "./ProductRatingWeights";
 
-import { createCityMap }            from "../Locations/createCityMap";
-import { IMap }                     from "../types";
+import { createCityMap }            from "Locations/createCityMap";
+import { IMap }                     from "types";
 
-import { getRandomInt }             from "../../utils/helpers/getRandomInt";
+import { getRandomInt }             from "utils/helpers";
 import { Generic_fromJSON,
          Generic_toJSON,
-         Reviver }                  from "../../utils/JSONReviver";
+         Reviver }                  from "utils/JSONReviver";
 
 interface IConstructorParams {
     name?: string;

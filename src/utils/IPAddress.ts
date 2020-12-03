@@ -1,4 +1,4 @@
-import { getRandomByte }    from "./helpers/getRandomByte";
+import { getRandomByte }    from "./helpers";
 
 /**
  * Generate a random IP address

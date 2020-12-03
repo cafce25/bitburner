@@ -2,8 +2,8 @@
 import React from "react";
 import { BaseReactComponent } from "./BaseReactComponent";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { numeralWrapper } from "ui/numeralFormat";
+import { dialogBoxCreate } from "utils/DialogBox";
 
 export class UnlockUpgrade extends BaseReactComponent {
     render() {

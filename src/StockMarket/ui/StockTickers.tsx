@@ -8,15 +8,15 @@ import * as React from "react";
 import { StockTicker } from "./StockTicker";
 import { StockTickersConfig, TickerDisplayMode } from "./StockTickersConfig";
 
-import { IStockMarket } from "../IStockMarket";
-import { Stock } from "../Stock";
-import { OrderTypes } from "../data/OrderTypes";
-import { PositionTypes } from "../data/PositionTypes";
+import { IStockMarket } from "StockMarket/IStockMarket";
+import { Stock } from "StockMarket/Stock";
+import { OrderTypes } from "StockMarket/data/OrderTypes";
+import { PositionTypes } from "StockMarket/data/PositionTypes";
 
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { EventEmitter } from "../../utils/EventEmitter";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { EventEmitter } from "utils/EventEmitter";
 
-import { ErrorBoundary } from "../../ui/React/ErrorBoundary";
+import { ErrorBoundary } from "ui/React/ErrorBoundary";
 
 export type txFn = (stock: Stock, shares: number) => boolean;
 export type placeOrderFn = (stock: Stock, shares: number, price: number, ordType: OrderTypes, posType: PositionTypes) => boolean;

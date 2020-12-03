@@ -1,4 +1,4 @@
-import { IMap } from "../../types";
+import { IMap } from "types";
 
 export const overviewPage: string = "Overview";
 

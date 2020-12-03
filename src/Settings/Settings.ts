@@ -1,4 +1,4 @@
-import { ISelfInitializer, ISelfLoading } from "../types";
+import { ISelfInitializer, ISelfLoading } from "types";
 import { AceKeybindingSetting,
          CodeMirrorKeybindingSetting,
          CodeMirrorThemeSetting,

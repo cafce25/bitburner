@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 export function ps(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}) {
     for (let i = 0; i < server.runningScripts.length; i++) {

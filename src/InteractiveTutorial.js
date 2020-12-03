@@ -1,16 +1,16 @@
-import { Engine } from "./engine";
-import { Player } from "./Player";
-import { Settings } from "./Settings/Settings";
+import { Engine } from "engine";
+import { Player } from "Player";
+import { Settings } from "Settings/Settings";
 
-import { initializeMainMenuLinks } from "./ui/MainMenu/Links";
+import { initializeMainMenuLinks } from "ui/MainMenu/Links";
 
-import { exceptionAlert } from "../utils/helpers/exceptionAlert";
+import { exceptionAlert } from "utils/helpers";
 import {
     clearEventListeners,
 	createElement,
 	createPopup,
 	removeElementById
-} from "../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 
 // Ordered array of keys to Interactive Tutorial Steps

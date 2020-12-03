@@ -1,4 +1,4 @@
-import { IMap } from "../types";
+import { IMap } from "types";
 import { Industries } from "./IndustryData";
 
 export interface IProductRatingWeight {

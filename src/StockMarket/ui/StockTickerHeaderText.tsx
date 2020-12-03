@@ -5,12 +5,12 @@
  */
 import * as React from "react";
 
-import { Stock } from "../Stock";
-import { TickerHeaderFormatData } from "../data/TickerHeaderFormatData";
+import { Stock } from "StockMarket/Stock";
+import { TickerHeaderFormatData } from "StockMarket/data/TickerHeaderFormatData";
 
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { Settings } from "../../Settings/Settings";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { Settings } from "Settings/Settings";
+import { numeralWrapper } from "ui/numeralFormat";
 
 type IProps = {
     p: IPlayer;

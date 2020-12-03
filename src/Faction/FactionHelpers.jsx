@@ -3,34 +3,34 @@ import ReactDOM from "react-dom";
 
 import { FactionRoot } from "./ui/Root";
 
-import { Augmentations } from "../Augmentation/Augmentations";
-import { isRepeatableAug } from "../Augmentation/AugmentationHelpers";
-import { PlayerOwnedAugmentation } from "../Augmentation/PlayerOwnedAugmentation";
-import { AugmentationNames } from "../Augmentation/data/AugmentationNames";
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
-import { CONSTANTS } from "../Constants";
-import { Engine } from "../engine";
+import { Augmentations } from "Augmentation/Augmentations";
+import { isRepeatableAug } from "Augmentation/AugmentationHelpers";
+import { PlayerOwnedAugmentation } from "Augmentation/PlayerOwnedAugmentation";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { CONSTANTS } from "Constants";
+import { Engine } from "engine";
 import { Faction } from "./Faction";
 import { Factions } from "./Factions";
-import { HackingMission, setInMission } from "../Missions";
-import { Player } from "../Player";
-import { Settings } from "../Settings/Settings";
+import { HackingMission, setInMission } from "Missions";
+import { Player } from "Player";
+import { Settings } from "Settings/Settings";
 
-import { Page, routing } from "../ui/navigationTracking";
-import { dialogBoxCreate } from "../../utils/DialogBox";
-import { factionInvitationBoxCreate } from "../../utils/FactionInvitationBox";
+import { Page, routing } from "ui/navigationTracking";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { factionInvitationBoxCreate } from "utils/FactionInvitationBox";
 import {
     Reviver,
     Generic_toJSON,
     Generic_fromJSON
-} from "../../utils/JSONReviver";
-import { formatNumber } from "../../utils/StringHelperFunctions";
+} from "utils/JSONReviver";
+import { formatNumber } from "utils/StringHelperFunctions";
 import {
     yesNoBoxCreate,
     yesNoBoxGetYesButton,
     yesNoBoxGetNoButton,
     yesNoBoxClose
-} from "../../utils/YesNoBox";
+} from "utils/YesNoBox";
 
 export function inviteToFaction(faction) {
     if (Settings.SuppressFactionInvites) {

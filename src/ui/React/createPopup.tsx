@@ -11,8 +11,7 @@ import * as ReactDOM    from "react-dom";
 
 import { Popup } from "./Popup";
 
-import { createElement } from "../../../utils/uiHelpers";
-import { removeElementById } from "../../../utils/uiHelpers";
+import { createElement, removeElementById } from "utils/uiHelpers";
 
 type ReactComponent = new(...args: any[]) => React.Component<any, any>;
 

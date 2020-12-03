@@ -1,4 +1,4 @@
-import { AllServers } from "../Server/AllServers";
+import { AllServers } from "Server/AllServers";
 import { RunningScript } from "./RunningScript";
 
 export function getRamUsageFromRunningScript(script: RunningScript): number {

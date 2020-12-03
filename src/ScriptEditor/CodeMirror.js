@@ -90,12 +90,12 @@ import 'codemirror/addon/selection/active-line.js';
 window.JSHINT = require('jshint').JSHINT;
 import './CodeMirrorNetscriptLint.js';
 
-import { NetscriptFunctions } from "../NetscriptFunctions";
+import { NetscriptFunctions } from "NetscriptFunctions";
 import {
     CodeMirrorKeybindingSetting,
     CodeMirrorThemeSetting
-} from "../Settings/SettingEnums";
-import { Settings } from "../Settings/Settings";
+} from "Settings/SettingEnums";
+import { Settings } from "Settings/Settings";
 
 import {
     clearEventListeners,
@@ -104,7 +104,7 @@ import {
     getSelectText,
     getSelectValue,
     removeChildrenFromElement
-} from "../../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 // Max number of invisibles to be shown in a group if the "Show Invisibles" option
 // is marked

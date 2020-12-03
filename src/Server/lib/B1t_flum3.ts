@@ -1,14 +1,14 @@
-import { BaseServer } from "../BaseServer";
-import { Server } from "../Server";
+import { BaseServer } from "Server/BaseServer";
+import { Server } from "Server/Server";
 import {registerExecutable, ManualEntry, fetchUsage, fetchExecutable} from "./sys";
-import { hackWorldDaemon } from "../../RedPill";
-import {Player} from "../../Player";
+import { hackWorldDaemon } from "RedPill";
+import {Player} from "Player";
 import {
     yesNoBoxCreate,
     yesNoBoxGetYesButton,
     yesNoBoxGetNoButton,
     yesNoBoxClose
-} from "../../../utils/YesNoBox";
+} from "utils/YesNoBox";
 
 export function b1t_flum3(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
     const yesBtn:any = yesNoBoxGetYesButton();

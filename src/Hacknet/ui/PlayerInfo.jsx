@@ -6,9 +6,9 @@
  */
 import React from "react";
 
-import { hasHacknetServers } from "../HacknetHelpers";
-import { Player } from "../../Player";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { hasHacknetServers } from "Hacknet/HacknetHelpers";
+import { Player } from "Player";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export function PlayerInfo(props) {
     const hasServers = hasHacknetServers();

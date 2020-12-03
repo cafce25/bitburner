@@ -4,18 +4,18 @@
  * This does NOT represent a script that is actively running and
  * being evaluated. See RunningScript for that
  */
-import { Page, routing } from "../ui/navigationTracking";
+import { Page, routing } from "ui/navigationTracking";
 import { calculateRamUsage } from "./RamCalculations";
 
-import { roundToTwo } from "../../utils/helpers/roundToTwo";
+import { roundToTwo } from "utils/helpers";
 import {
     Generic_fromJSON,
     Generic_toJSON,
     Reviver,
-} from "../../utils/JSONReviver";
-import { setTimeoutRef } from "../utils/SetTimeoutRef";
+} from "utils/JSONReviver";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
 
-import { getServer } from "../Server/AllServers";
+import { getServer } from "Server/AllServers";
 
 let globalModuleSequenceNumber: number = 0;
 export interface IScriptBase {

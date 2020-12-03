@@ -11,13 +11,13 @@ import {
 
 import { PositionTypes } from "./data/PositionTypes";
 
-import { CONSTANTS } from "../Constants";
-import { WorkerScript } from "../Netscript/WorkerScript";
-import { Player } from "../Player";
+import { CONSTANTS } from "Constants";
+import { WorkerScript } from "Netscript/WorkerScript";
+import { Player } from "Player";
 
-import { numeralWrapper } from "../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
 /**
 * Each function takes an optional config object as its last argument

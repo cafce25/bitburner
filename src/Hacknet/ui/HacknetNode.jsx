@@ -8,7 +8,7 @@ import {
     HacknetNodeMaxLevel,
     HacknetNodeMaxRam,
     HacknetNodeMaxCores
-} from "../HacknetNode";
+} from "Hacknet/HacknetNode";
 import {
     getMaxNumberLevelUpgrades,
     getMaxNumberRamUpgrades,
@@ -16,11 +16,11 @@ import {
     purchaseLevelUpgrade,
     purchaseRamUpgrade,
     purchaseCoreUpgrade,
-} from "../HacknetHelpers";
+} from "Hacknet/HacknetHelpers";
 
-import { Player } from "../../Player";
+import { Player } from "Player";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export class HacknetNode extends React.Component {
     render() {

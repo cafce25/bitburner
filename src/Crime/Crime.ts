@@ -1,6 +1,6 @@
-import { CONSTANTS } from "../Constants";
-import { IPlayer } from "../PersonObjects/IPlayer";
-import { IPlayerOrSleeve } from "../PersonObjects/IPlayerOrSleeve";
+import { CONSTANTS } from "Constants";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { IPlayerOrSleeve } from "PersonObjects/IPlayerOrSleeve";
 
 export interface IConstructorParams {
     hacking_success_weight?: number;

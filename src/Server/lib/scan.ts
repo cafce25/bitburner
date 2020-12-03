@@ -1,5 +1,5 @@
-import { BaseServer } from "../BaseServer";
-import { getServer } from "../AllServers";
+import { BaseServer } from "Server/BaseServer";
+import { getServer } from "Server/AllServers";
 export function scan(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){
     // Displays available network connections using TCP
     out("Hostname             IP                   Root Access");

@@ -1,5 +1,5 @@
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import { detectFileType, FileType } from "./FileType";
 /**
  *This function builds a string representation of the file tree from the target directory on the specified server and outputs it as a graphical tree.

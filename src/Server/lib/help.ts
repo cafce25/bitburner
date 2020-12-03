@@ -1,5 +1,5 @@
 import {fetchHelp, fetchHelpIndex, registerExecutable, ManualEntry} from "./sys";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 
 export function help(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){

@@ -8,15 +8,15 @@ import * as React from "react";
 import {
     getStockMarket4SDataCost,
     getStockMarket4STixApiCost
-} from "../StockMarketCosts";
+} from "StockMarket/StockMarketCosts";
 
-import { CONSTANTS } from "../../Constants";
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { numeralWrapper } from "../../ui/numeralFormat";
-import { StdButton } from "../../ui/React/StdButton";
-import { StdButtonPurchased } from "../../ui/React/StdButtonPurchased";
+import { CONSTANTS } from "Constants";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { numeralWrapper } from "ui/numeralFormat";
+import { StdButton } from "ui/React/StdButton";
+import { StdButtonPurchased } from "ui/React/StdButtonPurchased";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
 type IProps = {
     initStockMarket: () => void;

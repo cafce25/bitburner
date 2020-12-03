@@ -1,4 +1,4 @@
-import { CONSTANTS } from "../Constants";
+import { CONSTANTS } from "Constants";
 import * as names from "./data/companypositionnames";
 
 /* tslint:disable:completed-docs */

@@ -9,7 +9,7 @@ import { StockTickerOrder } from "./StockTickerOrder";
 import { Order } from "../Order";
 import { Stock } from "../Stock";
 
-import { IPlayer } from "../../PersonObjects/IPlayer";
+import { IPlayer } from "PersonObjects/IPlayer";
 
 type IProps = {
     cancelOrder: (params: object) => void;

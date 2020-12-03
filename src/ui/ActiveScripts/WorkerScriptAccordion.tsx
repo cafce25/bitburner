@@ -9,13 +9,13 @@ import { numeralWrapper } from "../numeralFormat";
 import { Accordion } from "../React/Accordion";
 import { AccordionButton } from "../React/AccordionButton";
 
-import { killWorkerScript } from "../../Netscript/killWorkerScript";
-import { WorkerScript } from "../../Netscript/WorkerScript";
+import { killWorkerScript } from "Netscript/killWorkerScript";
+import { WorkerScript } from "Netscript/WorkerScript";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
-import { logBoxCreate } from "../../../utils/LogBox";
-import { convertTimeMsToTimeElapsedString } from "../../../utils/StringHelperFunctions";
-import { arrayToString } from "../../../utils/helpers/arrayToString";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { logBoxCreate } from "utils/LogBox";
+import { convertTimeMsToTimeElapsedString } from "utils/StringHelperFunctions";
+import { arrayToString } from "utils/helpers";
 
 type IProps = {
     workerScript: WorkerScript;

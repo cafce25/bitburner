@@ -6,9 +6,9 @@
 import { Research } from "./Research";
 import { ResearchMap } from "./ResearchMap";
 
-import { IMap } from "../types";
+import { IMap } from "types";
 
-import { numeralWrapper } from "../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
 interface IConstructorParams {
     children?: Node[];

@@ -8,36 +8,37 @@ import { SleeveTaskType } from "./SleeveTaskTypesEnum";
 
 import { IPlayer } from "../IPlayer";
 
-import { CONSTANTS } from "../../Constants";
+import { CONSTANTS } from "Constants";
 
-import { Faction } from "../../Faction/Faction";
-import { Factions } from "../../Faction/Factions";
-import { FactionWorkType } from "../../Faction/FactionWorkTypeEnum";
+import { Faction } from "Faction/Faction";
+import { Factions } from "Faction/Factions";
+import { FactionWorkType } from "Faction/FactionWorkTypeEnum";
 
-import { Crime } from "../../Crime/Crime";
-import { Crimes } from "../../Crime/Crimes";
-import { Cities } from "../../Locations/Cities";
-import { CityName } from "../../Locations/data/CityNames";
-import { LocationName } from "../../Locations/data/LocationNames";
+import { Crime } from "Crime/Crime";
+import { Crimes } from "Crime/Crimes";
+import { Cities } from "Locations/Cities";
+import { CityName } from "Locations/data/CityNames";
+import { LocationName } from "Locations/data/LocationNames";
 
 import { Page,
-         routing } from "../../ui/navigationTracking";
-import { numeralWrapper } from "../../ui/numeralFormat";
+         routing } from "ui/navigationTracking";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
-import { createProgressBarText } from "../../../utils/helpers/createProgressBarText";
-import { exceptionAlert } from "../../../utils/helpers/exceptionAlert";
+import { createProgressBarText, exceptionAlert } from "utils/helpers";
 
-import { clearEventListeners } from "../../../utils/uiHelpers";
-import { createElement } from "../../../utils/uiHelpers";
-import { createOptionElement } from "../../../utils/uiHelpers";
-import { createPopup } from "../../../utils/uiHelpers";
-import { createPopupCloseButton } from "../../../utils/uiHelpers";
-import { getSelectValue } from "../../../utils/uiHelpers";
-import { removeChildrenFromElement } from "../../../utils/uiHelpers";
-import { removeElement } from "../../../utils/uiHelpers";
-import { removeElementById } from "../../../utils/uiHelpers";
+import {
+    clearEventListeners,
+    createElement,
+    createOptionElement,
+    createPopup,
+    createPopupCloseButton,
+    getSelectValue,
+    removeChildrenFromElement,
+    removeElement,
+    removeElementById
+} from "utils/uiHelpers";
 
 // Object that keeps track of all DOM elements for the UI for a single Sleeve
 interface ISleeveUIElems {

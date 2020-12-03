@@ -1,16 +1,16 @@
 // Displays character info on a given element. This is used to create & update
 // the 'Stats' page from the main menu
-import { BitNodes } from "../BitNode/BitNode";
-import { IPlayer } from "../PersonObjects/IPlayer";
+import { BitNodes } from "BitNode/BitNode";
+import { IPlayer } from "PersonObjects/IPlayer";
 
-import { numeralWrapper } from "../ui/numeralFormat";
-import { MoneySourceTracker } from "../utils/MoneySourceTracker";
+import { numeralWrapper } from "ui/numeralFormat";
+import { MoneySourceTracker } from "utils/MoneySourceTracker";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
-import { convertTimeMsToTimeElapsedString } from "../../utils/StringHelperFunctions";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { convertTimeMsToTimeElapsedString } from "utils/StringHelperFunctions";
 
-import { createElement } from "../../utils/uiHelpers";
-import { removeChildrenFromElement } from "../../utils/uiHelpers";
+import { createElement } from "utils/uiHelpers";
+import { removeChildrenFromElement } from "utils/uiHelpers";
 
 export function displayCharacterInfo(elem: HTMLElement, p: IPlayer) {
     removeChildrenFromElement(elem);

@@ -4,12 +4,12 @@
  */
 import * as React from "react";
 
-import { Faction } from "../../Faction/Faction";
-import { FactionInfo } from "../../Faction/FactionInfo";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { Faction } from "Faction/Faction";
+import { FactionInfo } from "Faction/FactionInfo";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { AutoupdatingParagraph } from "../../ui/React/AutoupdatingParagraph";
-import { ParagraphWithTooltip } from "../../ui/React/ParagraphWithTooltip";
+import { AutoupdatingParagraph } from "ui/React/AutoupdatingParagraph";
+import { ParagraphWithTooltip } from "ui/React/ParagraphWithTooltip";
 
 type IProps = {
     faction: Faction;

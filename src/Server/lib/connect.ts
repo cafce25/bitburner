@@ -1,8 +1,8 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {registerExecutable, ManualEntry, fetchUsage} from "./sys";
-import { Player } from "../../Player";
-import {getServer} from "../AllServers";
-import {Server} from "../Server";
+import { Player } from "Player";
+import {getServer} from "Server/AllServers";
+import {Server} from "Server/Server";
 
 export function connect(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
     if(options.autolink){

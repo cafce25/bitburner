@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 /**
  * This command allows to create directories, recursively or not.
  *

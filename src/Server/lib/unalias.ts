@@ -1,8 +1,8 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 import {
     removeAlias,
-} from "../../Alias";
+} from "Alias";
 
 export function unalias(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}) {
     args.forEach(removeAlias);

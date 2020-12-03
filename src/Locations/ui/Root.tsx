@@ -6,18 +6,18 @@ import * as React from "react";
 import { LocationCity }     from "./City";
 import { GenericLocation }  from "./GenericLocation";
 
-import { Cities }           from "../Cities";
-import { Locations }        from "../Locations";
-import { LocationType }     from "../LocationTypeEnum";
+import { Cities }           from "Locations/Cities";
+import { Locations }        from "Locations/Locations";
+import { LocationType }     from "Locations/LocationTypeEnum";
 
-import { CityName }         from "../data/CityNames";
-import { LocationName }     from "../data/LocationNames";
+import { CityName }         from "Locations/data/CityNames";
+import { LocationName }     from "Locations/data/LocationNames";
 
-import { CONSTANTS }        from "../../Constants";
-import { IEngine }          from "../../IEngine";
-import { IPlayer }          from "../../PersonObjects/IPlayer";
+import { CONSTANTS }        from "Constants";
+import { IEngine }          from "IEngine";
+import { IPlayer }          from "PersonObjects/IPlayer";
 
-import { dialogBoxCreate }  from "../../../utils/DialogBox";
+import { dialogBoxCreate }  from "utils/DialogBox";
 
 type IProps = {
     initiallyInCity?: boolean;

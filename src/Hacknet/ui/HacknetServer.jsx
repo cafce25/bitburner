@@ -9,7 +9,7 @@ import {
     HacknetServerMaxRam,
     HacknetServerMaxCores,
     HacknetServerMaxCache
-} from "../HacknetServer";
+} from "Hacknet/HacknetServer";
 import {
     getMaxNumberLevelUpgrades,
     getMaxNumberRamUpgrades,
@@ -20,11 +20,11 @@ import {
     purchaseCoreUpgrade,
     purchaseCacheUpgrade,
     updateHashManagerCapacity,
-} from "../HacknetHelpers";
+} from "Hacknet/HacknetHelpers";
 
-import { Player } from "../../Player";
+import { Player } from "Player";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export class HacknetServer extends React.Component {
     render() {

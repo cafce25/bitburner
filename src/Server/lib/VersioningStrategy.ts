@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 export enum VersioningStrategy {
     NONE = 1,

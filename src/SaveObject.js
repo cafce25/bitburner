@@ -32,22 +32,22 @@ import { loadStockMarket, StockMarket } from "./StockMarket/StockMarket";
 import { createStatusText } from "./ui/createStatusText";
 import { numeralWrapper } from "./ui/numeralFormat";
 
-import { setTimeoutRef } from "./utils/SetTimeoutRef";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
-import { gameOptionsBoxClose } from "../utils/GameOptions";
-import { convertTimeMsToTimeElapsedString } from "../utils/StringHelperFunctions";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { gameOptionsBoxClose } from "utils/GameOptions";
+import { convertTimeMsToTimeElapsedString } from "utils/StringHelperFunctions";
 import {
     Reviver,
     Generic_toJSON,
     Generic_fromJSON
-} from "../utils/JSONReviver";
+} from "utils/JSONReviver";
 import {
     clearEventListeners,
 	createElement,
 	createPopup,
 	removeElementById
-} from "../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 import Decimal from "decimal.js";
 

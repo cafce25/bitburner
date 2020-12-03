@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 export enum OverwriteStrategy {
     FORCE = 1, // overwrite
     INTERACTIVE, // asks the user for permission, currently impossible due to having no access to user input from a running program.

@@ -6,11 +6,10 @@ import { WorkerScript } from "./WorkerScript";
 import { workerScripts } from "./WorkerScripts";
 import { WorkerScriptStartStopEventEmitter } from "./WorkerScriptStartStopEventEmitter";
 
-import { RunningScript } from "../Script/RunningScript";
-import { getServer } from "../Server/AllServers";
+import { RunningScript } from "Script/RunningScript";
+import { getServer } from "Server/AllServers";
 
-import { compareArrays } from "../../utils/helpers/compareArrays";
-import { roundToTwo } from "../../utils/helpers/roundToTwo";
+import { compareArrays, roundToTwo } from "utils/helpers";
 
 export function killWorkerScript(runningScriptObj: RunningScript, serverIp: string, rerenderUi: boolean): boolean;
 export function killWorkerScript(workerScript: WorkerScript): boolean;

@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 export function analyze(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){
     term.startAnalyze();

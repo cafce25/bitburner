@@ -1,8 +1,8 @@
 import { Programs }             from "./Programs";
 
-import { CONSTANTS }            from "../Constants";
-import { Player }               from "../Player";
-import { createElement }        from "../../utils/uiHelpers";
+import { CONSTANTS }            from "Constants";
+import { Player }               from "Player";
+import { createElement }        from "utils/uiHelpers";
 
 // this has the same key as 'Programs', not program names
 const aLinks = {};

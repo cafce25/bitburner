@@ -1,8 +1,8 @@
 // Root React Component for the Corporation UI
 import React from "react";
 
-import { Player }         from "../../Player";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { Player }         from "Player";
+import { numeralWrapper } from "ui/numeralFormat";
 
 const Component = React.Component;
 

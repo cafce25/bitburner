@@ -7,22 +7,24 @@ import { generateResleeves,
 
 import { IPlayer } from "../IPlayer";
 
-import { Augmentation } from "../../Augmentation/Augmentation";
-import { Augmentations } from "../../Augmentation/Augmentations";
+import { Augmentation } from "Augmentation/Augmentation";
+import { Augmentations } from "Augmentation/Augmentations";
 
 import { Page,
-         routing } from "../../ui/navigationTracking";
-import { numeralWrapper } from "../../ui/numeralFormat";
+         routing } from "ui/navigationTracking";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
-import { exceptionAlert } from "../../../utils/helpers/exceptionAlert";
+import { exceptionAlert } from "utils/helpers";
 
-import { createElement } from "../../../utils/uiHelpers";
-import { createOptionElement } from "../../../utils/uiHelpers";
-import { getSelectValue } from "../../../utils/uiHelpers";
-import { removeChildrenFromElement } from "../../../utils/uiHelpers";
-import { removeElement } from "../../../utils/uiHelpers";
+import {
+    createElement,
+    createOptionElement,
+    getSelectValue,
+    removeChildrenFromElement,
+    removeElement
+} from "utils/uiHelpers";
 
 interface IResleeveUIElems {
     container: HTMLElement | null;

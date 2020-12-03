@@ -1,7 +1,7 @@
 import { Generic_fromJSON,
          Generic_toJSON,
-         Reviver }         from "../../utils/JSONReviver";
-import { IMap }                     from "../types";
+         Reviver }         from "utils/JSONReviver";
+import { IMap }                     from "types";
 
 /* Holds IP of Special Servers */
 export let SpecialServerNames: IMap<string> = {

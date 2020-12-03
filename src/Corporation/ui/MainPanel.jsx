@@ -9,9 +9,9 @@ import { Industry } from "./Industry";
 import { Overview } from "./Overview";
 import { overviewPage } from "./Routing";
 
-import { OfficeSpace } from "../Corporation";
+import { OfficeSpace } from "Corporation/Corporation";
 
-import { CityName } from "../../Locations/data/CityNames";
+import { CityName } from "Locations/data/CityNames";
 
 export class MainPanel extends BaseReactComponent {
     constructor(props) {

@@ -8,8 +8,8 @@
 import * as React       from "react";
 import *  as ReactDOM   from "react-dom";
 
-import { KEY } from "../../../utils/helpers/keyCodes";
-import { removeElement } from "../../../utils/uiHelpers";
+import { KEY_CODES } from "utils/helpers";
+import { removeElement } from "utils/uiHelpers";
 
 export interface IPopupCloseButtonProps {
     class?: string;
@@ -50,7 +50,7 @@ export class PopupCloseButton extends React.Component<IPopupCloseButtonProps, an
     }
 
     keyListener(e: KeyboardEvent) {
-        if (e.keyCode === KEY.ESC) {
+        if (e.keyCode === KEY_CODES.ESC) {
             this.closePopup();
         }
     }

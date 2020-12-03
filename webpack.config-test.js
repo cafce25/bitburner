@@ -5,104 +5,58 @@ var path = require('path');
 var webpack = require('webpack');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var baseConfig = require('./webpack.config.js');
 
 module.exports = (env, argv) => {
-    const statsConfig = {
-        builtAt: true,
-        children: false,
-        chunks: false,
-        chunkGroups: false,
-        chunkModules: false,
-        chunkOrigins: false,
-        colors: true,
-        entrypoints: true,
+    let bConf = baseConfig(env, argv);
+
+    bConf.entry = "./test/index.ts";
+
+    bConf.output= {
+        path: path.resolve(__dirname, "./dist-test"),
+        filename: "test.bundle.js",
+    };
+
+    for (let i in bConf.module.rules) {
+        const rule = bConf.module.rules[i];
+        if (rule.test.test("test.css") || rule.test.test("test.scss")) {
+            delete rule.use;
+            rule.loader = "null-loader";
+        }
     }
 
-    return {
-        mode: "development",
-        plugins: [
-            new webpack.DefinePlugin({
-                'process.env.NODE_ENV': "\"development\""
-            }),
-            new webpack.ProvidePlugin({
-                // Automtically detect jQuery and $ as free var in modules
-                // and inject the jquery library
-                // This is required by many jquery plugins
-                // http://stackoverflow.com/questions/29080148/expose-jquery-to-real-window-object-with-webpack
-                jquery: "jquery",
-                jQuery: "jquery",
-                $: "jquery"
-            }),
-        ],
-        entry: "./test/index.ts",
-        target: "web",
-        devtool: "source-map",
-        output: {
-            path: path.resolve(__dirname, "./"),
-            filename: "test/test.bundle.js",
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.(js|ts)x?/,
-                    loader: 'istanbul-instrumenter-loader',
-                    exclude: /node_modules/,
-                    query: {
-                        esModules: true
-                    }
-                },
-                {
-                    test: /\.tsx?$/,
-                    loader: 'ts-loader',
-                    exclude: /node_modules/
-                },
-                {
-                    test: /\.(jsx)$/,
-                    exclude: /node_modules/,
-                    use: {
-                      loader: "babel-loader"
-                    }
-                },
-                {
-                    test: /\.s?css$/,
-                    loader: 'null-loader',
-                }
-            ]
-        },
-        optimization: {
-            removeAvailableModules: true,
-            removeEmptyChunks: true,
-            mergeDuplicateChunks: true,
-            flagIncludedChunks: true,
-            sideEffects: true,
-            providedExports: true,
-            usedExports: true,
-            concatenateModules: false,
-            moduleIds: false,
-            chunkIds: false,
-            minimize: false,
-            portableRecords: true,
-            splitChunks: {
-                cacheGroups: {
-                    vendor: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name: `tests/vendor`,
-                        chunks: 'all'
-                    }
+    bConf.module.rules.unshift({
+        test: /\.(js|ts)x?/,
+        loader: 'istanbul-instrumenter-loader',
+        exclude: /node_modules/,
+        query: {
+            esModules: true
+        }
+    });
+
+    bConf.optimization = {
+        removeAvailableModules: true,
+        removeEmptyChunks: true,
+        mergeDuplicateChunks: true,
+        flagIncludedChunks: true,
+        sideEffects: true,
+        providedExports: true,
+        usedExports: true,
+        concatenateModules: false,
+        moduleIds: false,
+        chunkIds: false,
+        minimize: false,
+        portableRecords: true,
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: `dist-test/vendor`,
+                    chunks: 'all'
                 }
             }
-        },
-        resolve: {
-            extensions: [
-                ".tsx",
-                ".ts",
-                ".js",
-                ".jsx",
-            ],
-            alias: {
-                'fs' : 'memfs'
-            }
-        },
-        stats: statsConfig,
+        }
     };
+
+    return bConf;
 };

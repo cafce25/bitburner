@@ -1,5 +1,5 @@
-import { Corporation } from "../../Corporation/Corporation";
-import { SourceFileFlags } from "../../SourceFile/SourceFileFlags";
+import { Corporation } from "Corporation/Corporation";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
 
 export function canAccessCorporation() {
     return this.bitNodeN === 3 || (SourceFileFlags[3] > 0);

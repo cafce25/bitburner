@@ -15,14 +15,14 @@ import { TechVendorLocation }       from "./TechVendorLocation";
 import { TravelAgencyLocation }     from "./TravelAgencyLocation";
 import { UniversityLocation }       from "./UniversityLocation";
 
-import { Location }                 from "../Location";
-import { LocationType }             from "../LocationTypeEnum";
-import { CityName }                 from "../data/CityNames";
+import { Location }                 from "Locations/Location";
+import { LocationType }             from "Locations/LocationTypeEnum";
+import { CityName }                 from "Locations/data/CityNames";
 
-import { IEngine }                  from "../../IEngine";
-import { IPlayer }                  from "../../PersonObjects/IPlayer";
+import { IEngine }                  from "IEngine";
+import { IPlayer }                  from "PersonObjects/IPlayer";
 
-import { StdButton }                from "../../ui/React/StdButton";
+import { StdButton }                from "ui/React/StdButton";
 
 type IProps = {
     engine: IEngine;

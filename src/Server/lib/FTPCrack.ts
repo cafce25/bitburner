@@ -1,7 +1,7 @@
-import { HacknetServer } from "../../Hacknet/HacknetServer";
-import { getServer } from "../AllServers";
-import { BaseServer } from "../BaseServer";
-import { Server } from "../Server";
+import { HacknetServer } from "Hacknet/HacknetServer";
+import { getServer } from "Server/AllServers";
+import { BaseServer } from "Server/BaseServer";
+import { Server } from "Server/Server";
 import {registerExecutable, ManualEntry, fetchUsage, fetchExecutable} from "./sys";
 
 export function FTPCrack(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){

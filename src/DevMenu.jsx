@@ -1,31 +1,32 @@
-import { AugmentationNames } from "./Augmentation/data/AugmentationNames";
-import { CodingContractTypes } from "./CodingContracts";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
+import { CodingContractTypes } from "CodingContracts";
 import {
     generateContract,
     generateRandomContract,
     generateRandomContractOnHome
-} from "./CodingContractGenerator";
-import { Companies } from "./Company/Companies";
-import { Company } from "./Company/Company";
-import { Programs } from "./Programs/Programs";
-import { Factions } from "./Faction/Factions";
-import { Player } from "./Player";
-import { PlayerOwnedSourceFile } from "./SourceFile/PlayerOwnedSourceFile";
-import { AllServers } from "./Server/AllServers";
-import { GetServerByHostname } from "./Server/ServerHelpers";
-import { hackWorldDaemon } from "./RedPill";
-import { StockMarket, SymbolToStockMap } from "./StockMarket/StockMarket";
-import { Stock } from "./StockMarket/Stock";
-import { Terminal } from "./Terminal";
+} from "CodingContractGenerator";
+import { Companies } from "Company/Companies";
+import { Company } from "Company/Company";
+import { Programs } from "Programs/Programs";
+import { Factions } from "Faction/Factions";
+import { Player } from "Player";
+import { PlayerOwnedSourceFile } from "SourceFile/PlayerOwnedSourceFile";
+import { AllServers } from "Server/AllServers";
+import { GetServerByHostname } from "Server/ServerHelpers";
+import { hackWorldDaemon } from "RedPill";
+import { StockMarket, SymbolToStockMap } from "StockMarket/StockMarket";
+import { Stock } from "StockMarket/Stock";
+import { Terminal } from "Terminal";
 
-import { numeralWrapper } from "./ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
-import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { createElement } from "../utils/uiHelpers";
-import { createOptionElement } from "../utils/uiHelpers";
-import { getSelectText } from "../utils/uiHelpers";
-import { removeElementById } from "../utils/uiHelpers";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { exceptionAlert } from "utils/helpers";
+import {
+    createElementcreateOptionElement,
+    getSelectText,
+    removeElementById
+} from "utils/uiHelpers";
 
 import React from "react";
 import ReactDOM from "react-dom";

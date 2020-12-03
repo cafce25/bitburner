@@ -1,7 +1,7 @@
 /**
  * Generic Event Emitter class following a subscribe/publish paradigm.
  */
-import { IMap } from "../types";
+import { IMap } from "types";
 
 type cbFn = (...args: any[]) => any;
 

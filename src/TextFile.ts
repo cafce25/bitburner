@@ -1,10 +1,10 @@
-import { dialogBoxCreate } from "../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 import {
     Generic_fromJSON,
     Generic_toJSON,
     Reviver,
-} from "../utils/JSONReviver";
-import { setTimeoutRef } from "./utils/SetTimeoutRef";
+} from "utils/JSONReviver";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
 
 /**
  * Represents a plain text file that is typically stored on a server.

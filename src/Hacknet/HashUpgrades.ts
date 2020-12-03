@@ -2,7 +2,7 @@
  * Map of all Hash Upgrades
  * Key = Hash name, Value = HashUpgrade object
  */
-import { IMap } from "../types";
+import { IMap } from "types";
 import { HashUpgradesMetadata } from "./data/HashUpgradesMetadata";
 import { HashUpgrade,
          IConstructorParams } from "./HashUpgrade";

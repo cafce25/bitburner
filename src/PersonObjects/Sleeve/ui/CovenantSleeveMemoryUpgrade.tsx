@@ -7,8 +7,8 @@ import * as React from "react";
 import { Sleeve } from "../Sleeve";
 import { IPlayer } from "../../IPlayer";
 
-import { numeralWrapper } from "../../../ui/numeralFormat";
-import { StdButton } from "../../../ui/React/StdButton";
+import { numeralWrapper } from "ui/numeralFormat";
+import { StdButton } from "ui/React/StdButton";
 
 interface IProps {
     index: number;

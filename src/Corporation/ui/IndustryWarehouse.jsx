@@ -6,14 +6,14 @@ import { BaseReactComponent }           from "./BaseReactComponent";
 import { OfficeSpace,
          WarehouseInitialCost,
          WarehouseUpgradeBaseCost,
-         ProductProductionCostRatio }   from "../Corporation";
-import { Material }                     from "../Material";
-import { Product }                      from "../Product";
-import { Warehouse }                    from "../Warehouse";
+         ProductProductionCostRatio }   from "Corporation/Corporation";
+import { Material }                     from "Corporation/Material";
+import { Product }                      from "Corporation/Product";
+import { Warehouse }                    from "Corporation/Warehouse";
 
-import { numeralWrapper }               from "../../ui/numeralFormat";
+import { numeralWrapper }               from "ui/numeralFormat";
 
-import { isString }                     from "../../../utils/helpers/isString";
+import { isString }                     from "utils/helpers";
 
 // Creates the UI for a single Product type
 function ProductComponent(props) {

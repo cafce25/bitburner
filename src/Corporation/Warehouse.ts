@@ -1,9 +1,9 @@
-import { exceptionAlert }           from "../../utils/helpers/exceptionAlert";
+import { exceptionAlert }           from "utils/helpers";
 import { Generic_fromJSON,
          Generic_toJSON,
-         Reviver }                  from "../../utils/JSONReviver";
-import { IMap }                     from "../types";
-import { numeralWrapper }           from "../ui/numeralFormat";
+         Reviver }                  from "utils/JSONReviver";
+import { IMap }                     from "types";
+import { numeralWrapper }           from "ui/numeralFormat";
 import { Material }                 from "./Material";
 import { MaterialSizes }            from "./MaterialSizes";
 

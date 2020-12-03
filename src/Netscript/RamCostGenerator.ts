@@ -1,4 +1,4 @@
-import { IMap } from "../types";
+import { IMap } from "types";
 
 // TODO remember to update RamCalculations.js and WorkerScript.js
 

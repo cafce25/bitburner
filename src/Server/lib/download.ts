@@ -1,6 +1,6 @@
 
 import { ls } from "./ls";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 const micromatch = require('micromatch');
 import * as JSZip from "jszip";
 import * as FileSaver from "file-saver";

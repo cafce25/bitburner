@@ -5,13 +5,13 @@ import * as React from "react";
 
 import { PurchaseableAugmentation } from "./PurchaseableAugmentation";
 
-import { Augmentations } from "../../Augmentation/Augmentations";
-import { Faction } from "../../Faction/Faction";
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { PurchaseAugmentationsOrderSetting } from "../../Settings/SettingEnums";
-import { Settings } from "../../Settings/Settings";
+import { Augmentations } from "Augmentation/Augmentations";
+import { Faction } from "Faction/Faction";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { PurchaseAugmentationsOrderSetting } from "Settings/SettingEnums";
+import { Settings } from "Settings/Settings";
 
-import { StdButton } from "../../ui/React/StdButton";
+import { StdButton } from "ui/React/StdButton";
 
 type IProps = {
     faction: Faction;

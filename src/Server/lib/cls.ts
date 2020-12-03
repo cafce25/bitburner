@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {clear} from "./clear";
 export function cls(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){
     clear(server, term, out, err, args, options);

@@ -5,14 +5,14 @@
  */
 import * as React from "react";
 
-import { CityName }             from "../data/CityNames";
-import { createTravelPopup }    from "../LocationsHelpers";
+import { CityName }             from "Locations/data/CityNames";
+import { createTravelPopup }    from "Locations/LocationsHelpers";
 
-import { CONSTANTS }            from "../../Constants";
-import { IPlayer }              from "../../PersonObjects/IPlayer";
+import { CONSTANTS }            from "Constants";
+import { IPlayer }              from "PersonObjects/IPlayer";
 
-import { numeralWrapper }       from "../../ui/numeralFormat";
-import { StdButton }            from "../../ui/React/StdButton";
+import { numeralWrapper }       from "ui/numeralFormat";
+import { StdButton }            from "ui/React/StdButton";
 
 type IProps = {
     p: IPlayer;

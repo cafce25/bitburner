@@ -1,5 +1,5 @@
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
-import { CONSTANTS } from "../Constants";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { CONSTANTS } from "Constants";
 
 export function getStockMarketAccountCost(): number {
     return CONSTANTS.WSEAccountCost;

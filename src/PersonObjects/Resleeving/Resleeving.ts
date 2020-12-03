@@ -13,13 +13,13 @@
 import { IPlayer } from "../IPlayer";
 import { Resleeve } from "./Resleeve";
 
-import { Augmentation } from "../../Augmentation/Augmentation";
-import { Augmentations } from "../../Augmentation/Augmentations";
-import { AugmentationNames } from "../../Augmentation/data/AugmentationNames";
+import { Augmentation } from "Augmentation/Augmentation";
+import { Augmentations } from "Augmentation/Augmentations";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
 import { IPlayerOwnedAugmentation,
-         PlayerOwnedAugmentation } from "../../Augmentation/PlayerOwnedAugmentation";
+         PlayerOwnedAugmentation } from "Augmentation/PlayerOwnedAugmentation";
 
-import { getRandomInt } from "../../../utils/helpers/getRandomInt";
+import { getRandomInt } from "utils/helpers";
 
 // Executes the actual re-sleeve when one is purchased
 export function purchaseResleeve(r: Resleeve, p: IPlayer): boolean {

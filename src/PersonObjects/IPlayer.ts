@@ -6,19 +6,19 @@
 import { Resleeve } from "./Resleeving/Resleeve";
 import { Sleeve } from "./Sleeve/Sleeve";
 
-import { IMap } from "../types";
+import { IMap } from "types";
 
-import { IPlayerOwnedAugmentation }     from "../Augmentation/PlayerOwnedAugmentation";
-import { Company }                      from "../Company/Company";
-import { CompanyPosition }              from "../Company/CompanyPosition";
-import { Faction }                      from "../Faction/Faction";
-import { HacknetNode }                  from "../Hacknet/HacknetNode";
-import { HashManager }                  from "../Hacknet/HashManager";
-import { CityName }                     from "../Locations/data/CityNames";
-import { LocationName }                 from "../Locations/data/LocationNames";
-import { Server }                       from "../Server/Server";
-import { IPlayerOwnedSourceFile }       from "../SourceFile/PlayerOwnedSourceFile";
-import { MoneySourceTracker }           from "../utils/MoneySourceTracker";
+import { IPlayerOwnedAugmentation }     from "Augmentation/PlayerOwnedAugmentation";
+import { Company }                      from "Company/Company";
+import { CompanyPosition }              from "Company/CompanyPosition";
+import { Faction }                      from "Faction/Faction";
+import { HacknetNode }                  from "Hacknet/HacknetNode";
+import { HashManager }                  from "Hacknet/HashManager";
+import { CityName }                     from "Locations/data/CityNames";
+import { LocationName }                 from "Locations/data/LocationNames";
+import { Server }                       from "Server/Server";
+import { IPlayerOwnedSourceFile }       from "SourceFile/PlayerOwnedSourceFile";
+import { MoneySourceTracker }           from "utils/MoneySourceTracker";
 
 export interface IPlayer {
     // Class members

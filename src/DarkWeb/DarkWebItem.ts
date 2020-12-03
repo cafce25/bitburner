@@ -1,4 +1,4 @@
-import { formatNumber } from "../../utils/StringHelperFunctions";
+import { formatNumber } from "utils/StringHelperFunctions";
 
 export class DarkWebItem {
     program: string;

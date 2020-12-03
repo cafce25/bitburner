@@ -3,12 +3,12 @@
 import React from "react";
 import { BaseReactComponent }       from "./BaseReactComponent";
 
-import { OfficeSpace }              from "../Corporation";
-import { EmployeePositions }        from "../EmployeePositions";
+import { OfficeSpace }              from "Corporation/Corporation";
+import { EmployeePositions }        from "Corporation/EmployeePositions";
 
-import { numeralWrapper }           from "../../ui/numeralFormat";
+import { numeralWrapper }           from "ui/numeralFormat";
 
-import { getSelectText }            from "../../../utils/uiHelpers";
+import { getSelectText }            from "utils/uiHelpers";
 
 export class IndustryOffice extends BaseReactComponent {
     constructor(props) {

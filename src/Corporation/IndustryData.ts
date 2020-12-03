@@ -2,7 +2,7 @@ import { getBaseResearchTreeCopy,
          getProductIndustryResearchTreeCopy } from "./data/BaseResearchTree";
 import { ResearchTree } from "./ResearchTree";
 
-import { numeralWrapper } from "../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
 interface IIndustryMap<T> {
     Energy: T;

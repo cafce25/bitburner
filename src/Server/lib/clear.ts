@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 export function clear(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){
     term.clearOutput();
 }

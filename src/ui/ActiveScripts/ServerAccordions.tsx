@@ -6,10 +6,10 @@ import * as React from "react";
 
 import { ServerAccordion } from "./ServerAccordion";
 
-import { WorkerScript } from "../../Netscript/WorkerScript";
-import { WorkerScriptStartStopEventEmitter } from "../../Netscript/WorkerScriptStartStopEventEmitter";
-import { getServer } from "../../Server/ServerHelpers";
-import { BaseServer } from "../../Server/BaseServer";
+import { WorkerScript } from "Netscript/WorkerScript";
+import { WorkerScriptStartStopEventEmitter } from "Netscript/WorkerScriptStartStopEventEmitter";
+import { getServer } from "Server/ServerHelpers";
+import { BaseServer } from "Server/BaseServer";
 
 // Map of server hostname -> all workerscripts on that server for all active scripts
 interface IServerData {

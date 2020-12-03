@@ -7,10 +7,10 @@ import * as React from "react";
 import { WorkerScriptAccordion } from "./WorkerScriptAccordion";
 import { Accordion } from "../React/Accordion";
 
-import { BaseServer } from "../../Server/BaseServer";
-import { WorkerScript } from "../../Netscript/WorkerScript";
+import { BaseServer } from "Server/BaseServer";
+import { WorkerScript } from "Netscript/WorkerScript";
 
-import { createProgressBarText } from "../../../utils/helpers/createProgressBarText";
+import { createProgressBarText } from "utils/helpers";
 
 type IProps = {
     server: BaseServer;

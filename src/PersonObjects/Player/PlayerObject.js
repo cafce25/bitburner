@@ -5,15 +5,15 @@ import * as gangMethods from "./PlayerObjectGangMethods";
 import * as generalMethods from "./PlayerObjectGeneralMethods";
 import * as serverMethods from "./PlayerObjectServerMethods";
 
-import { HashManager } from "../../Hacknet/HashManager";
-import { CityName } from "../../Locations/data/CityNames";
+import { HashManager } from "Hacknet/HashManager";
+import { CityName } from "Locations/data/CityNames";
 
-import { MoneySourceTracker } from "../../utils/MoneySourceTracker";
+import { MoneySourceTracker } from "utils/MoneySourceTracker";
 import {
     Reviver,
     Generic_toJSON,
     Generic_fromJSON
-} from "../../../utils/JSONReviver";
+} from "utils/JSONReviver";
 
 import Decimal from "decimal.js";
 

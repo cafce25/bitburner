@@ -1,7 +1,7 @@
 const helpRegistry:Map<string, ManualEntry> = new Map<string, ManualEntry>();
 const executableRegistry:Map<string, Function> = new Map<string, Function>();
 const hiddenExecutables:Set<string> = new Set<string>();
-import {Player} from "../../Player";
+import {Player} from "Player";
 export class ManualEntry {
     name:string;
     synopsis:string;

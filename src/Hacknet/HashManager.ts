@@ -10,8 +10,8 @@ import { HashUpgrades } from "./HashUpgrades";
 
 import { Generic_fromJSON,
          Generic_toJSON,
-         Reviver } from "../../utils/JSONReviver";
-import { IMap } from "../types";
+         Reviver } from "utils/JSONReviver";
+import { IMap } from "types";
 
 export class HashManager {
     // Initiatizes a HashManager object from a JSON save state.

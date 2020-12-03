@@ -3,12 +3,12 @@
 import React from "react";
 import { BaseReactComponent }       from "./BaseReactComponent";
 
-import { OfficeSpace }              from "../Corporation";
-import { Industries }               from "../IndustryData";
-import { IndustryUpgrades }         from "../IndustryUpgrades";
-import { numeralWrapper }           from "../../ui/numeralFormat";
-import { dialogBoxCreate }          from "../../../utils/DialogBox";
-import { createProgressBarText }    from "../../../utils/helpers/createProgressBarText";
+import { OfficeSpace }              from "Corporation/Corporation";
+import { Industries }               from "Corporation/IndustryData";
+import { IndustryUpgrades }         from "Corporation/IndustryUpgrades";
+import { numeralWrapper }           from "ui/numeralFormat";
+import { dialogBoxCreate }          from "utils/DialogBox";
+import { createProgressBarText }    from "utils/helpers";
 
 export class IndustryOverview extends BaseReactComponent {
     renderMakeProductButton() {

@@ -2,12 +2,12 @@ import { serverMetadata } from "./data/servers";
 import { Server } from "./Server";
 import { SpecialServerIps } from "./SpecialServerIps";
 
-import { HacknetServer } from "../Hacknet/HacknetServer";
+import { HacknetServer } from "Hacknet/HacknetServer";
 
-import { getRandomInt } from "../../utils/helpers/getRandomInt";
-import { createRandomIp } from "../../utils/IPAddress";
-import { Reviver } from "../../utils/JSONReviver";
-import { IMap } from "../types";
+import { getRandomInt } from "utils/helpers";
+import { createRandomIp } from "utils/IPAddress";
+import { Reviver } from "utils/JSONReviver";
+import { IMap } from "types";
 
 /**
  * Map of all Servers that exist in the game

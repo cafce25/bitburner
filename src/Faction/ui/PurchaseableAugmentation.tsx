@@ -9,18 +9,18 @@ import {
     hasAugmentationPrereqs,
     purchaseAugmentation,
     purchaseAugmentationBoxCreate,
-} from "../FactionHelpers";
+} from "Faction/FactionHelpers";
 
-import { Augmentation } from "../../Augmentation/Augmentation";
-import { Augmentations } from "../../Augmentation/Augmentations";
-import { AugmentationNames } from "../../Augmentation/data/AugmentationNames";
-import { Faction } from "../../Faction/Faction";
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { Settings } from "../../Settings/Settings";
-import { numeralWrapper } from "../../ui/numeralFormat";
-import { IMap } from "../../types";
+import { Augmentation } from "Augmentation/Augmentation";
+import { Augmentations } from "Augmentation/Augmentations";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
+import { Faction } from "Faction/Faction";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { Settings } from "Settings/Settings";
+import { numeralWrapper } from "ui/numeralFormat";
+import { IMap } from "types";
 
-import { StdButton } from "../../ui/React/StdButton";
+import { StdButton } from "ui/React/StdButton";
 
 type IProps = {
     augName: string;

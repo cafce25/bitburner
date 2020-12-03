@@ -1,13 +1,13 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 import {
     listAllDarkwebItems,
     buyDarkwebItem
-} from "../../DarkWeb/DarkWeb";
-import { DarkWebItems }                         from "../../DarkWeb/DarkWebItems";
+} from "DarkWeb/DarkWeb";
+import { DarkWebItems }                         from "DarkWeb/DarkWebItems";
 
-import { SpecialServerIps } from "../SpecialServerIps";
-import { Player }                               from "../../Player";
+import { SpecialServerIps } from "Server/SpecialServerIps";
+import { Player }                               from "Player";
 
 export function buy(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){
     const HELP = "Usage: buy <-l --list> ITEMNAME";

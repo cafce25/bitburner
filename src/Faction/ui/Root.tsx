@@ -10,21 +10,21 @@ import { DonateOption } from "./DonateOption";
 import { Info } from "./Info";
 import { Option } from "./Option";
 
-import { CONSTANTS } from "../../Constants";
-import { IEngine } from "../../IEngine";
+import { CONSTANTS } from "Constants";
+import { IEngine } from "IEngine";
 
-import { BitNodeMultipliers } from "../../BitNode/BitNodeMultipliers";
-import { Faction } from "../../Faction/Faction";
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { createSleevePurchasesFromCovenantPopup } from "../../PersonObjects/Sleeve/SleeveCovenantPurchases";
-import { SourceFileFlags } from "../../SourceFile/SourceFileFlags";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { Faction } from "Faction/Faction";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { createSleevePurchasesFromCovenantPopup } from "PersonObjects/Sleeve/SleeveCovenantPurchases";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
 
 import {
     yesNoBoxClose,
     yesNoBoxCreate,
     yesNoBoxGetNoButton,
     yesNoBoxGetYesButton,
-} from "../../../utils/YesNoBox";
+} from "utils/YesNoBox";
 
 type IProps = {
     engine: IEngine;

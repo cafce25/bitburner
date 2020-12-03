@@ -5,11 +5,11 @@
  */
 import * as React from "react";
 
-import { Crimes }                   from "../../Crime/Crimes";
-import { IPlayer }                  from "../../PersonObjects/IPlayer";
+import { Crimes }                   from "Crime/Crimes";
+import { IPlayer }                  from "PersonObjects/IPlayer";
 
-import { numeralWrapper }           from "../../ui/numeralFormat";
-import { AutoupdatingStdButton }    from "../../ui/React/AutoupdatingStdButton";
+import { numeralWrapper }           from "ui/numeralFormat";
+import { AutoupdatingStdButton }    from "ui/React/AutoupdatingStdButton";
 
 type IProps = {
     p: IPlayer;

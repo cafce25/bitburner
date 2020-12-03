@@ -7,8 +7,8 @@ import * as React from "react";
 import { ScriptProduction } from "./ScriptProduction";
 import { ServerAccordions } from "./ServerAccordions";
 
-import { WorkerScript } from "../../Netscript/WorkerScript";
-import { IPlayer } from "../../PersonObjects/IPlayer";
+import { WorkerScript } from "Netscript/WorkerScript";
+import { IPlayer } from "PersonObjects/IPlayer";
 
 type IProps = {
     p: IPlayer;

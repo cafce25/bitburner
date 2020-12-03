@@ -6,8 +6,8 @@ import * as React from "react";
 
 import { numeralWrapper } from "../numeralFormat";
 
-import { WorkerScript } from "../../Netscript/WorkerScript";
-import { IPlayer } from "../../PersonObjects/IPlayer";
+import { WorkerScript } from "Netscript/WorkerScript";
+import { IPlayer } from "PersonObjects/IPlayer";
 
 type IProps = {
     p: IPlayer;

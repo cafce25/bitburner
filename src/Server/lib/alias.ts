@@ -1,10 +1,10 @@
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 import {
     parseAliasDeclaration,
     getAllAliases,
-} from "../../Alias";
+} from "Alias";
 
 export function alias(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={global:false, print:false}) {
 

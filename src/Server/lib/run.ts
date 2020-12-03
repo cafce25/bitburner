@@ -1,10 +1,10 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import { registerExecutable, ManualEntry, fetchUsage, fetchExecutable } from "./sys";
-import { startWorkerScript } from "../../NetscriptWorker";
-import { RunningScript } from "../../Script/RunningScript";
-import{ Script } from "../../Script/Script";
-import { findRunningScript } from "../../Script/ScriptHelpers";
-import { Player } from "../../Player";
+import { startWorkerScript } from "NetscriptWorker";
+import { RunningScript } from "Script/RunningScript";
+import{ Script } from "Script/Script";
+import { findRunningScript } from "Script/ScriptHelpers";
+import { Player } from "Player";
 import * as path from 'path';
 
 export async function run(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
@@ -55,7 +55,7 @@ export async function run(server:BaseServer, term:any, out:Function, err:Functio
     }
 }
 
-import { CodingContractResult } from "../../CodingContracts";
+import { CodingContractResult } from "CodingContracts";
 
 async function _runContract(server:BaseServer, term:any, out:Function, err:Function, contractName:string){
     // There's already an opened contract

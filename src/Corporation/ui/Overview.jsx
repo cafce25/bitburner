@@ -4,12 +4,12 @@ import { BaseReactComponent }           from "./BaseReactComponent";
 import { LevelableUpgrade }             from "./LevelableUpgrade";
 import { UnlockUpgrade }                from "./UnlockUpgrade";
 
-import { BribeThreshold }               from "../Corporation";
-import { CorporationUnlockUpgrades }    from "../data/CorporationUnlockUpgrades";
-import { CorporationUpgrades }          from "../data/CorporationUpgrades";
+import { BribeThreshold }               from "Corporation/Corporation";
+import { CorporationUnlockUpgrades }    from "Corporation/data/CorporationUnlockUpgrades";
+import { CorporationUpgrades }          from "Corporation/data/CorporationUpgrades";
 
-import { CONSTANTS } from "../../Constants";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { CONSTANTS } from "Constants";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export class Overview extends BaseReactComponent {
     // Generic Function for Creating a button

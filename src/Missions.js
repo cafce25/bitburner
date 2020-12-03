@@ -1,16 +1,14 @@
-import { CONSTANTS } from "./Constants";
-import { Engine } from "./engine";
-import { displayFactionContent } from "./Faction/FactionHelpers";
-import { Player } from "./Player";
+import { CONSTANTS } from "Constants";
+import { Engine } from "engine";
+import { displayFactionContent } from "Faction/FactionHelpers";
+import { Player } from "Player";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
-import { formatNumber } from "../utils/StringHelperFunctions";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { formatNumber } from "utils/StringHelperFunctions";
 
-import { addOffset } from "../utils/helpers/addOffset";
-import { getRandomInt } from "../utils/helpers/getRandomInt";
-import { isString } from "../utils/helpers/isString";
+import { addOffset, getRandomInt, isString } from "utils/helpers";
 
-import { clearEventListeners } from "../utils/uiHelpers";
+import { clearEventListeners } from "utils/uiHelpers";
 
 import jsplumb from "jsplumb";
 

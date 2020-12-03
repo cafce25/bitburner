@@ -7,15 +7,13 @@ import {
 
 import { IMap } from "./types";
 
-import { KEY } from "../utils/helpers/keyCodes";
+import { KEY_CODES } from "utils/helpers";
 import {
     Generic_fromJSON,
     Generic_toJSON,
     Reviver,
-} from "../utils/JSONReviver";
-import { createElement } from "../utils/uiHelpers";
-import { createPopup } from "../utils/uiHelpers";
-import { removeElementById } from "../utils/uiHelpers";
+} from "utils/JSONReviver";
+import { createElement, createPopup, removeElementById } from "utils/uiHelpers";
 
 /* tslint:disable:no-magic-numbers completed-docs max-classes-per-file no-console */
 
@@ -193,10 +191,10 @@ export class CodingContract {
             let cancelBtn: HTMLElement;
             answerInput = createElement("input", {
                 onkeydown: (e: any) => {
-                    if (e.keyCode === KEY.ENTER && answerInput.value !== "") {
+                    if (e.keyCode === KEY_CODES.ENTER && answerInput.value !== "") {
                         e.preventDefault();
                         solveBtn.click();
-                    } else if (e.keyCode === KEY.ESC) {
+                    } else if (e.keyCode === KEY_CODES.ESC) {
                         e.preventDefault();
                         cancelBtn.click();
                     }

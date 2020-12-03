@@ -16,11 +16,11 @@ import { Stock } from "./Stock";
 import { OrderTypes } from "./data/OrderTypes";
 import { PositionTypes } from "./data/PositionTypes";
 
-import { IMap } from "../types";
+import { IMap } from "types";
 
-import { numeralWrapper } from "../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
 export interface IProcessOrderRefs {
     rerenderFn(): void;

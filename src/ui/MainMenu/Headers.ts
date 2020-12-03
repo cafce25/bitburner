@@ -1,5 +1,5 @@
 // Implement the collapsible main menu headers
-import { IPlayer } from "../../PersonObjects/IPlayer";
+import { IPlayer } from "PersonObjects/IPlayer";
 import { MainMenuLinks } from "./Links";
 
 interface IMainMenuHeaders {

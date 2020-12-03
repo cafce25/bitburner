@@ -15,28 +15,28 @@ import {
     Person,
 } from "../Person";
 
-import { Augmentation } from "../../Augmentation/Augmentation";
+import { Augmentation } from "Augmentation/Augmentation";
 
-import { BitNodeMultipliers } from "../../BitNode/BitNodeMultipliers";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
 
-import { Crime } from "../../Crime/Crime";
-import { Crimes } from "../../Crime/Crimes";
+import { Crime } from "Crime/Crime";
+import { Crimes } from "Crime/Crimes";
 
-import { Companies } from "../../Company/Companies";
-import { Company } from "../../Company/Company";
-import { CompanyPosition } from "../../Company/CompanyPosition";
-import { CompanyPositions } from "../../Company/CompanyPositions";
+import { Companies } from "Company/Companies";
+import { Company } from "Company/Company";
+import { CompanyPosition } from "Company/CompanyPosition";
+import { CompanyPositions } from "Company/CompanyPositions";
 
-import { CONSTANTS } from "../../Constants";
+import { CONSTANTS } from "Constants";
 
-import { Faction } from "../../Faction/Faction";
-import { Factions } from "../../Faction/Factions";
-import { FactionWorkType } from "../../Faction/FactionWorkTypeEnum";
+import { Faction } from "Faction/Faction";
+import { Factions } from "Faction/Factions";
+import { FactionWorkType } from "Faction/FactionWorkTypeEnum";
 
-import { CityName } from "../../Locations/data/CityNames";
-import { LocationName } from "../../Locations/data/LocationNames";
+import { CityName } from "Locations/data/CityNames";
+import { LocationName } from "Locations/data/LocationNames";
 
-import { Generic_fromJSON, Generic_toJSON, Reviver } from "../../../utils/JSONReviver";
+import { Generic_fromJSON, Generic_toJSON, Reviver } from "utils/JSONReviver";
 
 export class Sleeve extends Person {
     /**

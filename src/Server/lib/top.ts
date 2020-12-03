@@ -1,6 +1,6 @@
-import { BaseServer } from "../BaseServer";
-import { getRamUsageFromRunningScript } from "../../Script/RunningScriptHelpers";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { BaseServer } from "Server/BaseServer";
+import { getRamUsageFromRunningScript } from "Script/RunningScriptHelpers";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export function top(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}) {
     // Headers

@@ -1,4 +1,4 @@
-import { IMap } from "../types";
+import { IMap } from "types";
 import { SourceFile } from "./SourceFile";
 
 export const SourceFiles: IMap<SourceFile> = {};

@@ -5,10 +5,10 @@
  */
 import * as React from "react";
 
-import { City } from "../City";
-import { LocationName } from "../data/LocationNames";
+import { City } from "Locations/City";
+import { LocationName } from "Locations/data/LocationNames";
 
-import { StdButton } from "../../ui/React/StdButton";
+import { StdButton } from "ui/React/StdButton";
 
 type IProps = {
     city: City;

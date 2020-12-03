@@ -6,14 +6,14 @@
  */
 import { IHacknetNode } from "./IHacknetNode";
 
-import { CONSTANTS } from "../Constants";
+import { CONSTANTS } from "Constants";
 
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 import { Generic_fromJSON,
          Generic_toJSON,
-         Reviver } from "../../utils/JSONReviver";
+         Reviver } from "utils/JSONReviver";
 
 // Constants for Hacknet Node production
 export const HacknetNodeMoneyGainPerLevel: number = 1.6;    // Base production per level

@@ -1,21 +1,21 @@
 /**
  * Hacknet Servers - Reworked Hacknet Node mechanic for BitNode-9
  */
-import { CONSTANTS } from "../Constants";
+import { CONSTANTS } from "Constants";
 
 import { IHacknetNode } from "./IHacknetNode";
 
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
-import { RunningScript } from "../Script/RunningScript";
-import { BaseServer } from "../Server/BaseServer";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { RunningScript } from "Script/RunningScript";
+import { BaseServer } from "Server/BaseServer";
 
-import { createRandomIp } from "../../utils/IPAddress";
+import { createRandomIp } from "utils/IPAddress";
 
 import {
     Generic_fromJSON,
     Generic_toJSON,
     Reviver,
-} from "../../utils/JSONReviver";
+} from "utils/JSONReviver";
 
 // Constants for Hacknet Server stats/production
 export const HacknetServerHashesPerLevel: number = 0.001;

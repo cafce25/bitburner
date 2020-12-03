@@ -1,60 +1,60 @@
-import { Augmentations } from "../../Augmentation/Augmentations";
-import { applyAugmentation } from "../../Augmentation/AugmentationHelpers";
-import { PlayerOwnedAugmentation } from "../../Augmentation/PlayerOwnedAugmentation";
-import { AugmentationNames } from "../../Augmentation/data/AugmentationNames";
-import { BitNodeMultipliers } from "../../BitNode/BitNodeMultipliers";
-import { Bladeburner } from "../../Bladeburner";
-import { CodingContractRewardType } from "../../CodingContracts";
-import { Company } from "../../Company/Company";
-import { Companies } from "../../Company/Companies";
-import { getNextCompanyPositionHelper } from "../../Company/GetNextCompanyPosition";
-import { getJobRequirementText } from "../../Company/GetJobRequirementText";
-import { CompanyPositions } from "../../Company/CompanyPositions";
-import * as posNames from "../../Company/data/companypositionnames";
-import {CONSTANTS} from "../../Constants";
-import { Corporation } from "../../Corporation/Corporation";
-import { Programs } from "../../Programs/Programs";
-import { determineCrimeSuccess } from "../../Crime/CrimeHelpers";
-import { Crimes } from "../../Crime/Crimes";
-import { Engine } from "../../engine";
-import { Faction } from "../../Faction/Faction";
-import { Factions } from "../../Faction/Factions";
-import { displayFactionContent } from "../../Faction/FactionHelpers";
-import { resetGangs } from "../../Gang";
-import { hasHacknetServers } from "../../Hacknet/HacknetHelpers";
-import { HashManager } from "../../Hacknet/HashManager";
-import { Cities } from "../../Locations/Cities";
-import { Locations } from "../../Locations/Locations";
-import { CityName } from "../../Locations/data/CityNames";
-import { LocationName } from "../../Locations/data/LocationNames";
-import { Sleeve } from "../../PersonObjects/Sleeve/Sleeve";
+import { Augmentations } from "Augmentation/Augmentations";
+import { applyAugmentation } from "Augmentation/AugmentationHelpers";
+import { PlayerOwnedAugmentation } from "Augmentation/PlayerOwnedAugmentation";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { Bladeburner } from "Bladeburner";
+import { CodingContractRewardType } from "CodingContracts";
+import { Company } from "Company/Company";
+import { Companies } from "Company/Companies";
+import { getNextCompanyPositionHelper } from "Company/GetNextCompanyPosition";
+import { getJobRequirementText } from "Company/GetJobRequirementText";
+import { CompanyPositions } from "Company/CompanyPositions";
+import * as posNames from "Company/data/companypositionnames";
+import {CONSTANTS} from "Constants";
+import { Corporation } from "Corporation/Corporation";
+import { Programs } from "Programs/Programs";
+import { determineCrimeSuccess } from "Crime/CrimeHelpers";
+import { Crimes } from "Crime/Crimes";
+import { Engine } from "engine";
+import { Faction } from "Faction/Faction";
+import { Factions } from "Faction/Factions";
+import { displayFactionContent } from "Faction/FactionHelpers";
+import { resetGangs } from "Gang";
+import { hasHacknetServers } from "Hacknet/HacknetHelpers";
+import { HashManager } from "Hacknet/HashManager";
+import { Cities } from "Locations/Cities";
+import { Locations } from "Locations/Locations";
+import { CityName } from "Locations/data/CityNames";
+import { LocationName } from "Locations/data/LocationNames";
+import { Sleeve } from "PersonObjects/Sleeve/Sleeve";
 import {
     AllServers,
     AddToAllServers,
     createUniqueRandomIp,
-} from "../../Server/AllServers";
-import { safetlyCreateUniqueServer } from "../../Server/ServerHelpers";
-import { Settings } from "../../Settings/Settings";
-import { SpecialServerIps, SpecialServerNames } from "../../Server/SpecialServerIps";
-import { applySourceFile } from "../../SourceFile/applySourceFile";
-import { SourceFiles } from "../../SourceFile/SourceFiles";
-import { SourceFileFlags } from "../../SourceFile/SourceFileFlags";
-import { influenceStockThroughCompanyWork } from "../../StockMarket/PlayerInfluencing";
+} from "Server/AllServers";
+import { safetlyCreateUniqueServer } from "Server/ServerHelpers";
+import { Settings } from "Settings/Settings";
+import { SpecialServerIps, SpecialServerNames } from "Server/SpecialServerIps";
+import { applySourceFile } from "SourceFile/applySourceFile";
+import { SourceFiles } from "SourceFile/SourceFiles";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
+import { influenceStockThroughCompanyWork } from "StockMarket/PlayerInfluencing";
 
 import Decimal from "decimal.js";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
-import { MoneySourceTracker } from "../../utils/MoneySourceTracker";
-import { dialogBoxCreate } from "../../../utils/DialogBox";
-import { clearEventListeners } from "../../../utils/uiHelpers";
+import { numeralWrapper } from "ui/numeralFormat";
+import { MoneySourceTracker } from "utils/MoneySourceTracker";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { clearEventListeners } from "utils/uiHelpers";
 import {
     Reviver,
     Generic_toJSON,
     Generic_fromJSON,
-} from "../../../utils/JSONReviver";
-import {convertTimeMsToTimeElapsedString} from "../../../utils/StringHelperFunctions";
+} from "utils/JSONReviver";
+import {convertTimeMsToTimeElapsedString} from "utils/StringHelperFunctions";
 
-import {DEFAULT_THEME, MUTED_THEME, SOLARIZED_THEME} from "../../Terminal/themes";
+import {DEFAULT_THEME, MUTED_THEME, SOLARIZED_THEME} from "Terminal/themes";
 
 const CYCLES_PER_SEC = 1000 / CONSTANTS.MilliPerCycle;
 

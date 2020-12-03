@@ -7,17 +7,19 @@ import { findSleevePurchasableAugs } from "./SleeveHelpers";
 
 import { IPlayer } from "../IPlayer";
 
-import { Augmentation } from "../../Augmentation/Augmentation";
-import { Augmentations } from "../../Augmentation/Augmentations";
+import { Augmentation } from "Augmentation/Augmentation";
+import { Augmentations } from "Augmentation/Augmentations";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
-import { createElement } from "../../../utils/uiHelpers";
-import { createPopup } from "../../../utils/uiHelpers";
-import { createPopupCloseButton } from "../../../utils/uiHelpers";
-import { removeElementById } from "../../../utils/uiHelpers";
+import {
+    createElement,
+    createPopup,
+    createPopupCloseButton,
+    removeElementById
+} from "utils/uiHelpers";
 
 export function createSleevePurchaseAugsPopup(sleeve: Sleeve, p: IPlayer) {
     // Array of all owned Augmentations. Names only

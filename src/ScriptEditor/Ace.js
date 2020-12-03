@@ -16,9 +16,9 @@ require("brace/keybinding/vim");
 require("brace/keybinding/emacs");
 require("brace/ext/language_tools");
 
-import { NetscriptFunctions } from "../NetscriptFunctions";
-import { Settings } from "../Settings/Settings";
-import { AceKeybindingSetting } from "../Settings/SettingEnums";
+import { NetscriptFunctions } from "NetscriptFunctions";
+import { Settings } from "Settings/Settings";
+import { AceKeybindingSetting } from "Settings/SettingEnums";
 
 import {
     clearEventListeners,
@@ -27,7 +27,7 @@ import {
     getSelectText,
     getSelectValue,
     removeChildrenFromElement,
-} from "../../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 // Wrapper for Ace editor
 const Keybindings = {

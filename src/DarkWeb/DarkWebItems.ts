@@ -1,5 +1,5 @@
-import { Programs } from "../Programs/Programs";
-import { IMap } from "../types";
+import { Programs } from "Programs/Programs";
+import { IMap } from "types";
 import { DarkWebItem } from "./DarkWebItem";
 
 export const DarkWebItems: IMap<DarkWebItem> = {

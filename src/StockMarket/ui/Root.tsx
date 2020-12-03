@@ -6,13 +6,13 @@ import * as React from "react";
 import { InfoAndPurchases } from "./InfoAndPurchases";
 import { StockTickers } from "./StockTickers";
 
-import { IStockMarket } from "../IStockMarket";
-import { Stock } from "../Stock";
-import { OrderTypes } from "../data/OrderTypes";
-import { PositionTypes } from "../data/PositionTypes";
+import { IStockMarket } from "StockMarket/IStockMarket";
+import { Stock } from "StockMarket/Stock";
+import { OrderTypes } from "StockMarket/data/OrderTypes";
+import { PositionTypes } from "StockMarket/data/PositionTypes";
 
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { EventEmitter } from "../../utils/EventEmitter";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { EventEmitter } from "utils/EventEmitter";
 
 type txFn = (stock: Stock, shares: number) => boolean;
 export type placeOrderFn = (stock: Stock, shares: number, price: number, ordType: OrderTypes, posType: PositionTypes) => boolean;

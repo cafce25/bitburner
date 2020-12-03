@@ -2,40 +2,38 @@
  * Functions for handling WorkerScripts, which are the underlying mechanism
  * that allows for scripts to run
  */
-import { killWorkerScript } from "./Netscript/killWorkerScript";
-import { WorkerScript } from "./Netscript/WorkerScript";
-import { workerScripts } from "./Netscript/WorkerScripts";
-import { WorkerScriptStartStopEventEmitter } from "./Netscript/WorkerScriptStartStopEventEmitter";
+import { killWorkerScript } from "Netscript/killWorkerScript";
+import { WorkerScript } from "Netscript/WorkerScript";
+import { workerScripts } from "Netscript/WorkerScripts";
+import { WorkerScriptStartStopEventEmitter } from "Netscript/WorkerScriptStartStopEventEmitter";
 
-import { CONSTANTS } from "./Constants";
-import { Engine } from "./engine";
-import { Interpreter } from "./JSInterpreter";
+import { CONSTANTS } from "Constants";
+import { Engine } from "engine";
+import { Interpreter } from "JSInterpreter";
 import {
     isScriptErrorMessage,
     makeRuntimeRejectMsg,
     resolveNetscriptRequestedThreads,
-} from "./NetscriptEvaluator";
-import { NetscriptFunctions } from "./NetscriptFunctions";
-import { executeJSScript } from "./NetscriptJSEvaluator";
-import { NetscriptPort } from "./NetscriptPort";
-import { Player } from "./Player";
-import { RunningScript } from "./Script/RunningScript";
-import { getRamUsageFromRunningScript } from "./Script/RunningScriptHelpers";
+} from "NetscriptEvaluator";
+import { NetscriptFunctions } from "NetscriptFunctions";
+import { executeJSScript } from "NetscriptJSEvaluator";
+import { NetscriptPort } from "NetscriptPort";
+import { Player } from "Player";
+import { RunningScript } from "Script/RunningScript";
+import { getRamUsageFromRunningScript } from "Script/RunningScriptHelpers";
 import {
     findRunningScript,
     scriptCalculateOfflineProduction,
-} from "./Script/ScriptHelpers";
-import { AllServers } from "./Server/AllServers";
-import { Settings } from "./Settings/Settings";
-import { setTimeoutRef } from "./utils/SetTimeoutRef";
+} from "Script/ScriptHelpers";
+import { AllServers } from "Server/AllServers";
+import { Settings } from "Settings/Settings";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
 
 import { generate } from "escodegen";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
-import { compareArrays } from "../utils/helpers/compareArrays";
-import { arrayToString } from "../utils/helpers/arrayToString";
-import { roundToTwo } from "../utils/helpers/roundToTwo";
-import { isString } from "../utils/StringHelperFunctions";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { compareArrays, arrayToString, roundToTwo } from "utils/helpers";
+import { isString } from "utils/StringHelperFunctions";
 
 import { parse, Node } from "acorn";
 const walk = require("acorn-walk");

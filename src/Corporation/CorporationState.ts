@@ -1,6 +1,6 @@
 import { Generic_fromJSON,
          Generic_toJSON,
-         Reviver }                  from "../../utils/JSONReviver";
+         Reviver }                  from "utils/JSONReviver";
 
 // Array of all valid states
 export const AllCorporationStates: string[] = ["START", "PURCHASE", "PRODUCTION", "SALE", "EXPORT"];

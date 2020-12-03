@@ -1,60 +1,60 @@
-import { Augmentations } from "./Augmentation/Augmentations";
+import { Augmentations } from "Augmentation/Augmentations";
 import {
     augmentationExists,
     initAugmentations
-} from "./Augmentation/AugmentationHelpers";
-import { AugmentationNames } from "./Augmentation/data/AugmentationNames";
-import { initBitNodeMultipliers } from "./BitNode/BitNode";
-import { Bladeburner } from "./Bladeburner";
-import { writeCinematicText } from "./CinematicText";
-import { Companies, initCompanies } from "./Company/Companies";
-import { resetIndustryResearchTrees } from "./Corporation/IndustryData";
-import { Programs } from "./Programs/Programs";
-import { Engine } from "./engine";
-import { Faction } from "./Faction/Faction";
-import { Factions, initFactions } from "./Faction/Factions";
-import { joinFaction } from "./Faction/FactionHelpers";
-import { deleteGangDisplayContent } from "./Gang";
-import { updateHashManagerCapacity } from "./Hacknet/HacknetHelpers";
-import { Message } from "./Message/Message";
-import { initMessages, Messages } from "./Message/MessageHelpers";
-import { prestigeWorkerScripts } from "./NetscriptWorker";
-import { Player } from "./Player";
+} from "Augmentation/AugmentationHelpers";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
+import { initBitNodeMultipliers } from "BitNode/BitNode";
+import { Bladeburner } from "Bladeburner";
+import { writeCinematicText } from "CinematicText";
+import { Companies, initCompanies } from "Company/Companies";
+import { resetIndustryResearchTrees } from "Corporation/IndustryData";
+import { Programs } from "Programs/Programs";
+import { Engine } from "engine";
+import { Faction } from "Faction/Faction";
+import { Factions, initFactions } from "Faction/Factions";
+import { joinFaction } from "Faction/FactionHelpers";
+import { deleteGangDisplayContent } from "Gang";
+import { updateHashManagerCapacity } from "Hacknet/HacknetHelpers";
+import { Message } from "Message/Message";
+import { initMessages, Messages } from "Message/MessageHelpers";
+import { prestigeWorkerScripts } from "NetscriptWorker";
+import { Player } from "Player";
 
 import {
     AllServers,
     AddToAllServers,
     initForeignServers,
     prestigeAllServers
-} from "./Server/AllServers";
-import { Server } from "./Server/Server";
-import { prestigeHomeComputer } from "./Server/ServerHelpers";
+} from "Server/AllServers";
+import { Server } from "Server/Server";
+import { prestigeHomeComputer } from "Server/ServerHelpers";
 import {
     SourceFileFlags,
     updateSourceFileFlags
-} from "./SourceFile/SourceFileFlags";
+} from "SourceFile/SourceFileFlags";
 import {
     SpecialServerIps,
     SpecialServerIpsMap,
     prestigeSpecialServerIps,
     SpecialServerNames
-} from "./Server/SpecialServerIps";
+} from "Server/SpecialServerIps";
 import {
     deleteStockMarket,
     initStockMarket,
     initSymbolToStockMap,
-} from "./StockMarket/StockMarket";
-import { Terminal, postNetburnerText } from "./Terminal";
+} from "StockMarket/StockMarket";
+import { Terminal, postNetburnerText } from "Terminal";
 
-import { Page, routing } from "./ui/navigationTracking";
+import { Page, routing } from "ui/navigationTracking";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
-import { exceptionAlert } from "../utils/helpers/exceptionAlert";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { exceptionAlert } from "utils/helpers";
 import {
     removeElementById,
 	createElement,
 	createPopup
-} from "../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 import Decimal from "decimal.js";
 

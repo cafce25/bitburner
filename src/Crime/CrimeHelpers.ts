@@ -1,7 +1,7 @@
-import { IPlayer } from "../PersonObjects/IPlayer";
+import { IPlayer } from "PersonObjects/IPlayer";
 import { Crimes } from "./Crimes";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 
 export function determineCrimeSuccess(p: IPlayer, type: string) {
     let chance: number = 0;

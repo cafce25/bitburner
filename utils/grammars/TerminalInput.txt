@@ -1,5 +1,0 @@
-4noth3r0ne;
-argHeavycommand -f --longflag 'sqString' "dqStr'ng";othercommand key=v4lue 10 ;
-lastCommand isTested=true;
-
-noArgCommand;stackedCommand;

@@ -5,14 +5,16 @@ import {
 } from "./AllServers";
 import { IConstructorParams, Server } from "./Server";
 
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
-import { CONSTANTS } from "../Constants";
-import { HacknetServer } from "../Hacknet/HacknetServer";
-import { IPlayer } from "../PersonObjects/IPlayer";
-import { Programs } from "../Programs/Programs";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { CONSTANTS } from "Constants";
+import { HacknetServer } from "Hacknet/HacknetServer";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { Programs } from "Programs/Programs";
 
-import { isValidIPAddress } from "../../utils/helpers/isValidIPAddress";
-import { isValidNumber } from "../utils/helpers/isValidNumber";
+import {
+    isValidIPAddress,
+    isValidNumber
+} from "utils/helpers";
 
 /**
  * Constructs a new server, while also ensuring that the new server

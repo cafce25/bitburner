@@ -1,6 +1,6 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {registerExecutable, ManualEntry, fetchUsage} from "./sys";
-import { FconfSettings } from "../../Fconf/FconfSettings";
+import { FconfSettings } from "Fconf/FconfSettings";
 
 export function theme(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
     if (args.length !== 1 && args.length !== 3) {

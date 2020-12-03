@@ -16,17 +16,17 @@ import { PositionTypes } from "./data/PositionTypes";
 import { StockSymbols } from "./data/StockSymbols";
 import { StockMarketRoot } from "./ui/Root";
 
-import { CONSTANTS } from "../Constants";
-import { WorkerScript } from "../Netscript/WorkerScript";
-import { Player } from "../Player";
-import { IMap } from "../types";
-import { EventEmitter } from "../utils/EventEmitter";
+import { CONSTANTS } from "Constants";
+import { WorkerScript } from "Netscript/WorkerScript";
+import { Player } from "Player";
+import { IMap } from "types";
+import { EventEmitter } from "utils/EventEmitter";
 
 import { Page, routing } from ".././ui/navigationTracking";
 import { numeralWrapper } from ".././ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
-import { Reviver } from "../../utils/JSONReviver";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { Reviver } from "utils/JSONReviver";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";

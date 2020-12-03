@@ -6,9 +6,9 @@ import * as React from "react";
 
 import { Stock } from "../Stock";
 
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { numeralWrapper } from "../../ui/numeralFormat";
-import { SourceFileFlags } from "../../SourceFile/SourceFileFlags";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { numeralWrapper } from "ui/numeralFormat";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
 
 type IProps = {
     p: IPlayer;

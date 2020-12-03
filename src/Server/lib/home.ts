@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {registerExecutable, ManualEntry, fetchUsage} from "./sys";
 import {connect} from "./connect";
 export function home(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){

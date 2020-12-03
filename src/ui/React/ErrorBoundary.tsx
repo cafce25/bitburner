@@ -4,7 +4,7 @@
  */
 import * as React from "react";
 
-import { EventEmitter } from "../../utils/EventEmitter";
+import { EventEmitter } from "utils/EventEmitter";
 
 type IProps = {
     eventEmitterForReset?: EventEmitter;

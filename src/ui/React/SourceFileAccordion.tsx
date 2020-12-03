@@ -8,7 +8,7 @@ import * as React from "react";
 
 import { Accordion } from "./Accordion";
 
-import { SourceFile } from "../../SourceFile/SourceFile";
+import { SourceFile } from "SourceFile/SourceFile";
 
 type IProps = {
     level: number,

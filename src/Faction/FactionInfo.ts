@@ -1,4 +1,4 @@
-import { IMap } from "../types";
+import { IMap } from "types";
 
 /**
  * Contains the "information" property for all the Factions, which is just a description of each faction

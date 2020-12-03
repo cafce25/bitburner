@@ -9,11 +9,11 @@
 import { Environment } from "./Environment";
 import { RamCostConstants } from "./RamCostGenerator";
 
-import { RunningScript } from "../Script/RunningScript";
-import { Script } from "../Script/Script";
-import * as Servers from "../Server/AllServers";
-import { BaseServer } from "../Server/BaseServer";
-import { IMap } from "../types";
+import { RunningScript } from "Script/RunningScript";
+import { Script } from "Script/Script";
+import * as Servers from "Server/AllServers";
+import { BaseServer } from "Server/BaseServer";
+import { IMap } from "types";
 
 export class WorkerScript {
     /**

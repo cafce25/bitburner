@@ -1,5 +1,5 @@
-import { Generic_fromJSON, Generic_toJSON, Reviver } from "../../utils/JSONReviver";
-import { CONSTANTS } from "../Constants";
+import { Generic_fromJSON, Generic_toJSON, Reviver } from "utils/JSONReviver";
+import { CONSTANTS } from "Constants";
 import { FactionInfo,
          FactionInfos } from "./FactionInfo";
 

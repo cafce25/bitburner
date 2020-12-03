@@ -1,7 +1,7 @@
 import { Corporation } from "./Corporation/Corporation";
 import { PlayerObject } from "./PersonObjects/Player/PlayerObject";
 
-import { Reviver } from "../utils/JSONReviver";
+import { Reviver } from "utils/JSONReviver";
 
 import Decimal from "decimal.js";
 

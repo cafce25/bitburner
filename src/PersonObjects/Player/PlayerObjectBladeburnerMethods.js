@@ -1,5 +1,5 @@
-import { Bladeburner } from "../../Bladeburner";
-import { SourceFileFlags } from "../../SourceFile/SourceFileFlags";
+import { Bladeburner } from "Bladeburner";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
 
 export function canAccessBladeburner() {
     if (this.bitNodeN === 8) { return false; }

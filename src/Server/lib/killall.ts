@@ -1,8 +1,8 @@
-import { BaseServer } from "../BaseServer";
-import { killWorkerScript } from "../../Netscript/killWorkerScript";
-import { RunningScript} from "../../Script/RunningScript";
+import { BaseServer } from "Server/BaseServer";
+import { killWorkerScript } from "Netscript/killWorkerScript";
+import { RunningScript} from "Script/RunningScript";
 import {registerExecutable, ManualEntry, fetchUsage} from "./sys";
-import { WorkerScriptStartStopEventEmitter } from "../../Netscript/WorkerScriptStartStopEventEmitter";
+import { WorkerScriptStartStopEventEmitter } from "Netscript/WorkerScriptStartStopEventEmitter";
 
 export function killall(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
     for(let i = server.runningScripts.length - 1; i >= 0; i--){

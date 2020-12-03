@@ -1,9 +1,9 @@
 
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {OverwriteStrategy, acceptOverwrite} from "./OverwriteStrategy";
 import {VersioningStrategy, getVersionCheck} from "./VersioningStrategy";
-import { getServer } from "../AllServers";
+import { getServer } from "Server/AllServers";
 
 export function scp(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={recursive:false, verbose:false, targetAsDirectory:true, targetDir:undefined, backup:VersioningStrategy.EXISTING, overwriteStrategy:OverwriteStrategy.NO_CLOBBER, suffix:"~", to:undefined, destServer:undefined}) {
     const HELP_MESSAGE: string = "Usage: scp <-f --force> <-u --update> <-v --verbose> <-n --no-clobber> <--help> <-S --suffix suffix> <-b --backup numbered,simple,existing,none> <-t --target-directory=DIRECTORY> <-r --recursive> <-T --no-target-directory> --to=SERVER SOURCE... DEST";

@@ -1,4 +1,4 @@
-import { BitNodes } from "../BitNode/BitNode";
+import { BitNodes } from "BitNode/BitNode";
 
 export class SourceFile {
     info: string;

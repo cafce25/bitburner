@@ -1,5 +1,5 @@
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 export function cat(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={recursive:false, verbose:false}) {
 

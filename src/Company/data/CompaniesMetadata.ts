@@ -1,8 +1,8 @@
 import { IConstructorParams }   from "../Company";
 import * as posNames            from "./companypositionnames";
 
-import { LocationName }         from "../../Locations/data/LocationNames";
-import { IMap }                 from "../../types";
+import { LocationName }         from "Locations/data/LocationNames";
+import { IMap }                 from "types";
 
 // Create Objects containing Company Positions by category
 // Will help in metadata construction later

@@ -10,9 +10,9 @@ import { parse, Node } from "acorn";
 
 import { RamCalculationErrorCode } from "./RamCalculationErrorCodes";
 
-import { RamCosts, RamCostConstants } from "../Netscript/RamCostGenerator";
+import { RamCosts, RamCostConstants } from "Netscript/RamCostGenerator";
 
-import {Server} from "../Server/Server";
+import {Server} from "Server/Server";
 
 // These special strings are used to reference the presence of a given logical
 // construct within a user script.

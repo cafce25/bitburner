@@ -5,7 +5,7 @@
  */
 import * as React from "react";
 
-import { StdButton } from "../../ui/React/StdButton";
+import { StdButton } from "ui/React/StdButton";
 
 type IProps = {
     buttonText: string;

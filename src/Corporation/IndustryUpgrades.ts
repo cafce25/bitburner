@@ -1,4 +1,4 @@
-import { IMap } from "../types";
+import { IMap } from "types";
 
 // Industry upgrades
 // The data structure is an array with the following format:

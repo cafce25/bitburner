@@ -1,11 +1,11 @@
 import { DarkWebItems }                         from "./DarkWebItems";
 
-import { Player }                               from "../Player";
-import { SpecialServerIps }                     from "../Server/SpecialServerIps";
-import { post }                                 from "../ui/postToTerminal";
+import { Player }                               from "Player";
+import { SpecialServerIps }                     from "Server/SpecialServerIps";
+import { post }                                 from "ui/postToTerminal";
 
-import { isValidIPAddress }                     from "../../utils/helpers/isValidIPAddress";
-import { formatNumber }                         from "../../utils/StringHelperFunctions";
+import { isValidIPAddress }                     from "utils/helpers";
+import { formatNumber }                         from "utils/StringHelperFunctions";
 
 //Posts a "help" message if connected to DarkWeb
 export function checkIfConnectedToDarkweb() {

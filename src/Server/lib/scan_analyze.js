@@ -1,11 +1,11 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {registerExecutable, ManualEntry, fetchUsage} from "./sys";
-import { WorkerScriptStartStopEventEmitter } from "../../Netscript/WorkerScriptStartStopEventEmitter";
-import {Player}  from "../../Player";
-import {getServer, AllServers} from "../AllServers";
+import { WorkerScriptStartStopEventEmitter } from "Netscript/WorkerScriptStartStopEventEmitter";
+import {Player}  from "Player";
+import {getServer, AllServers} from "Server/AllServers";
 import {connect} from "./connect";
-import { Programs } from "../../Programs/Programs";
-import {HacknetServer} from "../../Hacknet/HacknetServer";
+import { Programs } from "Programs/Programs";
+import {HacknetServer} from "Hacknet/HacknetServer";
 
 export function scan_analyze(server, term, out, err, args, options={}){
     if (args.length === 0) {

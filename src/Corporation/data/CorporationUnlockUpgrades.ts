@@ -1,4 +1,4 @@
-import { IMap } from "../../types";
+import { IMap } from "types";
 
 // Corporation Unlock Upgrades
 // Upgrades for entire corporation, unlocks features, either you have it or you dont

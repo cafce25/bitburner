@@ -1,11 +1,11 @@
 
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
-import { Script} from "../../Script/Script";
-import { RunningScript} from "../../Script/RunningScript";
+import { BaseServer } from "Server/BaseServer";
+import { Script} from "Script/Script";
+import { RunningScript} from "Script/RunningScript";
 import {registerExecutable, ManualEntry, fetchUsage} from "./sys";
 
-import { logBoxCreate } from "../../../utils/LogBox";
+import { logBoxCreate } from "utils/LogBox";
 
 export function tail(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={target:undefined, logBox:false, args:[], PID:false}) {
     const INVALID_PATH_ERROR: string = "Invalid path";

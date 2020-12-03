@@ -8,29 +8,29 @@ import { StockTickerOrderList } from "./StockTickerOrderList";
 import { StockTickerPositionText } from "./StockTickerPositionText";
 import { StockTickerTxButton } from "./StockTickerTxButton";
 
-import { Order } from "../Order";
-import { Stock } from "../Stock";
+import { Order } from "StockMarket/Order";
+import { Stock } from "StockMarket/Stock";
 import {
     getBuyTransactionCost,
     getSellTransactionGain,
     calculateBuyMaxAmount,
-} from "../StockMarketHelpers";
-import { OrderTypes } from "../data/OrderTypes";
-import { PositionTypes } from "../data/PositionTypes";
+} from "StockMarket/StockMarketHelpers";
+import { OrderTypes } from "StockMarket/data/OrderTypes";
+import { PositionTypes } from "StockMarket/data/PositionTypes";
 
-import { IPlayer } from "../../PersonObjects/IPlayer";
-import { SourceFileFlags } from "../../SourceFile/SourceFileFlags";
-import { numeralWrapper } from "../../ui/numeralFormat";
-import { Accordion } from "../../ui/React/Accordion";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
+import { numeralWrapper } from "ui/numeralFormat";
+import { Accordion } from "ui/React/Accordion";
 
-import { dialogBoxCreate } from "../../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 import {
     yesNoTxtInpBoxClose,
     yesNoTxtInpBoxCreate,
     yesNoTxtInpBoxGetInput,
     yesNoTxtInpBoxGetNoButton,
     yesNoTxtInpBoxGetYesButton,
-} from "../../../utils/YesNoBox";
+} from "utils/YesNoBox";
 
 enum SelectorOrderType {
     Market = "Market Order",

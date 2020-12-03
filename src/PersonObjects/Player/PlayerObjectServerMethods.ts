@@ -3,16 +3,16 @@
  */
 import { IPlayer } from "../IPlayer";
 
-import { CONSTANTS } from "../../Constants";
+import { CONSTANTS } from "Constants";
 
-import { BitNodeMultipliers } from "../../BitNode/BitNodeMultipliers";
-import { HacknetServer } from "../../Hacknet/HacknetServer";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { HacknetServer } from "Hacknet/HacknetServer";
 import {
     AddToAllServers,
     AllServers,
     createUniqueRandomIp,
-} from "../../Server/AllServers";
-import { SpecialServerIps } from "../../Server/SpecialServerIps";
+} from "Server/AllServers";
+import { SpecialServerIps } from "Server/SpecialServerIps";
 
 export function hasTorRouter(this: IPlayer) {
     return SpecialServerIps.hasOwnProperty("Darkweb Server");

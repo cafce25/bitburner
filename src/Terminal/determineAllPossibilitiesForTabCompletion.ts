@@ -7,12 +7,12 @@ import { getSubdirectories } from "./DirectoryServerHelpers";
 import {
     Aliases,
     GlobalAliases,
-} from "../Alias";
-import { DarkWebItems } from "../DarkWeb/DarkWebItems";
-import { Message } from "../Message/Message";
-import { IPlayer } from "../PersonObjects/IPlayer";
-import { AllServers } from "../Server/AllServers";
-import { fetchHelpKeys } from "../Server/lib/sys";
+} from "Alias";
+import { DarkWebItems } from "DarkWeb/DarkWebItems";
+import { Message } from "Message/Message";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { AllServers } from "Server/AllServers";
+import { fetchHelpKeys } from "Server/lib/sys";
 
 function getCommands(): string[] {
     return fetchHelpKeys().filter((k) => !k.endsWith(".exe"));

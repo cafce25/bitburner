@@ -1,15 +1,15 @@
-import { HacknetServer } from "../../Hacknet/HacknetServer";
-import { getServer } from "../AllServers";
-import { BaseServer } from "../BaseServer";
-import { Server } from "../Server";
+import { HacknetServer } from "Hacknet/HacknetServer";
+import { getServer } from "Server/AllServers";
+import { BaseServer } from "Server/BaseServer";
+import { Server } from "Server/Server";
 import {registerExecutable, ManualEntry, fetchUsage, fetchExecutable} from "./sys";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
 import {
     calculateHackingTime,
     calculateGrowTime,
     calculateWeakenTime
-} from "../../Hacking";
+} from "Hacking";
 
 export function ServerProfiler(server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
     var targetServer: Server | HacknetServer | undefined;

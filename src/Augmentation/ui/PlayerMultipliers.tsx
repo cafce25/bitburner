@@ -3,8 +3,8 @@
  */
 import * as React from "react";
 
-import { Player } from "../../Player";
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { Player } from "Player";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export function PlayerMultipliers(): React.ReactElement {
     return (

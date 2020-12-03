@@ -2,11 +2,8 @@ Changelog.txt
 Netburner.txt
 /doc/build
 /node_modules
-/dist/*.map
-/test/*.map
-/test/*.bundle.*
-/test/*.css
-.vscode/*
-.nyc_output/*
+/.vscode/*
+/.nyc_output/*
 *.tmp
-dist/*
+/dist/*
+/dist-test/*

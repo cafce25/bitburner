@@ -1,6 +1,6 @@
-import { Factions } from "../../Faction/Factions";
-import { Gang } from "../../Gang";
-import { SourceFileFlags } from "../../SourceFile/SourceFileFlags";
+import { Factions } from "Faction/Factions";
+import { Gang } from "Gang";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
 
 // Amount of negative karma needed to manage a gang in BitNodes other than 2
 const GangKarmaRequirement = -54000;

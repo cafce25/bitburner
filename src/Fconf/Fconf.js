@@ -1,7 +1,7 @@
 import { FconfSettings }                        from "./FconfSettings";
 
 import { parse, Node }                          from "acorn";
-import { dialogBoxCreate }                      from "../../utils/DialogBox";
+import { dialogBoxCreate }                      from "utils/DialogBox";
 
 var FconfComments = {
     ENABLE_BASH_HOTKEYS: "Improved Bash emulation mode. Setting this to 1 enables several\n" +

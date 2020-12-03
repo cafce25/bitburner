@@ -1,95 +1,94 @@
-import { determineAllPossibilitiesForTabCompletion } from "./Terminal/determineAllPossibilitiesForTabCompletion";
-import { tabCompletion } from "./Terminal/tabCompletion";
+import { determineAllPossibilitiesForTabCompletion } from "Terminal/determineAllPossibilitiesForTabCompletion";
+import { tabCompletion } from "Terminal/tabCompletion";
 
-import { substituteAliases } from "./Alias";
-import { CONSTANTS } from "./Constants";
-import { Engine } from "./engine";
-import { FconfSettings } from "./Fconf/FconfSettings";
+import { substituteAliases } from "Alias";
+import { CONSTANTS } from "Constants";
+import { Engine } from "engine";
+import { FconfSettings } from "Fconf/FconfSettings";
 import {
     calculateHackingChance,
     calculateHackingExpGain,
     calculatePercentMoneyHacked,
     calculateHackingTime,
-} from "./Hacking";
-import { HacknetServer } from "./Hacknet/HacknetServer";
+} from "Hacking";
+import { HacknetServer } from "Hacknet/HacknetServer";
 import {
     iTutorialNextStep,
     iTutorialSteps,
     ITutorial
-} from "./InteractiveTutorial";
-import { Player } from "./Player";
-import { hackWorldDaemon } from "./RedPill";
-import { GetServerByHostname } from "./Server/ServerHelpers";
+} from "InteractiveTutorial";
+import { Player } from "Player";
+import { hackWorldDaemon } from "RedPill";
+import { GetServerByHostname } from "Server/ServerHelpers";
 import {
     SpecialServerIps,
     SpecialServerNames
-} from "./Server/SpecialServerIps";
-import { setTimeoutRef } from "./utils/SetTimeoutRef";
-import { Page, routing } from "./ui/navigationTracking";
-import { numeralWrapper } from "./ui/numeralFormat";
-import { KEY } from "../utils/helpers/keyCodes";
-import { getTimestamp } from "../utils/helpers/getTimestamp";
+} from "Server/SpecialServerIps";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
+import { Page, routing } from "ui/navigationTracking";
+import { numeralWrapper } from "ui/numeralFormat";
+import { KEY_CODES, getTimestamp } from "utils/helpers";
 import {
     post,
     postError,
     hackProgressBarPost,
     hackProgressPost
-} from "./ui/postToTerminal";
-import * as sys from "./Server/lib/sys";
+} from "ui/postToTerminal";
+import * as sys from "Server/lib/sys";
 //////////////////////////////////////////////////////////////////////////////
 // Here we import every existing function to let them initialize themselves //
 //////////////////////////////////////////////////////////////////////////////
-import { mkdir } from "./Server/lib/mkdir";
-import { rm } from "./Server/lib/rm";
-import { mv } from "./Server/lib/mv";
-import { ls } from "./Server/lib/ls";
-import { nano } from "./Server/lib/nano";
-import { tree } from "./Server/lib/tree";
-import { top } from "./Server/lib/top";
-import { scan } from "./Server/lib/scan";
-import { mem } from "./Server/lib/mem";
-import { cd } from "./Server/lib/cd";
-import { cls } from "./Server/lib/cls";
-import { sudov } from "./Server/lib/sudov";
-import { clear } from "./Server/lib/clear";
-import { nuke } from "./Server/lib/nuke";
-import { analyze } from "./Server/lib/analyze";
-import { run } from "./Server/lib/run";
-import { FTPCrack } from "./Server/lib/FTPCrack";
-import { bruteSSH } from "./Server/lib/bruteSSH";
-import { HTTPWorm } from "./Server/lib/HTTPWorm";
-import { lscpu } from "./Server/lib/lscpu";
-import { hostname } from "./Server/lib/hostname";
-import { home } from "./Server/lib/home";
-import { connect } from "./Server/lib/connect";
-import { ifconfig } from "./Server/lib/ifconfig";
-import { scan_analyze } from "./Server/lib/scan_analyze";
-import { relaySMTP } from "./Server/lib/relaySMTP";
-import { help } from "./Server/lib/help";
-import { download } from "./Server/lib/download";
-import { cp } from "./Server/lib/cp";
-import { scp } from "./Server/lib/scp";
-import { expr } from "./Server/lib/expr";
-import { check } from "./Server/lib/check";
-import { SQLInject } from "./Server/lib/SQLInject";
-import { kill } from "./Server/lib/kill";
-import { killall } from "./Server/lib/killall";
-import { wget } from "./Server/lib/wget";
-import { hack } from "./Server/lib/hack";
-import { alias } from "./Server/lib/alias";
-import { unalias } from "./Server/lib/unalias";
-import { theme } from "./Server/lib/theme";
-import { ps } from "./Server/lib/ps";
-import { buy } from "./Server/lib/buy";
-import { tail } from "./Server/lib/tail";
-import { ServerProfiler } from "./Server/lib/ServerProfiler";
-import { AutoLink } from "./Server/lib/AutoLink";
-import { DeepscanV2 } from "./Server/lib/DeepscanV2";
-import { DeepscanV1 } from "./Server/lib/DeepscanV1";
-import { fl1ght } from "./Server/lib/fl1ght";
-import { b1t_flum3 } from "./Server/lib/B1t_flum3";
-import { cat } from "./Server/lib/cat";
-import { free } from "./Server/lib/free";
+import { mkdir } from "Server/lib/mkdir";
+import { rm } from "Server/lib/rm";
+import { mv } from "Server/lib/mv";
+import { ls } from "Server/lib/ls";
+import { nano } from "Server/lib/nano";
+import { tree } from "Server/lib/tree";
+import { top } from "Server/lib/top";
+import { scan } from "Server/lib/scan";
+import { mem } from "Server/lib/mem";
+import { cd } from "Server/lib/cd";
+import { cls } from "Server/lib/cls";
+import { sudov } from "Server/lib/sudov";
+import { clear } from "Server/lib/clear";
+import { nuke } from "Server/lib/nuke";
+import { analyze } from "Server/lib/analyze";
+import { run } from "Server/lib/run";
+import { FTPCrack } from "Server/lib/FTPCrack";
+import { bruteSSH } from "Server/lib/bruteSSH";
+import { HTTPWorm } from "Server/lib/HTTPWorm";
+import { lscpu } from "Server/lib/lscpu";
+import { hostname } from "Server/lib/hostname";
+import { home } from "Server/lib/home";
+import { connect } from "Server/lib/connect";
+import { ifconfig } from "Server/lib/ifconfig";
+import { scan_analyze } from "Server/lib/scan_analyze";
+import { relaySMTP } from "Server/lib/relaySMTP";
+import { help } from "Server/lib/help";
+import { download } from "Server/lib/download";
+import { cp } from "Server/lib/cp";
+import { scp } from "Server/lib/scp";
+import { expr } from "Server/lib/expr";
+import { check } from "Server/lib/check";
+import { SQLInject } from "Server/lib/SQLInject";
+import { kill } from "Server/lib/kill";
+import { killall } from "Server/lib/killall";
+import { wget } from "Server/lib/wget";
+import { hack } from "Server/lib/hack";
+import { alias } from "Server/lib/alias";
+import { unalias } from "Server/lib/unalias";
+import { theme } from "Server/lib/theme";
+import { ps } from "Server/lib/ps";
+import { buy } from "Server/lib/buy";
+import { tail } from "Server/lib/tail";
+import { ServerProfiler } from "Server/lib/ServerProfiler";
+import { AutoLink } from "Server/lib/AutoLink";
+import { DeepscanV2 } from "Server/lib/DeepscanV2";
+import { DeepscanV1 } from "Server/lib/DeepscanV1";
+import { fl1ght } from "Server/lib/fl1ght";
+import { b1t_flum3 } from "Server/lib/B1t_flum3";
+import { cat } from "Server/lib/cat";
+import { free } from "Server/lib/free";
 import { fs } from 'memfs';
 
 import autosize from "autosize";
@@ -97,9 +96,11 @@ import * as JSZip from "jszip";
 import * as FileSaver from "file-saver";
 
 const antlr4 = require('antlr4');
-const TerminalLexer = require('../utils/grammars/TerminalLexer').TerminalLexer;
-const TerminalParser = require('../utils/grammars/TerminalParser').TerminalParser;
-const CommandListener = require('../utils/grammars/CommandListener').CommandListener;
+import {
+    TerminalLexer,
+    TerminalParser,
+} from 'utils/grammars/Terminal.g4';
+import { CommandListener } from 'utils/grammars/CommandListener';
 
 import * as path from 'path';
 
@@ -120,7 +121,7 @@ $(document).keydown(function(event) {
         var terminalInput = document.getElementById("terminal-input-text-box");
         if (terminalInput != null && !event.ctrlKey && !event.shiftKey && !Terminal.contractOpen) {terminalInput.focus();}
 
-		if (event.keyCode === KEY.ENTER) {
+		if (event.keyCode === KEY_CODES.ENTER) {
             event.preventDefault(); // Prevent newline from being entered in Script Editor
 			const command = terminalInput.value;
             const dir = Terminal.currDir;
@@ -137,7 +138,7 @@ $(document).keydown(function(event) {
 			}
 		}
 
-		if (event.keyCode === KEY.C && event.ctrlKey) {
+		if (event.keyCode === KEY_CODES.C && event.ctrlKey) {
             if (Engine._actionInProgress) {
                 // Cancel action
                 post("Cancelling...");
@@ -149,7 +150,7 @@ $(document).keydown(function(event) {
             }
 		}
 
-        if (event.keyCode === KEY.L && event.ctrlKey) {
+        if (event.keyCode === KEY_CODES.L && event.ctrlKey) {
             event.preventDefault();
             Terminal.executeCommand("clear"); // Clear screen
         }
@@ -157,8 +158,8 @@ $(document).keydown(function(event) {
         // Ctrl p same as up arrow
         // Ctrl n same as down arrow
 
-        if (event.keyCode === KEY.UPARROW ||
-            (FconfSettings.ENABLE_BASH_HOTKEYS && event.keyCode === KEY.P && event.ctrlKey)) {
+        if (event.keyCode === KEY_CODES.UPARROW ||
+            (FconfSettings.ENABLE_BASH_HOTKEYS && event.keyCode === KEY_CODES.P && event.ctrlKey)) {
             if (FconfSettings.ENABLE_BASH_HOTKEYS) {event.preventDefault();}
             // Cycle through past commands
             if (terminalInput == null) {return;}
@@ -178,8 +179,8 @@ $(document).keydown(function(event) {
             setTimeoutRef(function(){terminalInput.selectionStart = terminalInput.selectionEnd = 10000; }, 0);
         }
 
-        if (event.keyCode === KEY.DOWNARROW ||
-            (FconfSettings.ENABLE_BASH_HOTKEYS && event.keyCode === KEY.M && event.ctrlKey)) {
+        if (event.keyCode === KEY_CODES.DOWNARROW ||
+            (FconfSettings.ENABLE_BASH_HOTKEYS && event.keyCode === KEY_CODES.M && event.ctrlKey)) {
             if (FconfSettings.ENABLE_BASH_HOTKEYS) {event.preventDefault();}
             // Cycle through past commands
             if (terminalInput == null) {return;}
@@ -202,7 +203,7 @@ $(document).keydown(function(event) {
             }
         }
 
-        if (event.keyCode === KEY.TAB) {
+        if (event.keyCode === KEY_CODES.TAB) {
             event.preventDefault();
 
             // Autocomplete
@@ -245,38 +246,38 @@ $(document).keydown(function(event) {
 
         // Extra Bash Emulation Hotkeys, must be enabled through .fconf
         if (FconfSettings.ENABLE_BASH_HOTKEYS) {
-            if (event.keyCode === KEY.A && event.ctrlKey) {
+            if (event.keyCode === KEY_CODES.A && event.ctrlKey) {
                 event.preventDefault();
                 Terminal.moveTextCursor("home");
             }
 
-            if (event.keyCode === KEY.E && event.ctrlKey) {
+            if (event.keyCode === KEY_CODES.E && event.ctrlKey) {
                 event.preventDefault();
                 Terminal.moveTextCursor("end");
             }
 
-            if (event.keyCode === KEY.B && event.ctrlKey) {
+            if (event.keyCode === KEY_CODES.B && event.ctrlKey) {
                 event.preventDefault();
                 Terminal.moveTextCursor("prevchar");
             }
 
-            if (event.keyCode === KEY.B && event.altKey) {
+            if (event.keyCode === KEY_CODES.B && event.altKey) {
                 event.preventDefault();
                 Terminal.moveTextCursor("prevword");
             }
 
-            if (event.keyCode === KEY.F && event.ctrlKey) {
+            if (event.keyCode === KEY_CODES.F && event.ctrlKey) {
                 event.preventDefault();
                 Terminal.moveTextCursor("nextchar");
             }
 
-            if (event.keyCode === KEY.F && event.altKey) {
+            if (event.keyCode === KEY_CODES.F && event.altKey) {
                 event.preventDefault();
                 Terminal.moveTextCursor("nextword");
             }
 
 
-            if ((event.keyCode === KEY.H || event.keyCode === KEY.D) && event.ctrlKey) {
+            if ((event.keyCode === KEY_CODES.H || event.keyCode === KEY_CODES.D) && event.ctrlKey) {
                 Terminal.modifyInput("backspace");
                 event.preventDefault();
             }
@@ -300,7 +301,7 @@ $(document).ready(function() {
 
 $(document).keydown(function(e) {
 	if (routing.isOn(Page.Terminal)) {
-		if (e.which == KEY.CTRL) {
+		if (e.which == KEY_CODES.CTRL) {
 			terminalCtrlPressed = true;
 		} else if (e.shiftKey) {
             shiftKeyPressed = true;
@@ -318,7 +319,7 @@ $(document).keydown(function(e) {
 
 $(document).keyup(function(e) {
 	if (routing.isOn(Page.Terminal)) {
-		if (e.which == KEY.CTRL) {
+		if (e.which == KEY_CODES.CTRL) {
 			terminalCtrlPressed = false;
 		}
         if (e.shiftKey) {

@@ -1,13 +1,12 @@
-import { killWorkerScript } from "../src/Netscript/killWorkerScript";
-import { RunningScript } from "../src/Script/RunningScript";
+import { killWorkerScript } from "Netscript/killWorkerScript";
+import { RunningScript } from "Script/RunningScript";
 
-import { arrayToString } from "./helpers/arrayToString";
 import { clearEventListeners } from "./uiHelpers";
 
-import { KEY } from "./helpers/keyCodes";
+import { arrayToString, KEY_CODES } from "./helpers";
 
 document.addEventListener("keydown", function(event: KeyboardEvent) {
-    if (logBoxOpened && event.keyCode == KEY.ESC) {
+    if (logBoxOpened && event.keyCode == KEY_CODES.ESC) {
         logBoxClose();
     }
 });

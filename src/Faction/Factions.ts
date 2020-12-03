@@ -5,9 +5,9 @@
 import { Faction } from "./Faction";
 import { FactionInfos } from "./FactionInfo";
 
-import { IMap } from "../types";
+import { IMap } from "types";
 
-import { Reviver } from "../../utils/JSONReviver";
+import { Reviver } from "utils/JSONReviver";
 
 export let Factions: IMap<Faction> = {};
 

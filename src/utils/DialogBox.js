@@ -1,4 +1,4 @@
-import { KEY } from "./helpers/keyCodes";
+import { KEY_CODES } from "./helpers";
 
 /**
  * Create and display a pop-up dialog box.
@@ -33,7 +33,7 @@ $(document).on('click', '.dialog-box-close-button', function( event ) {
 });
 
 document.addEventListener("keydown", function (event) {
-    if (event.keyCode == KEY.ESC && dialogBoxOpened) {
+    if (event.keyCode == KEY_CODES.ESC && dialogBoxOpened) {
         closeTopmostDialogBox();
         event.preventDefault();
     }

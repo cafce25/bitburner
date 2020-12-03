@@ -14,13 +14,13 @@ import { PurchaseButton } from "./PurchaseButton";
 import { getCostOfNextHacknetNode,
          getCostOfNextHacknetServer,
          hasHacknetServers,
-         purchaseHacknet } from "../HacknetHelpers";
+         purchaseHacknet } from "Hacknet/HacknetHelpers";
 
-import { Player } from "../../Player";
-import { AllServers } from "../../Server/AllServers";
+import { Player } from "Player";
+import { AllServers } from "Server/AllServers";
 
-import { createPopup } from "../../ui/React/createPopup";
-import { PopupCloseButton } from "../../ui/React/PopupCloseButton";
+import { createPopup } from "ui/React/createPopup";
+import { PopupCloseButton } from "ui/React/PopupCloseButton";
 
 export const PurchaseMultipliers = Object.freeze({
     "x1": 1,

@@ -3,12 +3,12 @@
  */
 import * as React from "react";
 
-import { Company }                  from "../../Company/Company";
-import { CompanyPosition }          from "../../Company/CompanyPosition";
-import { getJobRequirementText }    from "../../Company/GetJobRequirementText";
-import { IPlayer }                  from "../../PersonObjects/IPlayer";
+import { Company }                  from "Company/Company";
+import { CompanyPosition }          from "Company/CompanyPosition";
+import { getJobRequirementText }    from "Company/GetJobRequirementText";
+import { IPlayer }                  from "PersonObjects/IPlayer";
 
-import { StdButton }                from "../../ui/React/StdButton";
+import { StdButton }                from "ui/React/StdButton";
 
 type IProps = {
     company: Company;

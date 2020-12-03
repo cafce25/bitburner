@@ -2,18 +2,18 @@
  * Class representing a Script instance that is actively running.
  * A Script can have multiple active instances
  */
-import { FconfSettings } from "../Fconf/FconfSettings";
-import { Settings } from "../Settings/Settings";
-import { IMap } from "../types";
-import { post } from "../ui/postToTerminal";
+import { FconfSettings } from "Fconf/FconfSettings";
+import { Settings } from "Settings/Settings";
+import { IMap } from "types";
+import { post } from "ui/postToTerminal";
 import { IScriptBase, Script } from "./Script";
 
-import { getTimestamp } from "../../utils/helpers/getTimestamp";
+import { getTimestamp } from "utils/helpers";
 import {
     Generic_fromJSON,
     Generic_toJSON,
     Reviver,
-} from "../../utils/JSONReviver";
+} from "utils/JSONReviver";
 
 export class RunningScript {
     // Script arguments

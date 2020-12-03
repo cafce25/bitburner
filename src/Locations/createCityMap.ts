@@ -4,7 +4,7 @@
  *
  * This map uses the official name of the city, NOT its key in the 'Cities' object
  */
-import { IMap } from "../types";
+import { IMap } from "types";
 import { Cities } from "./Cities";
 
 export function createCityMap<T>(initValue: T): IMap<T> {

@@ -1,5 +1,5 @@
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import { detectFileType, FileType } from "./FileType";
 const micromatch = require('micromatch');
 

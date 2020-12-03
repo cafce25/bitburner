@@ -1,6 +1,6 @@
-import { BaseServer } from "../BaseServer";
-import {Player} from "../../Player"
-import {HacknetServer} from "../../Hacknet/HacknetServer";
+import { BaseServer } from "Server/BaseServer";
+import {Player} from "Player"
+import {HacknetServer} from "Hacknet/HacknetServer";
 export function hack( server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
     if(!options.Player) options.Player = Player; // not testing?
 

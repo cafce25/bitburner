@@ -3,105 +3,102 @@
  *
  * TODO: Separate UI functionality into its own component
  */
-import {
-    convertTimeMsToTimeElapsedString,
-    replaceAt
-} from "../utils/StringHelperFunctions";
-import { logBoxUpdateText, logBoxOpened } from "../utils/LogBox";
-import { Augmentations } from "./Augmentation/Augmentations";
+import { Augmentations } from "Augmentation/Augmentations";
 import {
     initAugmentations,
     displayAugmentationsContent,
-} from "./Augmentation/AugmentationHelpers";
-import { AugmentationNames } from "./Augmentation/data/AugmentationNames";
+} from "Augmentation/AugmentationHelpers";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
 import {
     initBitNodeMultipliers
-} from "./BitNode/BitNode";
-import { Bladeburner } from "./Bladeburner";
-import { CharacterOverviewComponent } from "./ui/React/CharacterOverview";
-import { cinematicTextFlag } from "./CinematicText";
-import { generateRandomContract } from "./CodingContractGenerator";
-import { initCompanies } from "./Company/Companies";
-import { Corporation } from "./Corporation/Corporation";
-import { CONSTANTS } from "./Constants";
-import { createDevMenu, closeDevMenu } from "./DevMenu";
-import { Factions, initFactions } from "./Faction/Factions";
+} from "BitNode/BitNode";
+import { Bladeburner } from "Bladeburner";
+import { CharacterOverviewComponent } from "ui/React/CharacterOverview";
+import { cinematicTextFlag } from "CinematicText";
+import { generateRandomContract } from "CodingContractGenerator";
+import { initCompanies } from "Company/Companies";
+import { Corporation } from "Corporation/Corporation";
+import { CONSTANTS } from "Constants";
+import { createDevMenu, closeDevMenu } from "DevMenu";
+import { Factions, initFactions } from "Faction/Factions";
 import {
     displayFactionContent,
     joinFaction,
     processPassiveFactionRepGain,
     inviteToFaction
-} from "./Faction/FactionHelpers";
-import { FconfSettings } from "./Fconf/FconfSettings";
+} from "Faction/FactionHelpers";
+import { FconfSettings } from "Fconf/FconfSettings";
 import {
     hasHacknetServers,
     renderHacknetNodesUI,
     clearHacknetNodesUI,
     processHacknetEarnings
-} from "./Hacknet/HacknetHelpers";
-import { iTutorialStart } from "./InteractiveTutorial";
-import { initLiterature } from "./Literature";
-import { LocationName } from "./Locations/data/LocationNames";
-import { LocationRoot } from "./Locations/ui/Root";
-import { checkForMessagesToSend, initMessages } from "./Message/MessageHelpers";
-import { inMission, currMission } from "./Missions";
-import { workerScripts } from "./Netscript/WorkerScripts";
+} from "Hacknet/HacknetHelpers";
+import { iTutorialStart } from "InteractiveTutorial";
+import { initLiterature } from "Literature";
+import { LocationName } from "Locations/data/LocationNames";
+import { LocationRoot } from "Locations/ui/Root";
+import { checkForMessagesToSend, initMessages } from "Message/MessageHelpers";
+import { inMission, currMission } from "Missions";
+import { workerScripts } from "Netscript/WorkerScripts";
 import {
     loadAllRunningScripts,
     updateOnlineScriptTimes,
-} from "./NetscriptWorker";
-import { Player } from "./Player";
-import { prestigeAugmentation } from "./Prestige";
+} from "NetscriptWorker";
+import { Player } from "Player";
+import { prestigeAugmentation } from "Prestige";
 import {
     displayCreateProgramContent,
     getNumAvailableCreateProgram,
     initCreateProgramButtons
-} from "./Programs/ProgramHelpers";
-import { redPillFlag } from "./RedPill";
-import { saveObject, loadGame } from "./SaveObject";
+} from "Programs/ProgramHelpers";
+import { redPillFlag } from "RedPill";
+import { saveObject, loadGame } from "SaveObject";
 import {
     getCurrentEditor,
     scriptEditorInit,
     updateScriptEditorContent
-} from "./Script/ScriptHelpers";
-import { initForeignServers } from "./Server/AllServers";
-import { Settings } from "./Settings/Settings";
-import { updateSourceFileFlags } from "./SourceFile/SourceFileFlags";
-import { initSpecialServerIps } from "./Server/SpecialServerIps";
+} from "Script/ScriptHelpers";
+import { initForeignServers } from "Server/AllServers";
+import { Settings } from "Settings/Settings";
+import { updateSourceFileFlags } from "SourceFile/SourceFileFlags";
+import { initSpecialServerIps } from "Server/SpecialServerIps";
 import {
     initSymbolToStockMap,
     processStockPrices,
     displayStockMarketContent
-} from "./StockMarket/StockMarket";
-import { Terminal, postNetburnerText } from "./Terminal";
-import { Sleeve } from "./PersonObjects/Sleeve/Sleeve";
+} from "StockMarket/StockMarket";
+import { Terminal, postNetburnerText } from "Terminal";
+import { Sleeve } from "PersonObjects/Sleeve/Sleeve";
 import {
     clearSleevesPage,
     createSleevesPage,
     updateSleevesPage
-} from "./PersonObjects/Sleeve/SleeveUI";
+} from "PersonObjects/Sleeve/SleeveUI";
 import {
     clearResleevesPage,
     createResleevesPage
-} from "./PersonObjects/Resleeving/ResleevingUI";
+} from "PersonObjects/Resleeving/ResleevingUI";
 
-import { createStatusText } from "./ui/createStatusText";
-import { displayCharacterInfo } from "./ui/displayCharacterInfo";
-import { Page, routing } from "./ui/navigationTracking";
-import { numeralWrapper } from "./ui/numeralFormat";
-import { setSettingsLabels } from "./ui/setSettingsLabels";
+import { createStatusText } from "ui/createStatusText";
+import { displayCharacterInfo } from "ui/displayCharacterInfo";
+import { Page, routing } from "ui/navigationTracking";
+import { numeralWrapper } from "ui/numeralFormat";
+import { setSettingsLabels } from "ui/setSettingsLabels";
 
-import { ActiveScriptsRoot } from "./ui/ActiveScripts/Root";
-import { initializeMainMenuHeaders } from "./ui/MainMenu/Headers";
-import { initializeMainMenuLinks, MainMenuLinks } from "./ui/MainMenu/Links";
+import { ActiveScriptsRoot } from "ui/ActiveScripts/Root";
+import { initializeMainMenuHeaders } from "ui/MainMenu/Headers";
+import { initializeMainMenuLinks, MainMenuLinks } from "ui/MainMenu/Links";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
-import { gameOptionsBoxClose, gameOptionsBoxOpen } from "../utils/GameOptions";
-import { removeChildrenFromElement } from "../utils/uiHelpers";
-import { createElement } from "../utils/uiHelpers";
-import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { removeLoadingScreen } from "../utils/uiHelpers";
-import { KEY } from "../utils/helpers/keyCodes";
+import {
+    convertTimeMsToTimeElapsedString,
+    replaceAt
+} from "utils/StringHelperFunctions";
+import { logBoxUpdateText, logBoxOpened } from "utils/LogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { gameOptionsBoxClose, gameOptionsBoxOpen } from "utils/GameOptions";
+import { removeChildrenFromElement, createElement, removeLoadingScreen } from "utils/uiHelpers";
+import { exceptionAlert, KEY_CODES } from "utils/helpers";
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -136,47 +133,47 @@ $(document).keydown(function(e) {
         if (e.keyCode == 84 && e.altKey) {
             e.preventDefault();
             Engine.loadTerminalContent();
-        } else if (e.keyCode === KEY.C && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.C && e.altKey) {
             e.preventDefault();
             Engine.loadCharacterContent();
-        } else if (e.keyCode === KEY.E && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.E && e.altKey) {
             e.preventDefault();
             Engine.loadScriptEditorContent();
-        } else if (e.keyCode === KEY.S && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.S && e.altKey) {
             e.preventDefault();
             Engine.loadActiveScriptsContent();
-        } else if (e.keyCode === KEY.H && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.H && e.altKey) {
             e.preventDefault();
             Engine.loadHacknetNodesContent();
-        } else if (e.keyCode === KEY.W && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.W && e.altKey) {
             e.preventDefault();
             Engine.loadLocationContent();
-        } else if (e.keyCode === KEY.J && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.J && e.altKey) {
             e.preventDefault();
             Engine.loadJobContent();
-        } else if (e.keyCode === KEY.R && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.R && e.altKey) {
             e.preventDefault();
             Engine.loadTravelContent();
-        } else if (e.keyCode === KEY.P && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.P && e.altKey) {
             e.preventDefault();
             Engine.loadCreateProgramContent();
-        } else if (e.keyCode === KEY.F && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.F && e.altKey) {
             // Overriden by Fconf
             if (routing.isOn(Page.Terminal) && FconfSettings.ENABLE_BASH_HOTKEYS) {
                 return;
             }
             e.preventDefault();
             Engine.loadFactionsContent();
-        } else if (e.keyCode === KEY.A && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.A && e.altKey) {
             e.preventDefault();
             Engine.loadAugmentationsContent();
-        } else if (e.keyCode === KEY.U && e.altKey) {
+        } else if (e.keyCode === KEY_CODES.U && e.altKey) {
             e.preventDefault();
             Engine.loadTutorialContent();
         }
     }
 
-    if (e.keyCode === KEY.O && e.altKey) {
+    if (e.keyCode === KEY_CODES.O && e.altKey) {
         e.preventDefault();
         gameOptionsBoxOpen();
     }
@@ -1532,7 +1529,7 @@ window.onload = function() {
     /**
      * DB is called bitburnerSave
      * Object store is called savestring
-     * key for the Object store is called save
+     * KEY_CODES for the Object store is called save
      */
     indexedDbRequest = window.indexedDB.open("bitburnerSave", 1);
 

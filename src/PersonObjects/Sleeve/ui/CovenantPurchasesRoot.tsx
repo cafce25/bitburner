@@ -12,12 +12,12 @@ import { BaseCostPerSleeve,
          PopupId }                      from "../SleeveCovenantPurchases";
 import { IPlayer }                      from "../../IPlayer";
 
-import { numeralWrapper }               from "../../../ui/numeralFormat";
+import { numeralWrapper }               from "ui/numeralFormat";
 
-import { PopupCloseButton }             from "../../../ui/React/PopupCloseButton";
-import { StdButton }                    from "../../../ui/React/StdButton";
+import { PopupCloseButton }             from "ui/React/PopupCloseButton";
+import { StdButton }                    from "ui/React/StdButton";
 
-import { dialogBoxCreate }              from "../../../../utils/DialogBox";
+import { dialogBoxCreate }              from "utils/DialogBox";
 
 interface IProps {
     closeFn: () => void;

@@ -5,7 +5,7 @@
 import { IPlayer } from "../IPlayer";
 
 import { createPopup,
-         removePopup } from "../../ui/React/createPopup";
+         removePopup } from "ui/React/createPopup";
 import { CovenantPurchasesRoot } from "./ui/CovenantPurchasesRoot";
 
 export const MaxSleevesFromCovenant: number = 5;

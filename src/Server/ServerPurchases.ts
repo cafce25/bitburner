@@ -8,13 +8,13 @@ import {
 } from "./AllServers";
 import { safetlyCreateUniqueServer } from "./ServerHelpers";
 
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
-import { CONSTANTS } from "../Constants";
-import { IPlayer } from "../PersonObjects/IPlayer";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { CONSTANTS } from "Constants";
+import { IPlayer } from "PersonObjects/IPlayer";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
-import { isPowerOfTwo } from "../../utils/helpers/isPowerOfTwo";
-import { yesNoTxtInpBoxGetInput } from "../../utils/YesNoBox";
+import { dialogBoxCreate } from "utils/DialogBox";
+import { isPowerOfTwo } from "utils/helpers";
+import { yesNoTxtInpBoxGetInput } from "utils/YesNoBox";
 
 // Returns the cost of purchasing a server with the given RAM
 // Returns Infinity for invalid 'ram' arguments

@@ -5,7 +5,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
     const isDevServer = (env || {}).devServer === true;
-    const isDevelopment = argv.mode === 'development';
+
+    const isDevelopment =
+        typeof argv === "undefined" ||
+        typeof argv.mode === "undefined" ||
+        argv.mode === 'development';
+        // asume development mode if not told otherwise
     const outputDirectory = isDevServer ? "dist-dev" : "dist";
     const entries = {};
     entries[`${outputDirectory}/engine`] = "./src/engine.jsx";
@@ -93,9 +98,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.(jsx)$/,
                     exclude: /node_modules/,
-                    use: {
-                      loader: "babel-loader"
-                    }
+                    loader: "babel-loader"
                 },
                 {
                     test: /\.s?css$/,
@@ -105,6 +108,10 @@ module.exports = (env, argv) => {
                         "sass-loader"
                     ]
                 },
+                {
+                    test: /\.g4$/,
+                    loader: 'antlr4-webpack-loader',
+                }
             ]
         },
         optimization: {
@@ -137,6 +144,10 @@ module.exports = (env, argv) => {
             stats: statsConfig,
         },
         resolve: {
+            modules : [
+                "src",
+                "node_modules",
+            ],
             extensions: [
                 ".tsx",
                 ".ts",

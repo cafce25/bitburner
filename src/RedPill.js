@@ -9,19 +9,19 @@ import { PlayerOwnedSourceFile } from "./SourceFile/PlayerOwnedSourceFile";
 import { SourceFileFlags } from "./SourceFile/SourceFileFlags";
 import { SourceFiles } from "./SourceFile/SourceFiles";
 import { Terminal } from "./Terminal";
-import { setTimeoutRef } from "./utils/SetTimeoutRef";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
 
-import { dialogBoxCreate } from "../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 import {
     yesNoBoxCreate,
     yesNoBoxGetYesButton,
     yesNoBoxGetNoButton,
     yesNoBoxClose
-} from "../utils/YesNoBox";
+} from "utils/YesNoBox";
 import {
     clearEventListeners,
 	removeChildrenFromElement
-} from "../utils/uiHelpers";
+} from "utils/uiHelpers";
 
 // Returns promise
 function writeRedPillLine(line) {

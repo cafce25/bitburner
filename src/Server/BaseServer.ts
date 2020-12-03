@@ -1,21 +1,21 @@
-import { CodingContract } from "../CodingContracts";
-import { Message } from "../Message/Message";
-import { RunningScript } from "../Script/RunningScript";
-import { Script } from "../Script/Script";
-import { TextFile } from "../TextFile";
-import { IMap, IReturnStatus } from "../types";
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
+import { CodingContract } from "CodingContracts";
+import { Message } from "Message/Message";
+import { RunningScript } from "Script/RunningScript";
+import { Script } from "Script/Script";
+import { TextFile } from "TextFile";
+import { IMap, IReturnStatus } from "types";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
 
-import { compareArrays } from "../../utils/helpers/compareArrays";
-import { createRandomIp } from "../../utils/IPAddress";
+import { compareArrays } from "utils/helpers";
+import { createRandomIp } from "utils/IPAddress";
 
 import { createFsFromVolume, Volume } from "memfs";
-import { Literatures } from "../Literature";
+import { Literatures } from "Literature";
 
 import {
     post,
     postError,
-} from "../ui/postToTerminal";
+} from "ui/postToTerminal";
 
 import * as path from "path";
 

@@ -11,8 +11,8 @@ import { InstalledAugmentations } from "./InstalledAugmentations";
 import { ListConfiguration } from "./ListConfiguration";
 import { OwnedSourceFiles } from "./OwnedSourceFiles";
 
-import { Settings } from "../../Settings/Settings";
-import { OwnedAugmentationsOrderSetting } from "../../Settings/SettingEnums";
+import { Settings } from "Settings/Settings";
+import { OwnedAugmentationsOrderSetting } from "Settings/SettingEnums";
 
 type IProps = {}
 

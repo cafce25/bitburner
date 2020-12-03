@@ -1,15 +1,15 @@
 import { Message } from "./Message";
-import { Augmentatation } from "../Augmentation/Augmentation";
-import { Augmentations } from "../Augmentation/Augmentations";
-import { AugmentationNames } from "../Augmentation/data/AugmentationNames";
-import { Programs } from "../Programs/Programs";
-import { inMission } from "../Missions";
-import { Player } from "../Player";
-import { redPillFlag } from "../RedPill";
-import { GetServerByHostname } from "../Server/ServerHelpers";
-import { Settings } from "../Settings/Settings";
-import { dialogBoxCreate, dialogBoxOpened} from "../../utils/DialogBox";
-import { Reviver } from "../../utils/JSONReviver";
+import { Augmentatation } from "Augmentation/Augmentation";
+import { Augmentations } from "Augmentation/Augmentations";
+import { AugmentationNames } from "Augmentation/data/AugmentationNames";
+import { Programs } from "Programs/Programs";
+import { inMission } from "Missions";
+import { Player } from "Player";
+import { redPillFlag } from "RedPill";
+import { GetServerByHostname } from "Server/ServerHelpers";
+import { Settings } from "Settings/Settings";
+import { dialogBoxCreate, dialogBoxOpened} from "utils/DialogBox";
+import { Reviver } from "utils/JSONReviver";
 
 //Sends message to player, including a pop up
 function sendMessage(msg, forced=false) {

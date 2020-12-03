@@ -29,19 +29,19 @@ import {
 import { HashManager } from "./HashManager";
 import { HashUpgrades } from "./HashUpgrades";
 
-import { generateRandomContract } from "../CodingContractGenerator";
+import { generateRandomContract } from "CodingContractGenerator";
 import {
     iTutorialSteps,
     iTutorialNextStep,
     ITutorial
-} from "../InteractiveTutorial";
-import { Player } from "../Player";
-import { AllServers } from "../Server/AllServers";
-import { GetServerByHostname } from "../Server/ServerHelpers";
-import { SourceFileFlags } from "../SourceFile/SourceFileFlags";
-import { Page, routing } from "../ui/navigationTracking";
+} from "InteractiveTutorial";
+import { Player } from "Player";
+import { AllServers } from "Server/AllServers";
+import { GetServerByHostname } from "Server/ServerHelpers";
+import { SourceFileFlags } from "SourceFile/SourceFileFlags";
+import { Page, routing } from "ui/navigationTracking";
 
-import { getElementById } from "../../utils/uiHelpers";
+import { getElementById } from "utils/uiHelpers";
 
 import React from "react";
 import ReactDOM from "react-dom";

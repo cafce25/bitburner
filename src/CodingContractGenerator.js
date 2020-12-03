@@ -9,7 +9,7 @@ import { AllServers } from "./Server/AllServers";
 import { GetServerByHostname } from "./Server/ServerHelpers";
 import { SpecialServerNames } from "./Server/SpecialServerIps";
 
-import { getRandomInt } from "../utils/helpers/getRandomInt";
+import { getRandomInt } from "utils/helpers";
 
 
 export function generateRandomContract() {

@@ -1,8 +1,8 @@
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
-import { Script} from "../../Script/Script";
+import { BaseServer } from "Server/BaseServer";
+import { Script} from "Script/Script";
 
-import { numeralWrapper } from "../../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
 export function mem(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={threads:1, recursive:false}) {
     const HELP_MESSAGE: string = "Usage: mem <--help> <-t --threads=THREADS> <-r --recursive> SCRIPT...";

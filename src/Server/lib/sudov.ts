@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 export function sudov(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){
     out(`You${(server.hasAdminRights)?" ":" DO NOT "}have root access to this machine.`)

@@ -1,5 +1,5 @@
 import * as path from "path";
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import {OverwriteStrategy, acceptOverwrite} from "./OverwriteStrategy";
 import {VersioningStrategy, getVersionCheck} from "./VersioningStrategy";
 

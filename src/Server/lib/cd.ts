@@ -1,4 +1,4 @@
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 import * as path from 'path';
 
 export function cd(server: BaseServer, term: any, out:Function, err:Function, args: string[], options:any={}){

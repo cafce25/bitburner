@@ -7,22 +7,22 @@ import * as React from "react";
 
 import { ApplyToJobButton }         from "./ApplyToJobButton";
 
-import { Location }                 from "../Location";
-import { Locations }                from "../Locations";
-import { LocationName }             from "../data/LocationNames";
+import { Location }                 from "Locations/Location";
+import { Locations }                from "Locations/Locations";
+import { LocationName }             from "Locations/data/LocationNames";
 
-import { IEngine }                  from "../../IEngine";
-import { beginInfiltration }        from "../../Infiltration";
+import { IEngine }                  from "IEngine";
+import { beginInfiltration }        from "Infiltration";
 
-import { Companies }                from "../../Company/Companies";
-import { Company }                  from "../../Company/Company";
-import { CompanyPosition }          from "../../Company/CompanyPosition";
-import { CompanyPositions }         from "../../Company/CompanyPositions";
-import * as posNames                from "../../Company/data/companypositionnames";
-import { IPlayer }                  from "../../PersonObjects/IPlayer";
+import { Companies }                from "Company/Companies";
+import { Company }                  from "Company/Company";
+import { CompanyPosition }          from "Company/CompanyPosition";
+import { CompanyPositions }         from "Company/CompanyPositions";
+import * as posNames                from "Company/data/companypositionnames";
+import { IPlayer }                  from "PersonObjects/IPlayer";
 
-import { numeralWrapper }           from "../../ui/numeralFormat";
-import { StdButton }                from "../../ui/React/StdButton";
+import { numeralWrapper }           from "ui/numeralFormat";
+import { StdButton }                from "ui/React/StdButton";
 
 type IProps = {
     engine: IEngine;

@@ -1,5 +1,5 @@
-import { IPlayer } from "../PersonObjects/IPlayer";
-import { IMap } from "../types";
+import { IPlayer } from "PersonObjects/IPlayer";
+import { IMap } from "types";
 import { BitNodeMultipliers } from "./BitNodeMultipliers";
 
 class BitNode {

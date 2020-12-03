@@ -1,9 +1,9 @@
 // Base class representing a person-like object
-import { Augmentation } from "../Augmentation/Augmentation";
-import { IPlayerOwnedAugmentation } from "../Augmentation/PlayerOwnedAugmentation";
-import { BitNodeMultipliers } from "../BitNode/BitNodeMultipliers";
-import { CONSTANTS } from "../Constants";
-import { CityName } from "../Locations/data/CityNames";
+import { Augmentation } from "Augmentation/Augmentation";
+import { IPlayerOwnedAugmentation } from "Augmentation/PlayerOwnedAugmentation";
+import { BitNodeMultipliers } from "BitNode/BitNodeMultipliers";
+import { CONSTANTS } from "Constants";
+import { CityName } from "Locations/data/CityNames";
 
 // Interface that defines a generic object used to track experience/money
 // earnings for tasks

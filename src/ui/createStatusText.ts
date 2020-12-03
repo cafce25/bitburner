@@ -1,6 +1,6 @@
-import { getElementById } from "../../utils/uiHelpers";
-import { Action } from "../types";
-import { setTimeoutRef } from "../utils/SetTimeoutRef";
+import { getElementById } from "utils/uiHelpers";
+import { Action } from "types";
+import { setTimeoutRef } from "utils/SetTimeoutRef";
 
 const threeSeconds: number = 3000;
 let x: number | undefined;

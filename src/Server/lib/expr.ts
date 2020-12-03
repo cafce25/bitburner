@@ -1,5 +1,5 @@
 import {evaluate} from 'mathjs';
-import { BaseServer } from "../BaseServer";
+import { BaseServer } from "Server/BaseServer";
 
 export function expr( server:BaseServer, term:any, out:Function, err:Function, args:string[], options:any={}){
 

@@ -2,27 +2,27 @@
  * Location and traveling-related helper functions.
  * Mostly used for UI
  */
-import { CONSTANTS } from "../Constants";
+import { CONSTANTS } from "Constants";
 
 import { CityName } from "./data/CityNames";
 
-import { IPlayer } from "../PersonObjects/IPlayer";
+import { IPlayer } from "PersonObjects/IPlayer";
 import {
     AddToAllServers,
     createUniqueRandomIp,
-} from "../Server/AllServers";
-import { safetlyCreateUniqueServer } from "../Server/ServerHelpers";
+} from "Server/AllServers";
+import { safetlyCreateUniqueServer } from "Server/ServerHelpers";
 import {
     getPurchaseServerCost,
     purchaseRamForHomeComputer,
     purchaseServer,
-} from "../Server/ServerPurchases";
-import { SpecialServerIps } from "../Server/SpecialServerIps";
-import { Settings } from "../Settings/Settings";
+} from "Server/ServerPurchases";
+import { SpecialServerIps } from "Server/SpecialServerIps";
+import { Settings } from "Settings/Settings";
 
-import { numeralWrapper } from "../ui/numeralFormat";
+import { numeralWrapper } from "ui/numeralFormat";
 
-import { dialogBoxCreate } from "../../utils/DialogBox";
+import { dialogBoxCreate } from "utils/DialogBox";
 import {
     yesNoBoxClose,
     yesNoBoxCreate,
@@ -32,12 +32,12 @@ import {
     yesNoTxtInpBoxCreate,
     yesNoTxtInpBoxGetNoButton,
     yesNoTxtInpBoxGetYesButton,
-} from "../../utils/YesNoBox";
+} from "utils/YesNoBox";
 
-import { createElement } from "../../utils/uiHelpers";
-import { createPopup } from "../../utils/uiHelpers";
-import { createPopupCloseButton } from "../../utils/uiHelpers";
-import { removeElementById } from "../../utils/uiHelpers";
+import { createElement } from "utils/uiHelpers";
+import { createPopup } from "utils/uiHelpers";
+import { createPopupCloseButton } from "utils/uiHelpers";
+import { removeElementById } from "utils/uiHelpers";
 
 /**
  * Create a pop-up box that lets the player confirm traveling to a different city.

@@ -1,5 +1,5 @@
-import { Augmentation } from "../Augmentation/Augmentation";
-import { Faction } from "../Faction/Faction";
+import { Augmentation } from "Augmentation/Augmentation";
+import { Faction } from "Faction/Faction";
 
 export declare function getNextNeurofluxLevel(): number;
 export declare function hasAugmentationPrereqs(aug: Augmentation): boolean;

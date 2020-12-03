@@ -12,17 +12,17 @@
  */
 import * as React from "react";
 
-import { Location }                     from "../Location";
-import { createStartCorporationPopup }  from "../LocationsHelpers";
-import { LocationName }                 from "../data/LocationNames";
+import { Location }                     from "Locations/Location";
+import { createStartCorporationPopup }  from "Locations/LocationsHelpers";
+import { LocationName }                 from "Locations/data/LocationNames";
 
-import { IEngine }                      from "../../IEngine";
-import { IPlayer }                      from "../../PersonObjects/IPlayer";
+import { IEngine }                      from "IEngine";
+import { IPlayer }                      from "PersonObjects/IPlayer";
 
-import { AutoupdatingStdButton }        from "../../ui/React/AutoupdatingStdButton";
-import { StdButton }                    from "../../ui/React/StdButton";
+import { AutoupdatingStdButton }        from "ui/React/AutoupdatingStdButton";
+import { StdButton }                    from "ui/React/StdButton";
 
-import { dialogBoxCreate }              from "../../../utils/DialogBox";
+import { dialogBoxCreate }              from "utils/DialogBox";
 
 type IProps = {
     engine: IEngine;

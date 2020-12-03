@@ -1,4 +1,4 @@
-import { IMap } from "../../types";
+import { IMap } from "types";
 
 export let AugmentationNames: IMap<string> = {
     Targeting1:                         "Augmented Targeting I",
