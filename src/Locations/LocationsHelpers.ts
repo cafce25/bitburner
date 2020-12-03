@@ -34,10 +34,10 @@ import {
     yesNoTxtInpBoxGetYesButton,
 } from "../../utils/YesNoBox";
 
-import { createElement } from "../../utils/uiHelpers/createElement";
-import { createPopup } from "../../utils/uiHelpers/createPopup";
-import { createPopupCloseButton } from "../../utils/uiHelpers/createPopupCloseButton";
-import { removeElementById } from "../../utils/uiHelpers/removeElementById";
+import { createElement } from "../../utils/uiHelpers";
+import { createPopup } from "../../utils/uiHelpers";
+import { createPopupCloseButton } from "../../utils/uiHelpers";
+import { removeElementById } from "../../utils/uiHelpers";
 
 /**
  * Create a pop-up box that lets the player confirm traveling to a different city.

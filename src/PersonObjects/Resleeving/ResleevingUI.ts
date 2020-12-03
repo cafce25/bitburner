@@ -18,11 +18,11 @@ import { dialogBoxCreate } from "../../../utils/DialogBox";
 
 import { exceptionAlert } from "../../../utils/helpers/exceptionAlert";
 
-import { createElement } from "../../../utils/uiHelpers/createElement";
-import { createOptionElement } from "../../../utils/uiHelpers/createOptionElement";
-import { getSelectValue } from "../../../utils/uiHelpers/getSelectData";
-import { removeChildrenFromElement } from "../../../utils/uiHelpers/removeChildrenFromElement";
-import { removeElement } from "../../../utils/uiHelpers/removeElement";
+import { createElement } from "../../../utils/uiHelpers";
+import { createOptionElement } from "../../../utils/uiHelpers";
+import { getSelectValue } from "../../../utils/uiHelpers";
+import { removeChildrenFromElement } from "../../../utils/uiHelpers";
+import { removeElement } from "../../../utils/uiHelpers";
 
 interface IResleeveUIElems {
     container: HTMLElement | null;

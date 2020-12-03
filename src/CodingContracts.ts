@@ -13,9 +13,9 @@ import {
     Generic_toJSON,
     Reviver,
 } from "../utils/JSONReviver";
-import { createElement } from "../utils/uiHelpers/createElement";
-import { createPopup } from "../utils/uiHelpers/createPopup";
-import { removeElementById } from "../utils/uiHelpers/removeElementById";
+import { createElement } from "../utils/uiHelpers";
+import { createPopup } from "../utils/uiHelpers";
+import { removeElementById } from "../utils/uiHelpers";
 
 /* tslint:disable:no-magic-numbers completed-docs max-classes-per-file no-console */
 

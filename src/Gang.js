@@ -27,12 +27,14 @@ import { exceptionAlert } from "../utils/helpers/exceptionAlert";
 import { getRandomInt } from "../utils/helpers/getRandomInt";
 import { KEY } from "../utils/helpers/keyCodes";
 
-import { createAccordionElement } from "../utils/uiHelpers/createAccordionElement";
-import { createElement } from "../utils/uiHelpers/createElement";
-import { createPopup } from "../utils/uiHelpers/createPopup";
-import { removeChildrenFromElement } from "../utils/uiHelpers/removeChildrenFromElement";
-import { removeElement } from "../utils/uiHelpers/removeElement";
-import { removeElementById } from "../utils/uiHelpers/removeElementById";
+import {
+    createAccordionElement,
+    createElement,
+    createPopup,
+    removeChildrenFromElement,
+    removeElement,
+    removeElementById
+} from "../utils/uiHelpers";
 
 
 // Constants

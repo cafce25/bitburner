@@ -20,12 +20,14 @@ import { NetscriptFunctions } from "../NetscriptFunctions";
 import { Settings } from "../Settings/Settings";
 import { AceKeybindingSetting } from "../Settings/SettingEnums";
 
-import { clearEventListeners } from "../../utils/uiHelpers/clearEventListeners";
-import { createElement } from "../../utils/uiHelpers/createElement";
-import { createOptionElement } from "../../utils/uiHelpers/createOptionElement";
-import { getSelectText,
-         getSelectValue } from "../../utils/uiHelpers/getSelectData";
-import { removeChildrenFromElement } from "../../utils/uiHelpers/removeChildrenFromElement";
+import {
+    clearEventListeners,
+    createElement,
+    createOptionElement,
+    getSelectText,
+    getSelectValue,
+    removeChildrenFromElement,
+} from "../../utils/uiHelpers";
 
 // Wrapper for Ace editor
 const Keybindings = {
@@ -35,8 +37,8 @@ const Keybindings = {
 };
 
 function validateInitializationParamters(params) {
-    if (params.saveAndCloseFn == null)                          { return false; } // Save & close button function
-    if (params.quitFn == null)                                  { return false; } // Quitting editor, aka Engine.loadTerminalContent
+    if (params.saveAndCloseFn == null) { return false; } // Save & close button function
+    if (params.quitFn == null)         { return false; } // Quitting editor, aka Engine.loadTerminalContent
 
     return true;
 }

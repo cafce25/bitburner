@@ -91,16 +91,20 @@ window.JSHINT = require('jshint').JSHINT;
 import './CodeMirrorNetscriptLint.js';
 
 import { NetscriptFunctions } from "../NetscriptFunctions";
-import { CodeMirrorKeybindingSetting,
-         CodeMirrorThemeSetting } from "../Settings/SettingEnums";
+import {
+    CodeMirrorKeybindingSetting,
+    CodeMirrorThemeSetting
+} from "../Settings/SettingEnums";
 import { Settings } from "../Settings/Settings";
 
-import { clearEventListeners } from "../../utils/uiHelpers/clearEventListeners";
-import { createElement } from "../../utils/uiHelpers/createElement";
-import { createOptionElement } from "../../utils/uiHelpers/createOptionElement";
-import { getSelectText,
-         getSelectValue } from "../../utils/uiHelpers/getSelectData";
-import { removeChildrenFromElement } from "../../utils/uiHelpers/removeChildrenFromElement";
+import {
+    clearEventListeners,
+    createElement,
+    createOptionElement,
+    getSelectText,
+    getSelectValue,
+    removeChildrenFromElement
+} from "../../utils/uiHelpers";
 
 // Max number of invisibles to be shown in a group if the "Show Invisibles" option
 // is marked

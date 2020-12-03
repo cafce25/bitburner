@@ -5,10 +5,12 @@ import { Settings } from "./Settings/Settings";
 import { initializeMainMenuLinks } from "./ui/MainMenu/Links";
 
 import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { clearEventListeners } from "../utils/uiHelpers/clearEventListeners";
-import { createElement } from "../utils/uiHelpers/createElement";
-import { createPopup } from "../utils/uiHelpers/createPopup";
-import { removeElementById } from "../utils/uiHelpers/removeElementById";
+import {
+    clearEventListeners,
+	createElement,
+	createPopup,
+	removeElementById
+} from "../utils/uiHelpers";
 
 
 // Ordered array of keys to Interactive Tutorial Steps

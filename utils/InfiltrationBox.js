@@ -1,5 +1,5 @@
 import { dialogBoxCreate }          from "./DialogBox";
-import { clearEventListeners }      from "./uiHelpers/clearEventListeners";
+import { clearEventListeners }      from "./uiHelpers";
 import { formatNumber }             from "./StringHelperFunctions";
 
 import { BitNodeMultipliers }       from "../src/BitNode/BitNodeMultipliers";

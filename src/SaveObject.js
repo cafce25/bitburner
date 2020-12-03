@@ -37,15 +37,17 @@ import { setTimeoutRef } from "./utils/SetTimeoutRef";
 import { dialogBoxCreate } from "../utils/DialogBox";
 import { gameOptionsBoxClose } from "../utils/GameOptions";
 import { convertTimeMsToTimeElapsedString } from "../utils/StringHelperFunctions";
-import { clearEventListeners } from "../utils/uiHelpers/clearEventListeners";
 import {
     Reviver,
     Generic_toJSON,
     Generic_fromJSON
 } from "../utils/JSONReviver";
-import { createElement } from "../utils/uiHelpers/createElement";
-import { createPopup } from "../utils/uiHelpers/createPopup";
-import { removeElementById } from "../utils/uiHelpers/removeElementById";
+import {
+    clearEventListeners,
+	createElement,
+	createPopup,
+	removeElementById
+} from "../utils/uiHelpers";
 
 import Decimal from "decimal.js";
 

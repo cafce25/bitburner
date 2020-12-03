@@ -7,7 +7,7 @@
  *  2. Popup also includes a text input field in addition to the Yes/No response
  */
 import { KEY } from "./helpers/keyCodes";
-import { clearEventListeners } from "./uiHelpers/clearEventListeners";
+import { clearEventListeners } from "./uiHelpers";
 
 export let yesNoBoxOpen: boolean = false;
 

@@ -10,7 +10,7 @@ import { addOffset } from "../utils/helpers/addOffset";
 import { getRandomInt } from "../utils/helpers/getRandomInt";
 import { isString } from "../utils/helpers/isString";
 
-import { clearEventListeners } from "../utils/uiHelpers/clearEventListeners";
+import { clearEventListeners } from "../utils/uiHelpers";
 
 import jsplumb from "jsplumb";
 

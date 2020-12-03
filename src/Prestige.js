@@ -50,9 +50,11 @@ import { Page, routing } from "./ui/navigationTracking";
 
 import { dialogBoxCreate } from "../utils/DialogBox";
 import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { removeElementById } from "../utils/uiHelpers/removeElementById";
-import { createElement } from "../utils/uiHelpers/createElement";
-import { createPopup } from "../utils/uiHelpers/createPopup";
+import {
+    removeElementById,
+	createElement,
+	createPopup
+} from "../utils/uiHelpers";
 
 import Decimal from "decimal.js";
 

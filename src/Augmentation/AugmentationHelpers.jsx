@@ -20,7 +20,7 @@ import { Settings } from "../Settings/Settings";
 import { Page, routing } from "../ui/navigationTracking";
 
 import { dialogBoxCreate } from "../../utils/DialogBox";
-import { createAccordionElement } from "../../utils/uiHelpers/createAccordionElement";
+import { createAccordionElement } from "../../utils/uiHelpers";
 import {
     Reviver,
     Generic_toJSON,
@@ -28,9 +28,9 @@ import {
 } from "../../utils/JSONReviver";
 import { formatNumber } from "../../utils/StringHelperFunctions";
 import { clearObject } from "../../utils/helpers/clearObject";
-import { createElement } from "../../utils/uiHelpers/createElement";
+import { createElement } from "../../utils/uiHelpers";
 import { isString } from "../../utils/helpers/isString";
-import { removeChildrenFromElement } from "../../utils/uiHelpers/removeChildrenFromElement";
+import { removeChildrenFromElement } from "../../utils/uiHelpers";
 
 import React from "react";
 import ReactDOM from "react-dom";

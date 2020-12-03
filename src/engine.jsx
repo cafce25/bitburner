@@ -97,10 +97,10 @@ import { initializeMainMenuLinks, MainMenuLinks } from "./ui/MainMenu/Links";
 
 import { dialogBoxCreate } from "../utils/DialogBox";
 import { gameOptionsBoxClose, gameOptionsBoxOpen } from "../utils/GameOptions";
-import { removeChildrenFromElement } from "../utils/uiHelpers/removeChildrenFromElement";
-import { createElement } from "../utils/uiHelpers/createElement";
+import { removeChildrenFromElement } from "../utils/uiHelpers";
+import { createElement } from "../utils/uiHelpers";
 import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { removeLoadingScreen } from "../utils/uiHelpers/removeLoadingScreen";
+import { removeLoadingScreen } from "../utils/uiHelpers";
 import { KEY } from "../utils/helpers/keyCodes";
 
 import React from "react";

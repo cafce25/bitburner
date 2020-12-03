@@ -2,8 +2,10 @@
 import { Engine } from "./engine";
 import { setTimeoutRef } from "./utils/SetTimeoutRef";
 
-import { removeChildrenFromElement } from "../utils/uiHelpers/removeChildrenFromElement";
-import { createElement } from "../utils/uiHelpers/createElement";
+import {
+    removeChildrenFromElement,
+	createElement
+} from "../utils/uiHelpers";
 import { exceptionAlert } from "../utils/helpers/exceptionAlert";
 import { isString } from "../utils/helpers/isString";
 

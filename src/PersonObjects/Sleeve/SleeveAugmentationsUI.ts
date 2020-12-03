@@ -14,10 +14,10 @@ import { numeralWrapper } from "../../ui/numeralFormat";
 
 import { dialogBoxCreate } from "../../../utils/DialogBox";
 
-import { createElement } from "../../../utils/uiHelpers/createElement";
-import { createPopup } from "../../../utils/uiHelpers/createPopup";
-import { createPopupCloseButton } from "../../../utils/uiHelpers/createPopupCloseButton";
-import { removeElementById } from "../../../utils/uiHelpers/removeElementById";
+import { createElement } from "../../../utils/uiHelpers";
+import { createPopup } from "../../../utils/uiHelpers";
+import { createPopupCloseButton } from "../../../utils/uiHelpers";
+import { removeElementById } from "../../../utils/uiHelpers";
 
 export function createSleevePurchaseAugsPopup(sleeve: Sleeve, p: IPlayer) {
     // Array of all owned Augmentations. Names only

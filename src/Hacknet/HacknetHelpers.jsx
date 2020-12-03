@@ -41,7 +41,7 @@ import { GetServerByHostname } from "../Server/ServerHelpers";
 import { SourceFileFlags } from "../SourceFile/SourceFileFlags";
 import { Page, routing } from "../ui/navigationTracking";
 
-import { getElementById } from "../../utils/uiHelpers/getElementById";
+import { getElementById } from "../../utils/uiHelpers";
 
 import React from "react";
 import ReactDOM from "react-dom";

@@ -29,15 +29,15 @@ import { dialogBoxCreate } from "../../../utils/DialogBox";
 import { createProgressBarText } from "../../../utils/helpers/createProgressBarText";
 import { exceptionAlert } from "../../../utils/helpers/exceptionAlert";
 
-import { clearEventListeners } from "../../../utils/uiHelpers/clearEventListeners";
-import { createElement } from "../../../utils/uiHelpers/createElement";
-import { createOptionElement } from "../../../utils/uiHelpers/createOptionElement";
-import { createPopup } from "../../../utils/uiHelpers/createPopup";
-import { createPopupCloseButton } from "../../../utils/uiHelpers/createPopupCloseButton";
-import { getSelectValue } from "../../../utils/uiHelpers/getSelectData";
-import { removeChildrenFromElement } from "../../../utils/uiHelpers/removeChildrenFromElement";
-import { removeElement } from "../../../utils/uiHelpers/removeElement";
-import { removeElementById } from "../../../utils/uiHelpers/removeElementById";
+import { clearEventListeners } from "../../../utils/uiHelpers";
+import { createElement } from "../../../utils/uiHelpers";
+import { createOptionElement } from "../../../utils/uiHelpers";
+import { createPopup } from "../../../utils/uiHelpers";
+import { createPopupCloseButton } from "../../../utils/uiHelpers";
+import { getSelectValue } from "../../../utils/uiHelpers";
+import { removeChildrenFromElement } from "../../../utils/uiHelpers";
+import { removeElement } from "../../../utils/uiHelpers";
+import { removeElementById } from "../../../utils/uiHelpers";
 
 // Object that keeps track of all DOM elements for the UI for a single Sleeve
 interface ISleeveUIElems {

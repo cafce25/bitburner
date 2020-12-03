@@ -46,7 +46,7 @@ import Decimal from "decimal.js";
 import { numeralWrapper } from "../../ui/numeralFormat";
 import { MoneySourceTracker } from "../../utils/MoneySourceTracker";
 import { dialogBoxCreate } from "../../../utils/DialogBox";
-import { clearEventListeners } from "../../../utils/uiHelpers/clearEventListeners";
+import { clearEventListeners } from "../../../utils/uiHelpers";
 import {
     Reviver,
     Generic_toJSON,

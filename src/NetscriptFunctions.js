@@ -150,9 +150,11 @@ import { arrayToString } from "../utils/helpers/arrayToString";
 import { isPowerOfTwo } from "../utils/helpers/isPowerOfTwo";
 import { isString } from "../utils/helpers/isString";
 
-import { createElement } from "../utils/uiHelpers/createElement";
-import { createPopup } from "../utils/uiHelpers/createPopup";
-import { removeElementById } from "../utils/uiHelpers/removeElementById";
+import {
+    createElement,
+	createPopup,
+	removeElementById
+} from "../utils/uiHelpers";
 
 const possibleLogs = {
     ALL: true,

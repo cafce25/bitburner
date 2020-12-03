@@ -34,14 +34,16 @@ import { dialogBoxCreate } from "../../../utils/DialogBox";
 import { getRandomInt } from "../../../utils/helpers/getRandomInt";
 import { KEY } from "../../../utils/helpers/keyCodes";
 
-import { clearSelector } from "../../../utils/uiHelpers/clearSelector";
-import { createElement } from "../../../utils/uiHelpers/createElement";
-import { createOptionElement } from "../../../utils/uiHelpers/createOptionElement";
-import { createPopup } from "../../../utils/uiHelpers/createPopup";
-import { createPopupCloseButton } from "../../../utils/uiHelpers/createPopupCloseButton";
-import { getSelectText,
-         getSelectValue } from "../../../utils/uiHelpers/getSelectData";
-import { removeElementById } from "../../../utils/uiHelpers/removeElementById";
+import {
+    clearSelector,
+	createElement,
+	createOptionElement,
+	createPopup,
+	createPopupCloseButton,
+	getSelectText,
+    getSelectValue,
+	removeElementById
+} from "../../../utils/uiHelpers";
 
 export class CorporationEventHandler {
     constructor(corp, routing) {

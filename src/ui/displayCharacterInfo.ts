@@ -9,8 +9,8 @@ import { MoneySourceTracker } from "../utils/MoneySourceTracker";
 import { dialogBoxCreate } from "../../utils/DialogBox";
 import { convertTimeMsToTimeElapsedString } from "../../utils/StringHelperFunctions";
 
-import { createElement } from "../../utils/uiHelpers/createElement";
-import { removeChildrenFromElement } from "../../utils/uiHelpers/removeChildrenFromElement";
+import { createElement } from "../../utils/uiHelpers";
+import { removeChildrenFromElement } from "../../utils/uiHelpers";
 
 export function displayCharacterInfo(elem: HTMLElement, p: IPlayer) {
     removeChildrenFromElement(elem);

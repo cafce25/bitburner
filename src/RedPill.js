@@ -18,8 +18,10 @@ import {
     yesNoBoxGetNoButton,
     yesNoBoxClose
 } from "../utils/YesNoBox";
-import { clearEventListeners } from "../utils/uiHelpers/clearEventListeners";
-import { removeChildrenFromElement } from "../utils/uiHelpers/removeChildrenFromElement";
+import {
+    clearEventListeners,
+	removeChildrenFromElement
+} from "../utils/uiHelpers";
 
 // Returns promise
 function writeRedPillLine(line) {

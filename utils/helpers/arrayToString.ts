@@ -1,3 +1,4 @@
+import { isString } from "./isString";
 /**
  * Returns the input array as a comma separated string.
  *
@@ -11,7 +12,7 @@ export function arrayToString<T>(a: T[]) {
         let elem: any = a[i];
         if (Array.isArray(elem)) {
             elem = arrayToString(elem);
-        } else if (typeof elem === "string") {
+        } else if (isString(elem)) {
             elem = `"${elem}"`;
         }
         vals.push(elem);

@@ -22,10 +22,10 @@ import { numeralWrapper } from "./ui/numeralFormat";
 
 import { dialogBoxCreate } from "../utils/DialogBox";
 import { exceptionAlert } from "../utils/helpers/exceptionAlert";
-import { createElement } from "../utils/uiHelpers/createElement";
-import { createOptionElement } from "../utils/uiHelpers/createOptionElement";
-import { getSelectText } from "../utils/uiHelpers/getSelectData";
-import { removeElementById } from "../utils/uiHelpers/removeElementById";
+import { createElement } from "../utils/uiHelpers";
+import { createOptionElement } from "../utils/uiHelpers";
+import { getSelectText } from "../utils/uiHelpers";
+import { removeElementById } from "../utils/uiHelpers";
 
 import React from "react";
 import ReactDOM from "react-dom";

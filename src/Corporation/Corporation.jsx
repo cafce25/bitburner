@@ -28,20 +28,20 @@ import { Page, routing }                                from "../ui/navigationTr
 import { calculateEffectWithFactors }                   from "../utils/calculateEffectWithFactors";
 
 import { dialogBoxCreate }                              from "../../utils/DialogBox";
-import { clearSelector }                                from "../../utils/uiHelpers/clearSelector";
+import { clearSelector }                                from "../../utils/uiHelpers";
 import { Reviver,
          Generic_toJSON,
          Generic_fromJSON }                             from "../../utils/JSONReviver";
-import { appendLineBreaks }                             from "../../utils/uiHelpers/appendLineBreaks";
-import { createElement }                                from "../../utils/uiHelpers/createElement";
-import { createPopup }                                  from "../../utils/uiHelpers/createPopup";
-import { createPopupCloseButton }                       from "../../utils/uiHelpers/createPopupCloseButton";
+import { appendLineBreaks }                             from "../../utils/uiHelpers";
+import { createElement }                                from "../../utils/uiHelpers";
+import { createPopup }                                  from "../../utils/uiHelpers";
+import { createPopupCloseButton }                       from "../../utils/uiHelpers";
 import { formatNumber, generateRandomString }           from "../../utils/StringHelperFunctions";
 import { getRandomInt }                                 from "../../utils/helpers/getRandomInt";
 import { isString }                                     from "../../utils/helpers/isString";
 import { KEY }                                          from "../../utils/helpers/keyCodes";
-import { removeElement }                                from "../../utils/uiHelpers/removeElement";
-import { removeElementById }                            from "../../utils/uiHelpers/removeElementById";
+import { removeElement }                                from "../../utils/uiHelpers";
+import { removeElementById }                            from "../../utils/uiHelpers";
 import { yesNoBoxCreate,
          yesNoTxtInpBoxCreate,
          yesNoBoxGetYesButton,

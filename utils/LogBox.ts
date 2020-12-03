@@ -2,7 +2,7 @@ import { killWorkerScript } from "../src/Netscript/killWorkerScript";
 import { RunningScript } from "../src/Script/RunningScript";
 
 import { arrayToString } from "./helpers/arrayToString";
-import { clearEventListeners } from "./uiHelpers/clearEventListeners";
+import { clearEventListeners } from "./uiHelpers";
 
 import { KEY } from "./helpers/keyCodes";
 

@@ -1,4 +1,4 @@
-import { getElementById } from "../../utils/uiHelpers/getElementById";
+import { getElementById } from "../../utils/uiHelpers";
 import { Action } from "../types";
 import { setTimeoutRef } from "../utils/SetTimeoutRef";
 

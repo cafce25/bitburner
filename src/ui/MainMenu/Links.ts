@@ -1,6 +1,6 @@
 // Get references to the Main Menu link DOM elements
 // Does NOT include collapsible headers for the links
-import { clearEventListeners } from "../../../utils/uiHelpers/clearEventListeners";
+import { clearEventListeners } from "../../../utils/uiHelpers";
 
 interface IMainMenuLinks {
     Terminal: HTMLElement | null;

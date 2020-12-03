@@ -33,7 +33,7 @@ import {
     Generic_fromJSON
 } from "../../utils/JSONReviver";
 import { compareArrays } from "../../utils/helpers/compareArrays";
-import { createElement } from "../../utils/uiHelpers/createElement";
+import { createElement } from "../../utils/uiHelpers";
 
 var scriptEditorRamCheck = null, scriptEditorRamText = null;
 export function scriptEditorInit() {

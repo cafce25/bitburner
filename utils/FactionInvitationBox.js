@@ -1,8 +1,8 @@
-import {joinFaction}                from "../src/Faction/FactionHelpers";
-import {Engine}                     from "../src/engine";
-import {Player}                     from "../src/Player";
-import {clearEventListeners}        from "./uiHelpers/clearEventListeners";
-import {Page, routing}              from "../src/ui/navigationTracking";
+import {joinFaction}         from "../src/Faction/FactionHelpers";
+import {Engine}              from "../src/engine";
+import {Player}              from "../src/Player";
+import {clearEventListeners} from "./uiHelpers";
+import {Page, routing}       from "../src/ui/navigationTracking";
 
 /* Faction Invitation Pop-up box */
 function factionInvitationBoxClose() {

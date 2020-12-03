@@ -8,7 +8,7 @@ import { EmployeePositions }        from "../EmployeePositions";
 
 import { numeralWrapper }           from "../../ui/numeralFormat";
 
-import { getSelectText }            from "../../../utils/uiHelpers/getSelectData";
+import { getSelectText }            from "../../../utils/uiHelpers";
 
 export class IndustryOffice extends BaseReactComponent {
     constructor(props) {
