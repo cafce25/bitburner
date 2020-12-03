@@ -9,3 +9,4 @@ Netburner.txt
 .vscode/*
 .nyc_output/*
 *.tmp
+dist/*
