@@ -27,11 +27,11 @@ module.exports = (env, argv) => {
 
     bConf.module.rules.unshift({
         test: /\.(js|ts)x?/,
-        loader: 'istanbul-instrumenter-loader',
-        exclude: /node_modules/,
-        query: {
-            esModules: true
-        }
+        use: {
+            loader: 'istanbul-instrumenter-loader',
+            options: { esModules: true }
+        },
+        exclude: /node_modules/
     });
 
     bConf.optimization = {
